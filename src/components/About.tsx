@@ -14,6 +14,13 @@ const analytical = [
   "IP & WIPO Filings", "Regulatory Analysis", "OCR & Document AI",
 ];
 
+const stats = [
+  { value: "3.9", label: "GPA", warm: false },
+  { value: "100+", label: "Weekly users on IRENE", warm: false },
+  { value: "~3M", label: "Historical records built", warm: true },
+  { value: "$200M", label: "Litigation supported", warm: true },
+];
+
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -31,10 +38,13 @@ export default function About() {
           <p className="text-xs text-[#6ee7b7] tracking-[0.2em] uppercase mb-3">
             About
           </p>
-          <h2 className="text-4xl font-bold text-[#f0f0f0] leading-tight">
-            One person. Two disciplines.
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#f0f0f0] leading-tight">
+            One person.{" "}
+            <span className="text-[#6ee7b7]">Two disciplines.</span>
             <br />
-            <span className="text-[#6b7280]">Fluent in both.</span>
+            <span className="text-[#6b7280] font-normal text-3xl sm:text-4xl">
+              Fluent in both.
+            </span>
           </h2>
         </motion.div>
 
@@ -61,11 +71,11 @@ export default function About() {
               mobilization.
             </p>
             <p>
-              Earlier, I worked at a law firm building financial evidence
-              systems for a $200M cryptocurrency lawsuit and at an EdTech company
+              Earlier, I worked at a law firm building financial evidence systems
+              for a $200M cryptocurrency lawsuit and at an EdTech company
               navigating COPPA and FERPA compliance. Both experiences taught me
-              the same thing: technical systems have legal consequences, and legal
-              systems have technical blind spots.
+              the same thing: technical systems have legal consequences, and
+              legal systems have technical blind spots.
             </p>
             <p>
               My edge is being able to move between these worlds — writing the
@@ -77,54 +87,57 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-2 space-y-5"
+            className="md:col-span-2 space-y-4"
           >
-            <div className="rounded-xl border border-[#1a1a1a] bg-[#0f0f0f] p-5">
-              <p className="text-xs text-[#6ee7b7] tracking-widest uppercase mb-4">
-                Technical
-              </p>
-              <ul className="space-y-2">
+            <div className="rounded-xl border border-[#1a1a1a] bg-[#0a0a0a] p-5">
+              <div className="flex items-center gap-2.5 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#6ee7b7] shrink-0" />
+                <p className="text-xs text-[#6ee7b7] tracking-widest uppercase font-medium">
+                  Technical
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
                 {technical.map((s) => (
-                  <li key={s} className="text-sm text-[#6b7280] flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#6ee7b7] shrink-0" />
+                  <span key={s} className="text-sm text-[#6b7280]">
                     {s}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            <div className="rounded-xl border border-[#1a1a1a] bg-[#0f0f0f] p-5">
-              <p className="text-xs text-[#6ee7b7] tracking-widest uppercase mb-4">
-                Research &amp; Legal
-              </p>
-              <ul className="space-y-2">
+            <div className="rounded-xl border border-[#c9a96e]/15 bg-[#0a0a0a] p-5">
+              <div className="flex items-center gap-2.5 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c9a96e] shrink-0" />
+                <p className="text-xs text-[#c9a96e] tracking-widest uppercase font-medium">
+                  Research &amp; Legal
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
                 {analytical.map((s) => (
-                  <li key={s} className="text-sm text-[#6b7280] flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#6ee7b7] shrink-0" />
+                  <span key={s} className="text-sm text-[#6b7280]">
                     {s}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-[#1a1a1a] rounded-xl overflow-hidden"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[#1a1a1a] rounded-xl overflow-hidden border border-[#1a1a1a]"
         >
-          {[
-            { value: "3.9", label: "GPA" },
-            { value: "100+", label: "Weekly users on IRENE" },
-            { value: "~3M", label: "Historical records processed" },
-            { value: "$200M", label: "Litigation supported" },
-          ].map((stat) => (
-            <div key={stat.label} className="bg-[#0f0f0f] px-6 py-5">
-              <p className="text-2xl font-bold text-[#f0f0f0] mb-1">{stat.value}</p>
-              <p className="text-xs text-[#6b7280]">{stat.label}</p>
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-[#0a0a0a] px-6 py-5">
+              <p
+                className="text-2xl font-bold mb-1"
+                style={{ color: stat.warm ? "#c9a96e" : "#6ee7b7" }}
+              >
+                {stat.value}
+              </p>
+              <p className="text-xs text-[#6b7280] leading-snug">{stat.label}</p>
             </div>
           ))}
         </motion.div>

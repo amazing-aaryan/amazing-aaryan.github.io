@@ -25,7 +25,7 @@ export default function Hero() {
         className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 80% 80%, rgba(110,231,183,0.04) 0%, transparent 70%)",
+            "radial-gradient(circle at 80% 80%, rgba(201,169,110,0.05) 0%, transparent 70%)",
         }}
       />
 
@@ -83,14 +83,6 @@ export default function Hero() {
             className="px-6 py-3 border border-[#2a2a2a] text-[#9ca3af] text-sm rounded-lg hover:border-[#6ee7b7]/40 hover:text-[#f0f0f0] transition-all duration-200"
           >
             Get in touch
-          </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-[#6b7280] hover:text-[#6ee7b7] transition-colors duration-200 underline underline-offset-4 decoration-[#2a2a2a] hover:decoration-[#6ee7b7]/40"
-          >
-            View resume ↗
           </a>
         </motion.div>
 
