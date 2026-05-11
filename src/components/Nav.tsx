@@ -41,13 +41,13 @@ export default function Nav() {
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
+          {links.map((link) => (
+            <li key={link.href}>
               <a
-                href={l.href}
+                href={link.href}
                 className="text-sm text-[#6b7280] hover:text-[#f0f0f0] transition-colors duration-200"
               >
-                {l.label}
+                {link.label}
               </a>
             </li>
           ))}
@@ -80,14 +80,14 @@ export default function Nav() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden border-t border-[#1f1f1f] bg-[#080808]/95 px-6 py-4 flex flex-col gap-4"
           >
-            {links.map((l) => (
-              <li key={l.href}>
+            {links.map((link) => (
+              <li key={link.href}>
                 <a
-                  href={l.href}
+                  href={link.href}
                   onClick={() => setOpen(false)}
                   className="text-sm text-[#6b7280] hover:text-[#f0f0f0] transition-colors"
                 >
-                  {l.label}
+                  {link.label}
                 </a>
               </li>
             ))}

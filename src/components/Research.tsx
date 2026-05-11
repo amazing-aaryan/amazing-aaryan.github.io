@@ -60,12 +60,12 @@ export default function Research() {
         </motion.div>
 
         <div className="space-y-6 mb-16">
-          {publications.map((pub, i) => (
+          {publications.map((publication, index) => (
             <motion.div
-              key={pub.title}
+              key={publication.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-[#111] border border-[#1f1f1f] rounded-lg p-6 hover:border-[#6ee7b7]/30 transition-colors duration-300"
             >
               <div className="flex items-start gap-4">
@@ -73,11 +73,11 @@ export default function Research() {
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-[#f0f0f0] font-semibold group-hover:text-[#6ee7b7] transition-colors">
-                      {pub.title}
+                      {publication.title}
                     </h3>
-                    {pub.link && (
+                    {publication.link && (
                       <a
-                        href={pub.link}
+                        href={publication.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors shrink-0"
@@ -87,18 +87,18 @@ export default function Research() {
                     )}
                   </div>
                   <p className="font-mono text-xs text-[#6b7280] mt-1 mb-3">
-                    {pub.venue} · {pub.year}
+                    {publication.venue} · {publication.year}
                   </p>
                   <p className="text-sm text-[#6b7280] leading-relaxed mb-4">
-                    {pub.description}
+                    {publication.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {pub.tags.map((t) => (
+                    {publication.tags.map((tag) => (
                       <span
-                        key={t}
+                        key={tag}
                         className="font-mono text-xs text-[#6ee7b7] bg-[#6ee7b7]/5 px-2 py-0.5 rounded"
                       >
-                        {t}
+                        {tag}
                       </span>
                     ))}
                   </div>

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { GitHubIcon } from "@/components/icons";
+import { GitHubIcon, FolderIcon } from "@/components/icons";
 
 type Project = {
   title: string;
@@ -66,30 +66,20 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {projects.map((p, i) => (
+          {projects.map((project, index) => (
             <motion.div
-              key={p.title}
+              key={project.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative bg-[#111] border border-[#1f1f1f] rounded-lg p-6 hover:border-[#6ee7b7]/30 transition-colors duration-300 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
-                <svg
-                  className="text-[#6ee7b7]"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                </svg>
+                <FolderIcon className="text-[#6ee7b7]" />
                 <div className="flex gap-3">
-                  {p.github && (
+                  {project.github && (
                     <a
-                      href={p.github}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors"
@@ -98,9 +88,9 @@ export default function Projects() {
                       <GitHubIcon size={18} />
                     </a>
                   )}
-                  {p.link && (
+                  {project.link && (
                     <a
-                      href={p.link}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors"
@@ -113,20 +103,20 @@ export default function Projects() {
               </div>
 
               <h3 className="text-[#f0f0f0] font-semibold mb-1 group-hover:text-[#6ee7b7] transition-colors">
-                {p.title}
+                {project.title}
               </h3>
-              <p className="font-mono text-xs text-[#6b7280] mb-3">{p.period}</p>
+              <p className="font-mono text-xs text-[#6b7280] mb-3">{project.period}</p>
               <p className="text-sm text-[#6b7280] leading-relaxed flex-1">
-                {p.description}
+                {project.description}
               </p>
 
               <div className="flex flex-wrap gap-2 mt-5">
-                {p.tags.map((t) => (
+                {project.tags.map((tag) => (
                   <span
-                    key={t}
+                    key={tag}
                     className="font-mono text-xs text-[#6ee7b7] bg-[#6ee7b7]/5 px-2 py-0.5 rounded"
                   >
-                    {t}
+                    {tag}
                   </span>
                 ))}
               </div>

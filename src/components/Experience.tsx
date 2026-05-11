@@ -55,7 +55,7 @@ const roles: Role[] = [
 ];
 
 export default function Experience() {
-  const [active, setActive] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -81,40 +81,40 @@ export default function Experience() {
           className="flex flex-col md:flex-row gap-0"
         >
           <div className="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l border-[#1f1f1f] shrink-0">
-            {roles.map((r, i) => (
+            {roles.map((role, index) => (
               <button
-                key={r.company}
-                onClick={() => setActive(i)}
+                key={role.company}
+                onClick={() => setActiveIndex(index)}
                 className={`px-5 py-3 text-sm text-left font-mono whitespace-nowrap transition-colors duration-200 border-b md:border-b-0 md:border-l-2 -ml-px ${
-                  active === i
+                  activeIndex === index
                     ? "border-[#6ee7b7] text-[#6ee7b7] bg-[#6ee7b7]/5"
                     : "border-transparent text-[#6b7280] hover:text-[#f0f0f0] hover:bg-[#111]"
                 }`}
               >
-                {r.company}
+                {role.company}
               </button>
             ))}
           </div>
 
           <div className="md:pl-10 pt-6 md:pt-0 flex-1 min-h-[260px]">
             <motion.div
-              key={active}
+              key={activeIndex}
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.25 }}
             >
               <h3 className="text-[#f0f0f0] font-semibold text-lg">
-                {roles[active].title}{" "}
-                <span className="text-[#6ee7b7]">@ {roles[active].company}</span>
+                {roles[activeIndex].title}{" "}
+                <span className="text-[#6ee7b7]">@ {roles[activeIndex].company}</span>
               </h3>
               <p className="font-mono text-xs text-[#6b7280] mt-1 mb-5">
-                {roles[active].period}
+                {roles[activeIndex].period}
               </p>
               <ul className="space-y-3">
-                {roles[active].bullets.map((b, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-[#6b7280]">
+                {roles[activeIndex].bullets.map((bullet, index) => (
+                  <li key={index} className="flex gap-3 text-sm text-[#6b7280]">
                     <span className="text-[#6ee7b7] mt-0.5 shrink-0">▸</span>
-                    {b}
+                    {bullet}
                   </li>
                 ))}
               </ul>
