@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { GitHubIcon, FolderIcon } from "@/components/icons";
+import { GitHubIcon } from "@/components/icons";
 
 type Project = {
   title: string;
@@ -16,33 +16,33 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Automating Scheduling RPA System",
+    title: "Scheduling Automation System",
     period: "Dec 2025 – Present",
     description:
-      "Deterministic RPA system automating class scheduling on Outschool using Python, Pydantic, pandas, and Playwright. Targeting ~85% efficiency improvement across 30+ teachers, increasing revenue by ~15% and reducing overhead by ~50%.",
-    tags: ["Python", "Playwright", "Pydantic", "Pandas", "RPA"],
+      "Automated the class scheduling workflow for 30+ teachers on an EdTech platform — a process that previously required hours of manual coordination. The system handles conflicts, edge cases, and preferences without human input, targeting an 85% reduction in administrative overhead.",
+    tags: ["Python", "Playwright", "Automation"],
     github: "https://github.com/amazing-aaryan",
   },
   {
     title: "Federal Litigation Bias Analysis",
     period: "Sep 2025 – Present",
     description:
-      "RAG database agent leveraging pandas and SQL via LangChain and Azure OpenAI to analyze systematic biases in a ~60M record federal litigation dataset. Published a comprehensive technical report on disparities discovered.",
-    tags: ["Python", "LangChain", "Azure OpenAI", "SQL", "RAG"],
+      "Built an AI research tool to surface systemic disparities in a 60M-record federal litigation dataset. The system allows researchers to ask legal questions in plain language and receive answers grounded in court records — making case law analysis accessible beyond just trained attorneys.",
+    tags: ["LangChain", "Azure OpenAI", "Legal Analytics", "RAG"],
   },
   {
     title: "IRENE — AI Logistics Platform",
     period: "Jan 2026 – Present",
     description:
-      "Multimodal OCR + computer vision pipeline reducing sorting errors across 100+ volunteer workflows. Automated retraining pipeline with end-to-end traceability linking predictions to logistics metadata.",
-    tags: ["Python", "Computer Vision", "OCR", "PyTorch"],
+      "An AI platform helping nonprofit volunteer networks sort and route resources accurately. Reduced sorting errors across 100+ weekly users. Every AI decision is logged with its reasoning — so volunteers, coordinators, and auditors can review and override.",
+    tags: ["Computer Vision", "OCR", "AI", "Python"],
   },
   {
     title: "WWI Soldier Service Dataset",
     period: "Jan 2026 – Present",
     description:
-      "First large-scale dataset of ~3M American WWI soldier service records built via an OCR + data processing pipeline. Supports downstream historical and political science research at University of Michigan.",
-    tags: ["Python", "OCR", "PostgreSQL", "Pandas", "Statistical Analysis"],
+      "The first large-scale, structured dataset of American WWI soldier service records — built from millions of scanned documents. Designed to be accessible to historians, political scientists, and policy researchers without technical backgrounds.",
+    tags: ["Historical Data", "OCR", "PostgreSQL", "Open Dataset"],
   },
 ];
 
@@ -51,41 +51,53 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <p className="font-mono text-[#6ee7b7] text-sm mb-2 tracking-widest">
-            03. what i&apos;ve built
+          <p className="text-xs text-[#6ee7b7] tracking-[0.2em] uppercase mb-3">
+            Projects
           </p>
-          <h2 className="text-3xl font-bold text-[#f0f0f0] mb-12">Projects</h2>
+          <h2 className="text-4xl font-bold text-[#f0f0f0]">
+            What I&apos;ve built
+          </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group relative bg-[#111] border border-[#1f1f1f] rounded-lg p-6 hover:border-[#6ee7b7]/30 transition-colors duration-300 flex flex-col"
+              className="gradient-card group bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-6 hover:border-[#6ee7b7]/25 transition-colors duration-300 flex flex-col"
             >
-              <div className="flex items-start justify-between mb-4">
-                <FolderIcon className="text-[#6ee7b7]" />
-                <div className="flex gap-3">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex gap-2 flex-wrap">
+                  {project.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs text-[#6b7280] bg-[#1a1a1a] px-2.5 py-1 rounded-full"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3 ml-2 shrink-0">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors"
+                      className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors"
                       aria-label="GitHub"
                     >
-                      <GitHubIcon size={18} />
+                      <GitHubIcon size={17} />
                     </a>
                   )}
                   {project.link && (
@@ -93,33 +105,22 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors"
+                      className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors"
                       aria-label="External link"
                     >
-                      <ExternalLink size={18} />
+                      <ExternalLink size={17} />
                     </a>
                   )}
                 </div>
               </div>
 
-              <h3 className="text-[#f0f0f0] font-semibold mb-1 group-hover:text-[#6ee7b7] transition-colors">
+              <h3 className="text-[#f0f0f0] font-semibold mb-1 group-hover:text-[#6ee7b7] transition-colors text-base">
                 {project.title}
               </h3>
-              <p className="font-mono text-xs text-[#6b7280] mb-3">{project.period}</p>
-              <p className="text-sm text-[#6b7280] leading-relaxed flex-1">
+              <p className="text-xs text-[#4b5563] mb-4">{project.period}</p>
+              <p className="text-sm text-[#9ca3af] leading-relaxed flex-1">
                 {project.description}
               </p>
-
-              <div className="flex flex-wrap gap-2 mt-5">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-xs text-[#6ee7b7] bg-[#6ee7b7]/5 px-2 py-0.5 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </motion.div>
           ))}
         </div>

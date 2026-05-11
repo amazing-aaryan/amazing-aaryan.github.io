@@ -5,8 +5,8 @@
   --foreground: #f0f0f0;
   --accent: #6ee7b7;
   --muted: #6b7280;
-  --card: #111111;
-  --border: #1f1f1f;
+  --card: #0f0f0f;
+  --border: #1a1a1a;
 }
 
 @theme inline {
@@ -41,14 +41,32 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: #2a2a2a;
   border-radius: 2px;
+}
+
+.gradient-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-card:hover::before {
+  opacity: 1;
 }

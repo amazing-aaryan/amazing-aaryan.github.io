@@ -18,21 +18,21 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-[#6ee7b7] text-sm mb-4 tracking-widest">
-            05. what&apos;s next
+          <p className="text-xs text-[#6ee7b7] tracking-[0.2em] uppercase mb-4">
+            Contact
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-[#f0f0f0] mb-6">
-            Get In Touch
+            Let&apos;s talk.
           </h2>
-          <p className="text-[#6b7280] leading-relaxed mb-12 max-w-lg mx-auto">
-            I&apos;m always open to new opportunities, collaborations, or just a
-            good conversation about AI, law, and everything in between. My inbox
-            is open.
+          <p className="text-[#9ca3af] leading-relaxed mb-12 max-w-lg mx-auto">
+            Whether you&apos;re a researcher, a lawyer, a technologist, or
+            someone thinking about the intersection of all three — I&apos;d like
+            to hear from you. My inbox is open.
           </p>
 
           <a
             href="mailto:aaryansr@umich.edu"
-            className="inline-block px-8 py-4 border border-[#6ee7b7] text-[#6ee7b7] font-mono text-sm rounded hover:bg-[#6ee7b7]/10 transition-colors duration-200 mb-16"
+            className="inline-block px-8 py-4 bg-[#6ee7b7] text-[#080808] text-sm font-semibold rounded-lg hover:bg-[#5dd4a5] transition-colors duration-200 mb-16"
           >
             Say Hello
           </a>

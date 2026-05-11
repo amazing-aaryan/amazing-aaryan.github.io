@@ -7,74 +7,99 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center relative px-6 pt-20">
+    <section className="min-h-screen flex flex-col justify-center relative px-6 pt-20 overflow-hidden">
+      {/* Ambient glow */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute top-0 left-0 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(#6ee7b7 1px, transparent 1px), linear-gradient(90deg, #6ee7b7 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
+          background:
+            "radial-gradient(circle at 20% 30%, rgba(110,231,183,0.07) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 80% 80%, rgba(110,231,183,0.04) 0%, transparent 70%)",
         }}
       />
 
       <div className="max-w-5xl mx-auto w-full relative">
-        <motion.p
-          {...fadeUp(0.1)}
-          className="font-mono text-[#6ee7b7] text-sm mb-4 tracking-widest"
-        >
-          Hi, my name is
-        </motion.p>
+        {/* Identity badge */}
+        <motion.div {...fadeUp(0.05)} className="mb-8">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6ee7b7]/20 bg-[#6ee7b7]/5 text-[#6ee7b7] text-xs tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#6ee7b7] animate-pulse" />
+            Computer Science × Political Science — University of Michigan
+          </span>
+        </motion.div>
 
         <motion.h1
-          {...fadeUp(0.2)}
-          className="text-5xl sm:text-7xl font-bold text-[#f0f0f0] leading-tight mb-2"
+          {...fadeUp(0.15)}
+          className="text-6xl sm:text-8xl font-bold text-[#f0f0f0] leading-[1.05] tracking-tight mb-6"
         >
-          Aaryan Srivastava.
+          Aaryan
+          <br />
+          Srivastava.
         </motion.h1>
 
         <motion.h2
-          {...fadeUp(0.3)}
-          className="text-4xl sm:text-6xl font-bold text-[#6b7280] leading-tight mb-8"
+          {...fadeUp(0.25)}
+          className="text-xl sm:text-2xl font-medium text-[#6b7280] leading-relaxed mb-8 max-w-2xl"
         >
-          I build AI at the intersection
-          <br className="hidden sm:block" /> of law &amp; policy.
+          Technology shaped by principle.{" "}
+          <span className="text-[#9ca3af]">Research informed by data.</span>
+          <br />I bridge the gap between what systems can do and what they{" "}
+          <em>should</em> do.
         </motion.h2>
 
         <motion.p
-          {...fadeUp(0.4)}
-          className="max-w-xl text-[#6b7280] text-lg leading-relaxed mb-12"
+          {...fadeUp(0.35)}
+          className="max-w-lg text-[#6b7280] text-base leading-relaxed mb-12"
         >
-          B.A. Political Science &amp; B.S. Computer Science student at{" "}
-          <span className="text-[#f0f0f0]">University of Michigan</span>. Founder
-          of IRENE. Building systems that are accountable, transparent, and
-          actually useful.
+          Founder of{" "}
+          <span className="text-[#f0f0f0]">IRENE</span>. Researcher at UMich
+          studying how wartime sacrifice shaped political trust. Previously
+          advising on legal compliance and building financial evidence systems for
+          litigation.
         </motion.p>
 
-        <motion.div {...fadeUp(0.5)} className="flex items-center gap-6 mb-16">
+        <motion.div
+          {...fadeUp(0.45)}
+          className="flex flex-wrap items-center gap-4 mb-16"
+        >
           <a
             href="#projects"
-            className="px-6 py-3 border border-[#6ee7b7] text-[#6ee7b7] text-sm font-mono rounded hover:bg-[#6ee7b7]/10 transition-colors duration-200"
+            className="px-6 py-3 bg-[#6ee7b7] text-[#080808] text-sm font-semibold rounded-lg hover:bg-[#5dd4a5] transition-colors duration-200"
           >
             See my work
           </a>
           <a
-            href="mailto:aaryansr@umich.edu"
-            className="text-sm text-[#6b7280] hover:text-[#f0f0f0] transition-colors duration-200"
+            href="#contact"
+            className="px-6 py-3 border border-[#2a2a2a] text-[#9ca3af] text-sm rounded-lg hover:border-[#6ee7b7]/40 hover:text-[#f0f0f0] transition-all duration-200"
           >
-            Get in touch →
+            Get in touch
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[#6b7280] hover:text-[#6ee7b7] transition-colors duration-200 underline underline-offset-4 decoration-[#2a2a2a] hover:decoration-[#6ee7b7]/40"
+          >
+            View resume ↗
           </a>
         </motion.div>
 
-        <motion.div {...fadeUp(0.6)} className="flex items-center gap-5">
+        <motion.div {...fadeUp(0.55)} className="flex items-center gap-5">
           <a
             href="https://github.com/amazing-aaryan"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
             aria-label="GitHub"
           >
             <GitHubIcon size={20} />
@@ -83,14 +108,14 @@ export default function Hero() {
             href="https://www.linkedin.com/in/aaryan21/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <LinkedInIcon size={20} />
           </a>
           <a
             href="mailto:aaryansr@umich.edu"
-            className="text-[#6b7280] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
             aria-label="Email"
           >
             <Mail size={20} />
@@ -101,15 +126,15 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6b7280]"
+        transition={{ delay: 1.4 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <span className="text-xs font-mono tracking-widest">scroll</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
+          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+          className="text-[#4b5563]"
         >
-          <ArrowDown size={14} />
+          <ArrowDown size={16} />
         </motion.div>
       </motion.div>
     </section>
