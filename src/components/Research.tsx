@@ -150,11 +150,11 @@ function PubCard({ pub, i, inView, accent, onClick }: PubCardProps) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: i * 0.08 }}
       onClick={onClick}
-      className={`gradient-card group bg-[#e3c98e] border border-[#c2a468] rounded-xl p-6 ${borderHover} transition-colors duration-300 cursor-pointer`}
+      className={`gradient-card group bg-[#2c1a08] border border-[#4a2c14] rounded-xl p-6 ${borderHover} transition-colors duration-300 cursor-pointer`}
     >
       <div className="flex items-start justify-between gap-4 mb-2">
         <h3
-          className={`text-[#1e1008] font-semibold text-base leading-snug ${titleHover} transition-colors`}
+          className={`text-[#f0d9a8] font-semibold text-base leading-snug ${titleHover} transition-colors`}
         >
           {pub.title}
         </h3>
@@ -164,23 +164,23 @@ function PubCard({ pub, i, inView, accent, onClick }: PubCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-[#68481e] hover:text-[#c99014] transition-colors shrink-0 mt-0.5"
+            className="text-[#8a6040] hover:text-[#c99014] transition-colors shrink-0 mt-0.5"
           >
             <ExternalLink size={15} />
           </a>
         )}
       </div>
-      <p className="text-xs text-[#68481e] mb-3">
+      <p className="text-xs text-[#8a6040] mb-3">
         {pub.venue} · {pub.year}
       </p>
-      <p className="text-sm text-[#967040] leading-relaxed mb-4">
+      <p className="text-sm text-[#c4a070] leading-relaxed mb-4">
         {pub.description}
       </p>
       <div className="flex flex-wrap gap-2">
         {pub.tags.map((t) => (
           <span
             key={t}
-            className="text-xs text-[#7a4c26] bg-[#c8a860] px-2.5 py-1 rounded-full"
+            className="text-xs text-[#d4a060] bg-[#3a2010] px-2.5 py-1 rounded-full"
           >
             {t}
           </span>
@@ -196,7 +196,7 @@ export default function Research() {
   const [selected, setSelected] = useState<Publication | null>(null);
 
   return (
-    <section id="research" className="py-28 px-6 bg-[#ead8a4]">
+    <section id="research" className="py-28 px-6 bg-[#1e1008]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}
@@ -208,7 +208,7 @@ export default function Research() {
           <p className="text-xs text-[#c99014] tracking-[0.2em] uppercase mb-3">
             Research
           </p>
-          <h2 className="text-4xl font-bold text-[#1e1008]">
+          <h2 className="text-4xl font-bold text-[#f0d9a8]">
             Questions I&apos;m working on
           </h2>
         </motion.div>
@@ -253,14 +253,14 @@ export default function Research() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <p className="text-xs text-[#7a4c26] tracking-widest uppercase mb-5">
+          <p className="text-xs text-[#8a6040] tracking-widest uppercase mb-5">
             Certifications
           </p>
           <div className="flex flex-wrap gap-2.5">
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="text-sm text-[#7a4c26] border border-[#c2a468] rounded-full px-4 py-1.5 hover:border-[#c99014]/50 hover:text-[#967040] transition-colors"
+                className="text-sm text-[#c4a070] border border-[#4a2c14] rounded-full px-4 py-1.5 hover:border-[#c99014]/40 hover:text-[#d4a060] transition-colors"
               >
                 {cert}
               </span>
