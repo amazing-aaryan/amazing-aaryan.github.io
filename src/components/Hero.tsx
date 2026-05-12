@@ -18,7 +18,7 @@ export default function Hero() {
         className="absolute top-0 left-0 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 20% 30%, rgba(110,231,183,0.07) 0%, transparent 70%)",
+            "radial-gradient(circle at 20% 30%, rgba(184,115,51,0.07) 0%, transparent 70%)",
         }}
       />
       <div
@@ -32,15 +32,15 @@ export default function Hero() {
       <div className="max-w-5xl mx-auto w-full relative">
         {/* Identity badge */}
         <motion.div {...fadeUp(0.05)} className="mb-8">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6ee7b7]/20 bg-[#6ee7b7]/5 text-[#6ee7b7] text-xs tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6ee7b7] animate-pulse" />
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#b87333]/20 bg-[#b87333]/5 text-[#b87333] text-xs tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#b87333] animate-pulse" />
             Computer Science × Political Science — University of Michigan
           </span>
         </motion.div>
 
         <motion.h1
           {...fadeUp(0.15)}
-          className="text-6xl sm:text-8xl font-bold text-[#f0f0f0] leading-[1.05] tracking-tight mb-6"
+          className="text-6xl sm:text-8xl font-bold text-[#1e1008] leading-[1.05] tracking-tight mb-6"
         >
           Aaryan
           <br />
@@ -49,20 +49,20 @@ export default function Hero() {
 
         <motion.h2
           {...fadeUp(0.25)}
-          className="text-xl sm:text-2xl font-medium text-[#6b7280] leading-relaxed mb-8 max-w-2xl"
+          className="text-xl sm:text-2xl font-medium text-[#7a6248] leading-relaxed mb-8 max-w-2xl"
         >
           Technology shaped by principle.{" "}
-          <span className="text-[#9ca3af]">Research informed by data.</span>
+          <span className="text-[#9a8070]">Research informed by data.</span>
           <br />I bridge the gap between what systems can do and what they{" "}
           <em>should</em> do.
         </motion.h2>
 
         <motion.p
           {...fadeUp(0.35)}
-          className="max-w-lg text-[#6b7280] text-base leading-relaxed mb-12"
+          className="max-w-lg text-[#7a6248] text-base leading-relaxed mb-12"
         >
           Founder of{" "}
-          <span className="text-[#f0f0f0]">IRENE</span>. Researcher at UMich
+          <span className="text-[#1e1008]">IRENE</span>. Researcher at UMich
           studying how wartime sacrifice shaped political trust. Previously
           advising on legal compliance and building financial evidence systems for
           litigation.
@@ -74,13 +74,13 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="px-6 py-3 bg-[#6ee7b7] text-[#080808] text-sm font-semibold rounded-lg hover:bg-[#5dd4a5] transition-colors duration-200"
+            className="px-6 py-3 bg-[#b87333] text-[white] text-sm font-semibold rounded-lg hover:bg-[#a0622a] transition-colors duration-200"
           >
             See my work
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 border border-[#2a2a2a] text-[#9ca3af] text-sm rounded-lg hover:border-[#6ee7b7]/40 hover:text-[#f0f0f0] transition-all duration-200"
+            className="px-6 py-3 border border-[#d0c0a8] text-[#9a8070] text-sm rounded-lg hover:border-[#b87333]/40 hover:text-[#1e1008] transition-all duration-200"
           >
             Get in touch
           </a>
@@ -91,7 +91,7 @@ export default function Hero() {
             href="https://github.com/amazing-aaryan"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#6a5540] hover:text-[#b87333] transition-colors duration-200"
             aria-label="GitHub"
           >
             <GitHubIcon size={20} />
@@ -100,14 +100,14 @@ export default function Hero() {
             href="https://www.linkedin.com/in/aaryan21/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#6a5540] hover:text-[#b87333] transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <LinkedInIcon size={20} />
           </a>
           <a
             href="mailto:aaryansr@umich.edu"
-            className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors duration-200"
+            className="text-[#6a5540] hover:text-[#b87333] transition-colors duration-200"
             aria-label="Email"
           >
             <Mail size={20} />
@@ -124,7 +124,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="text-[#4b5563]"
+          className="text-[#6a5540]"
         >
           <ArrowDown size={16} />
         </motion.div>

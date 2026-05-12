@@ -98,22 +98,22 @@ function PubCard({ pub, i, inView, accent }: PubCardProps) {
   const borderHover =
     accent === "tan"
       ? "hover:border-[#c9a96e]/25"
-      : "hover:border-[#6ee7b7]/25";
+      : "hover:border-[#b87333]/25";
   const titleHover =
     accent === "tan"
       ? "group-hover:text-[#c9a96e]"
-      : "group-hover:text-[#6ee7b7]";
+      : "group-hover:text-[#b87333]";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: i * 0.08 }}
-      className={`gradient-card group bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-6 ${borderHover} transition-colors duration-300`}
+      className={`gradient-card group bg-[#e8dcc8] border border-[#d0c0a8] rounded-xl p-6 ${borderHover} transition-colors duration-300`}
     >
       <div className="flex items-start justify-between gap-4 mb-2">
         <h3
-          className={`text-[#f0f0f0] font-semibold text-base leading-snug ${titleHover} transition-colors`}
+          className={`text-[#1e1008] font-semibold text-base leading-snug ${titleHover} transition-colors`}
         >
           {pub.title}
         </h3>
@@ -122,23 +122,23 @@ function PubCard({ pub, i, inView, accent }: PubCardProps) {
             href={pub.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4b5563] hover:text-[#c9a96e] transition-colors shrink-0 mt-0.5"
+            className="text-[#6a5540] hover:text-[#c9a96e] transition-colors shrink-0 mt-0.5"
           >
             <ExternalLink size={15} />
           </a>
         )}
       </div>
-      <p className="text-xs text-[#4b5563] mb-3">
+      <p className="text-xs text-[#6a5540] mb-3">
         {pub.venue} · {pub.year}
       </p>
-      <p className="text-sm text-[#9ca3af] leading-relaxed mb-4">
+      <p className="text-sm text-[#9a8070] leading-relaxed mb-4">
         {pub.description}
       </p>
       <div className="flex flex-wrap gap-2">
         {pub.tags.map((t) => (
           <span
             key={t}
-            className="text-xs text-[#6b7280] bg-[#1a1a1a] px-2.5 py-1 rounded-full"
+            className="text-xs text-[#7a6248] bg-[#d0c0a8] px-2.5 py-1 rounded-full"
           >
             {t}
           </span>
@@ -153,7 +153,7 @@ export default function Research() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="research" className="py-28 px-6 bg-[#050505]">
+    <section id="research" className="py-28 px-6 bg-[#f0e8d8]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}
@@ -165,7 +165,7 @@ export default function Research() {
           <p className="text-xs text-[#c9a96e] tracking-[0.2em] uppercase mb-3">
             Research
           </p>
-          <h2 className="text-4xl font-bold text-[#f0f0f0]">
+          <h2 className="text-4xl font-bold text-[#1e1008]">
             Questions I&apos;m working on
           </h2>
         </motion.div>
@@ -196,14 +196,14 @@ export default function Research() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <p className="text-xs text-[#6b7280] tracking-widest uppercase mb-5">
+          <p className="text-xs text-[#7a6248] tracking-widest uppercase mb-5">
             Certifications
           </p>
           <div className="flex flex-wrap gap-2.5">
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="text-sm text-[#6b7280] border border-[#1a1a1a] rounded-full px-4 py-1.5 hover:border-[#c9a96e]/30 hover:text-[#9ca3af] transition-colors"
+                className="text-sm text-[#7a6248] border border-[#d0c0a8] rounded-full px-4 py-1.5 hover:border-[#c9a96e]/30 hover:text-[#9a8070] transition-colors"
               >
                 {cert}
               </span>

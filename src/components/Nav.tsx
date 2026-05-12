@@ -28,14 +28,14 @@ export default function Nav() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080808]/90 backdrop-blur-md border-b border-[#1f1f1f]"
+          ? "bg-[#faf6f0]/90 backdrop-blur-md border-b border-[#d0c0a8]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="#"
-          className="font-mono text-sm text-[#6ee7b7] tracking-wider hover:opacity-70 transition-opacity"
+          className="font-mono text-sm text-[#b87333] tracking-wider hover:opacity-70 transition-opacity"
         >
           aaryan.
         </a>
@@ -45,7 +45,7 @@ export default function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-[#6b7280] hover:text-[#f0f0f0] transition-colors duration-200"
+                className="text-sm text-[#7a6248] hover:text-[#1e1008] transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -54,7 +54,7 @@ export default function Nav() {
         </ul>
 
         <button
-          className="md:hidden text-[#6b7280] hover:text-[#f0f0f0] transition-colors"
+          className="md:hidden text-[#7a6248] hover:text-[#1e1008] transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -78,14 +78,14 @@ export default function Nav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-[#1f1f1f] bg-[#080808]/95 px-6 py-4 flex flex-col gap-4"
+            className="md:hidden border-t border-[#d0c0a8] bg-[#faf6f0]/95 px-6 py-4 flex flex-col gap-4"
           >
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm text-[#6b7280] hover:text-[#f0f0f0] transition-colors"
+                  className="text-sm text-[#7a6248] hover:text-[#1e1008] transition-colors"
                 >
                   {link.label}
                 </a>

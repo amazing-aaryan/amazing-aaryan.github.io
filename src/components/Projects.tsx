@@ -60,10 +60,10 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-xs text-[#6ee7b7] tracking-[0.2em] uppercase mb-3">
+          <p className="text-xs text-[#b87333] tracking-[0.2em] uppercase mb-3">
             Projects
           </p>
-          <h2 className="text-4xl font-bold text-[#f0f0f0]">
+          <h2 className="text-4xl font-bold text-[#1e1008]">
             What I&apos;ve built
           </h2>
         </motion.div>
@@ -75,14 +75,14 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="gradient-card group bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-6 hover:border-[#6ee7b7]/25 transition-colors duration-300 flex flex-col"
+              className="gradient-card group bg-[#e8dcc8] border border-[#d0c0a8] rounded-xl p-6 hover:border-[#b87333]/25 transition-colors duration-300 flex flex-col"
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="flex gap-2 flex-wrap">
                   {project.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-xs text-[#6b7280] bg-[#1a1a1a] px-2.5 py-1 rounded-full"
+                      className="text-xs text-[#7a6248] bg-[#d0c0a8] px-2.5 py-1 rounded-full"
                     >
                       {t}
                     </span>
@@ -94,7 +94,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors"
+                      className="text-[#6a5540] hover:text-[#b87333] transition-colors"
                       aria-label="GitHub"
                     >
                       <GitHubIcon size={17} />
@@ -105,7 +105,7 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#4b5563] hover:text-[#6ee7b7] transition-colors"
+                      className="text-[#6a5540] hover:text-[#b87333] transition-colors"
                       aria-label="External link"
                     >
                       <ExternalLink size={17} />
@@ -114,11 +114,11 @@ export default function Projects() {
                 </div>
               </div>
 
-              <h3 className="text-[#f0f0f0] font-semibold mb-1 group-hover:text-[#6ee7b7] transition-colors text-base">
+              <h3 className="text-[#1e1008] font-semibold mb-1 group-hover:text-[#b87333] transition-colors text-base">
                 {project.title}
               </h3>
-              <p className="text-xs text-[#4b5563] mb-4">{project.period}</p>
-              <p className="text-sm text-[#9ca3af] leading-relaxed flex-1">
+              <p className="text-xs text-[#6a5540] mb-4">{project.period}</p>
+              <p className="text-sm text-[#9a8070] leading-relaxed flex-1">
                 {project.description}
               </p>
             </motion.div>
