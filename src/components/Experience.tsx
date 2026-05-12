@@ -65,7 +65,7 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-28 px-6 bg-[#f0e8d8]">
+    <section id="experience" className="py-28 px-6 bg-[#ead8a4]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}
@@ -74,7 +74,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-xs text-[#b87333] tracking-[0.2em] uppercase mb-3">
+          <p className="text-xs text-[#c4611a] tracking-[0.2em] uppercase mb-3">
             Experience
           </p>
           <h2 className="text-4xl font-bold text-[#1e1008]">
@@ -88,15 +88,15 @@ export default function Experience() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col md:flex-row gap-0"
         >
-          <div className="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l border-[#d0c0a8] shrink-0 md:w-48">
+          <div className="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l border-[#c2a468] shrink-0 md:w-48">
             {roles.map((role, index) => (
               <button
                 key={role.company}
                 onClick={() => setActiveIndex(index)}
                 className={`px-5 py-3.5 text-sm text-left whitespace-nowrap transition-all duration-200 border-b md:border-b-0 md:border-l-2 -ml-px ${
                   activeIndex === index
-                    ? "border-[#b87333] text-[#1e1008] bg-[#b87333]/5"
-                    : "border-transparent text-[#6a5540] hover:text-[#9a8070] hover:bg-[#e8dcc8]"
+                    ? "border-[#c4611a] text-[#1e1008] bg-[#c4611a]/8"
+                    : "border-transparent text-[#68481e] hover:text-[#967040] hover:bg-[#e3c98e]"
                 }`}
               >
                 {role.company}
@@ -114,24 +114,24 @@ export default function Experience() {
               <div className="flex flex-wrap items-start gap-3 mb-5">
                 <h3 className="text-[#1e1008] font-semibold text-lg">
                   {roles[activeIndex].title}{" "}
-                  <span className="text-[#b87333]">
+                  <span className="text-[#c4611a]">
                     @ {roles[activeIndex].company}
                   </span>
                 </h3>
-                <span className="text-xs px-2.5 py-1 rounded-full border border-[#d0c0a8] text-[#7a6248]">
+                <span className="text-xs px-2.5 py-1 rounded-full border border-[#c2a468] text-[#7a4c26]">
                   {roles[activeIndex].tag}
                 </span>
               </div>
-              <p className="text-xs text-[#6a5540] mb-6 tracking-wide">
+              <p className="text-xs text-[#68481e] mb-6 tracking-wide">
                 {roles[activeIndex].period}
               </p>
               <ul className="space-y-4">
                 {roles[activeIndex].bullets.map((bullet, i) => (
                   <li
                     key={i}
-                    className="flex gap-3 text-sm text-[#9a8070] leading-relaxed"
+                    className="flex gap-3 text-sm text-[#967040] leading-relaxed"
                   >
-                    <span className="text-[#b87333] mt-1.5 shrink-0 text-[10px]">
+                    <span className="text-[#c4611a] mt-1.5 shrink-0 text-[10px]">
                       ◆
                     </span>
                     {bullet}

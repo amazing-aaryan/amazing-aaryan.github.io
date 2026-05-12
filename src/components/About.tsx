@@ -35,14 +35,14 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-xs text-[#b87333] tracking-[0.2em] uppercase mb-3">
+          <p className="text-xs text-[#c4611a] tracking-[0.2em] uppercase mb-3">
             About
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-[#1e1008] leading-tight">
             One person.{" "}
-            <span className="text-[#b87333]">Two disciplines.</span>
+            <span className="text-[#c4611a]">Two disciplines.</span>
             <br />
-            <span className="text-[#7a6248] font-normal text-3xl sm:text-4xl">
+            <span className="text-[#7a4c26] font-normal text-3xl sm:text-4xl">
               Fluent in both.
             </span>
           </h2>
@@ -53,7 +53,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-3 space-y-5 text-[#9a8070] leading-relaxed text-[15px]"
+            className="md:col-span-3 space-y-5 text-[#967040] leading-relaxed text-[15px]"
           >
             <p>
               I&apos;m a sophomore at the{" "}
@@ -64,7 +64,7 @@ export default function About() {
             </p>
             <p>
               I founded{" "}
-              <span className="text-[#b87333] font-medium">IRENE</span>, an AI
+              <span className="text-[#c4611a] font-medium">IRENE</span>, an AI
               platform improving logistics for nonprofit volunteer networks. I
               also research how governments earn — and lose — public trust
               through the lens of World War I casualty data and political
@@ -89,32 +89,32 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-2 space-y-4"
           >
-            <div className="rounded-xl border border-[#d0c0a8] bg-[#e8dcc8] p-5">
+            <div className="rounded-xl border border-[#c2a468] bg-[#e3c98e] p-5">
               <div className="flex items-center gap-2.5 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#b87333] shrink-0" />
-                <p className="text-xs text-[#b87333] tracking-widest uppercase font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c4611a] shrink-0" />
+                <p className="text-xs text-[#c4611a] tracking-widest uppercase font-medium">
                   Technical
                 </p>
               </div>
               <div className="flex flex-wrap gap-x-4 gap-y-2">
                 {technical.map((s) => (
-                  <span key={s} className="text-sm text-[#7a6248]">
+                  <span key={s} className="text-sm text-[#7a4c26]">
                     {s}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#c9a96e]/15 bg-[#e8dcc8] p-5">
+            <div className="rounded-xl border border-[#c99014]/25 bg-[#e3c98e] p-5">
               <div className="flex items-center gap-2.5 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c9a96e] shrink-0" />
-                <p className="text-xs text-[#c9a96e] tracking-widest uppercase font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c99014] shrink-0" />
+                <p className="text-xs text-[#c99014] tracking-widest uppercase font-medium">
                   Research &amp; Legal
                 </p>
               </div>
               <div className="flex flex-wrap gap-x-4 gap-y-2">
                 {analytical.map((s) => (
-                  <span key={s} className="text-sm text-[#7a6248]">
+                  <span key={s} className="text-sm text-[#7a4c26]">
                     {s}
                   </span>
                 ))}
@@ -127,17 +127,17 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[#d0c0a8] rounded-xl overflow-hidden border border-[#d0c0a8]"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[#c2a468] rounded-xl overflow-hidden border border-[#c2a468]"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-[#e8dcc8] px-6 py-5">
+            <div key={stat.label} className="bg-[#e3c98e] px-6 py-5">
               <p
                 className="text-2xl font-bold mb-1"
-                style={{ color: stat.warm ? "#c9a96e" : "#b87333" }}
+                style={{ color: stat.warm ? "#c99014" : "#c4611a" }}
               >
                 {stat.value}
               </p>
-              <p className="text-xs text-[#7a6248] leading-snug">{stat.label}</p>
+              <p className="text-xs text-[#7a4c26] leading-snug">{stat.label}</p>
             </div>
           ))}
         </motion.div>

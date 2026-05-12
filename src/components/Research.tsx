@@ -137,12 +137,12 @@ type PubCardProps = {
 function PubCard({ pub, i, inView, accent, onClick }: PubCardProps) {
   const borderHover =
     accent === "tan"
-      ? "hover:border-[#c9a96e]/40"
-      : "hover:border-[#b87333]/40";
+      ? "hover:border-[#c99014]/50"
+      : "hover:border-[#c4611a]/50";
   const titleHover =
     accent === "tan"
-      ? "group-hover:text-[#c9a96e]"
-      : "group-hover:text-[#b87333]";
+      ? "group-hover:text-[#c99014]"
+      : "group-hover:text-[#c4611a]";
 
   return (
     <motion.div
@@ -150,7 +150,7 @@ function PubCard({ pub, i, inView, accent, onClick }: PubCardProps) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: i * 0.08 }}
       onClick={onClick}
-      className={`gradient-card group bg-[#e8dcc8] border border-[#d0c0a8] rounded-xl p-6 ${borderHover} transition-colors duration-300 cursor-pointer`}
+      className={`gradient-card group bg-[#e3c98e] border border-[#c2a468] rounded-xl p-6 ${borderHover} transition-colors duration-300 cursor-pointer`}
     >
       <div className="flex items-start justify-between gap-4 mb-2">
         <h3
@@ -164,23 +164,23 @@ function PubCard({ pub, i, inView, accent, onClick }: PubCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-[#6a5540] hover:text-[#c9a96e] transition-colors shrink-0 mt-0.5"
+            className="text-[#68481e] hover:text-[#c99014] transition-colors shrink-0 mt-0.5"
           >
             <ExternalLink size={15} />
           </a>
         )}
       </div>
-      <p className="text-xs text-[#6a5540] mb-3">
+      <p className="text-xs text-[#68481e] mb-3">
         {pub.venue} · {pub.year}
       </p>
-      <p className="text-sm text-[#9a8070] leading-relaxed mb-4">
+      <p className="text-sm text-[#967040] leading-relaxed mb-4">
         {pub.description}
       </p>
       <div className="flex flex-wrap gap-2">
         {pub.tags.map((t) => (
           <span
             key={t}
-            className="text-xs text-[#7a6248] bg-[#d0c0a8] px-2.5 py-1 rounded-full"
+            className="text-xs text-[#7a4c26] bg-[#c8a860] px-2.5 py-1 rounded-full"
           >
             {t}
           </span>
@@ -196,7 +196,7 @@ export default function Research() {
   const [selected, setSelected] = useState<Publication | null>(null);
 
   return (
-    <section id="research" className="py-28 px-6 bg-[#f0e8d8]">
+    <section id="research" className="py-28 px-6 bg-[#ead8a4]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}
@@ -205,7 +205,7 @@ export default function Research() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-xs text-[#c9a96e] tracking-[0.2em] uppercase mb-3">
+          <p className="text-xs text-[#c99014] tracking-[0.2em] uppercase mb-3">
             Research
           </p>
           <h2 className="text-4xl font-bold text-[#1e1008]">
@@ -230,7 +230,7 @@ export default function Research() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-xs text-[#c9a96e] tracking-widest uppercase mb-4"
+          className="text-xs text-[#c99014] tracking-widest uppercase mb-4"
         >
           Publications
         </motion.p>
@@ -253,14 +253,14 @@ export default function Research() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <p className="text-xs text-[#7a6248] tracking-widest uppercase mb-5">
+          <p className="text-xs text-[#7a4c26] tracking-widest uppercase mb-5">
             Certifications
           </p>
           <div className="flex flex-wrap gap-2.5">
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="text-sm text-[#7a6248] border border-[#d0c0a8] rounded-full px-4 py-1.5 hover:border-[#c9a96e]/30 hover:text-[#9a8070] transition-colors"
+                className="text-sm text-[#7a4c26] border border-[#c2a468] rounded-full px-4 py-1.5 hover:border-[#c99014]/50 hover:text-[#967040] transition-colors"
               >
                 {cert}
               </span>
