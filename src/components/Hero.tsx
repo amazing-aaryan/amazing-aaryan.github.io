@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
+import Image from "next/image";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 const fadeUp = (delay = 0) => ({
@@ -36,6 +37,20 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#c4611a] animate-pulse" />
             Computer Science × Political Science — University of Michigan
           </span>
+        </motion.div>
+
+        {/* Circular avatar */}
+        <motion.div {...fadeUp(0.10)} className="mb-8">
+          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#c4611a]/30 ring-4 ring-[#c4611a]/10">
+            <Image
+              src="/avatar.jpg"
+              alt="Aaryan Srivastava"
+              width={80}
+              height={80}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
         </motion.div>
 
         <motion.h1

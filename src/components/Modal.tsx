@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { GitHubIcon } from "@/components/icons";
 
 type ModalLink = {
@@ -20,6 +21,8 @@ type ModalProps = {
   tags?: string[];
   details?: string[];
   links?: ModalLink[];
+  videoId?: string;
+  thumbnail?: string;
 };
 
 export default function Modal({
@@ -31,6 +34,8 @@ export default function Modal({
   tags,
   details,
   links,
+  videoId,
+  thumbnail,
 }: ModalProps) {
   useEffect(() => {
     if (!isOpen) return;
@@ -87,6 +92,27 @@ export default function Modal({
               </div>
 
               <div className="p-6 space-y-5">
+                {(videoId || thumbnail) && (
+                  <div className={`w-full aspect-video rounded-xl overflow-hidden bg-[#1e1008]${thumbnail && !videoId ? " relative" : ""}`}>
+                    {videoId ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+                        title="Project video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <Image
+                        src={thumbnail!}
+                        alt="Project thumbnail"
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                  </div>
+                )}
+
                 {tags && tags.length > 0 && (
                   <div className="flex flex-wrap gap-2">
                     {tags.map((t) => (

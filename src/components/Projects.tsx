@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { GitHubIcon } from "@/components/icons";
 import Modal from "@/components/Modal";
 
@@ -14,6 +15,8 @@ type Project = {
   details: string[];
   github?: string;
   link?: string;
+  thumbnail?: string;
+  videoId?: string;
 };
 
 const projects: Project[] = [
@@ -105,6 +108,30 @@ export default function Projects() {
               onClick={() => setSelected(project)}
               className="gradient-card group bg-[#e3c98e] border border-[#c2a468] rounded-xl p-6 hover:border-[#c4611a]/50 transition-colors duration-300 flex flex-col cursor-pointer"
             >
+              {(project.videoId || project.thumbnail) && (
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-5 bg-[#c8a860]">
+                  <Image
+                    src={
+                      project.videoId
+                        ? `https://img.youtube.com/vi/${project.videoId}/maxresdefault.jpg`
+                        : project.thumbnail!
+                    }
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                  {project.videoId && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-[#1e1008]/20 group-hover:bg-[#1e1008]/30 transition-colors">
+                      <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#c4611a">
+                          <polygon points="5,3 19,12 5,21" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="flex items-start justify-between mb-5">
                 <div className="flex gap-2 flex-wrap">
                   {project.tags.map((t) => (
@@ -173,6 +200,8 @@ export default function Projects() {
             ? [{ href: selected.link, label: "View project", icon: "external" as const }]
             : []),
         ]}
+        videoId={selected?.videoId}
+        thumbnail={selected?.thumbnail}
       />
     </section>
   );
