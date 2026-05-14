@@ -17,14 +17,14 @@ export default function HeroDossier() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-ink px-5 pt-28 text-paper">
-      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(230,214,184,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(230,214,184,.08)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_20%,rgba(46,166,164,.25),transparent_38%),radial-gradient(circle_at_45%_60%,rgba(240,75,50,.15),transparent_30%)]" />
+    <section className="relative overflow-hidden bg-ink px-5 pt-28 text-paper">
+      <div className="absolute right-0 top-0 h-[620px] w-[620px] rounded-full bg-[radial-gradient(circle,rgba(46,166,164,.18),transparent_62%)]" />
+      <div className="absolute bottom-10 left-0 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(214,168,79,.12),transparent_64%)]" />
 
-      <div className="relative mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 pb-20 lg:grid-cols-[1.05fr_.95fr]">
+      <div className="relative mx-auto grid min-h-[calc(100vh-7rem)] max-w-6xl items-center gap-12 pb-20 lg:grid-cols-[1.08fr_.72fr]">
         <div>
           <div className="mb-8 flex items-center gap-4">
-            <div className="grid h-16 w-16 place-items-center border border-bone/30 bg-paper text-ink">
+            <div className="grid h-14 w-14 place-items-center rounded-sm border border-bone/20 bg-paper text-ink">
               <span className="font-serif text-2xl font-semibold">AS</span>
             </div>
             <div>
@@ -35,10 +35,10 @@ export default function HeroDossier() {
             </div>
           </div>
 
-          <h1 className="max-w-5xl font-serif text-5xl leading-[0.98] md:text-7xl xl:text-8xl">
+          <h1 className="max-w-4xl font-serif text-5xl leading-[1.02] md:text-7xl">
             I build AI and data systems that make institutions legible.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-bone/82 md:text-xl">
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-bone/82">
             Courts, relief networks, schools, archives, and governments all run on
             technical systems. My work asks whether those systems can be made more
             accountable, searchable, and humane.
@@ -78,47 +78,40 @@ export default function HeroDossier() {
           </div>
         </div>
 
-        <div className="relative min-h-[540px] border border-bone/20 bg-charcoal/80 p-5 shadow-2xl">
-          <div className="mb-5 flex items-center justify-between border-b border-bone/15 pb-4">
+        <div className="relative rounded-sm border border-bone/14 bg-paper/5 p-5 shadow-2xl shadow-black/20">
+          <div className="mb-5 flex items-center justify-between border-b border-bone/10 pb-4">
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-bone/65">
-              Identity constellation
+              Choose a lens
             </p>
-            <p className="font-mono text-xs text-vermilion">OCR: live</p>
+            <p className="font-mono text-xs text-old-gold">AS / 05</p>
           </div>
-          <div className="relative h-[390px]">
-            <div className="absolute left-1/2 top-1/2 grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center border border-old-gold/60 bg-paper text-ink shadow-[0_0_50px_rgba(214,168,79,.20)]">
-              <span className="font-serif text-4xl">AS</span>
-            </div>
-            {nodes.map((node, index) => {
-              const positions = [
-                "left-[6%] top-[10%]",
-                "right-[4%] top-[16%]",
-                "left-[2%] bottom-[18%]",
-                "right-[8%] bottom-[10%]",
-                "left-[39%] top-[2%]",
-              ];
-              return (
-                <button
-                  key={node.label}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  onFocus={() => setActive(index)}
-                  className={`absolute ${positions[index]} border px-4 py-3 font-mono text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-vermilion ${
-                    active === index
-                      ? "border-vermilion bg-vermilion text-paper"
-                      : "border-bone/25 bg-ink text-bone hover:border-old-gold"
-                  }`}
-                >
+          <div className="grid gap-2">
+            {nodes.map((node, index) => (
+              <button
+                key={node.label}
+                type="button"
+                onClick={() => setActive(index)}
+                onFocus={() => setActive(index)}
+                className={`flex items-center justify-between rounded-sm border px-4 py-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-vermilion ${
+                  active === index
+                    ? "border-old-gold bg-paper text-ink"
+                    : "border-bone/14 bg-ink/35 text-bone hover:border-bone/35 hover:bg-ink/55"
+                }`}
+              >
+                <span className="font-mono text-xs uppercase tracking-[0.18em]">
                   {node.label}
-                </button>
-              );
-            })}
+                </span>
+                <span className="font-mono text-[10px] text-current/50">
+                  0{index + 1}
+                </span>
+              </button>
+            ))}
           </div>
-          <div className="border-l-4 border-verdigris bg-ink p-4">
+          <div className="mt-5 rounded-sm border border-bone/12 bg-ink/45 p-5">
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-verdigris">
               {nodes[active].label} proof
             </p>
-            <p className="mt-3 leading-7 text-bone/80">{nodes[active].proof}</p>
+            <p className="mt-3 text-base leading-7 text-bone/80">{nodes[active].proof}</p>
           </div>
         </div>
       </div>

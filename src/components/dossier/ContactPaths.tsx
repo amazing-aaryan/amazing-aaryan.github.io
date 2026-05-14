@@ -24,16 +24,16 @@ const paths = [
 export default function ContactPaths() {
   return (
     <section id="contact" className="bg-bone px-5 py-24 text-ink">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-vermilion">
             Invitation
           </p>
-          <h2 className="mt-4 font-serif text-5xl">Four useful ways in.</h2>
+          <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">Four useful ways in.</h2>
         </div>
-        <div className="grid gap-px border border-ink/15 bg-ink/15 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-4">
           {paths.map((path) => (
-            <article key={path.title} className="bg-paper p-5">
+            <article key={path.title} className="rounded-sm border border-ink/10 bg-paper p-5">
               <h3 className="font-serif text-2xl">{path.title}</h3>
               <p className="mt-4 leading-7 text-ink/68">{path.body}</p>
             </article>

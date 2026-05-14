@@ -5,8 +5,8 @@ import type { WorkItem } from "@/content/schema";
 export default function DossierCard({ item, featured = false }: { item: WorkItem; featured?: boolean }) {
   return (
     <article
-      className={`group border border-ink/15 bg-paper p-5 transition hover:-translate-y-1 hover:border-vermilion ${
-        featured ? "md:col-span-2 md:grid md:grid-cols-[.9fr_1.1fr] md:gap-8" : ""
+      className={`group rounded-sm border border-ink/10 bg-paper p-6 transition hover:border-vermilion/45 hover:shadow-xl hover:shadow-ink/5 ${
+        featured ? "md:col-span-2 md:grid md:grid-cols-[.82fr_1.18fr] md:gap-10 md:p-8" : ""
       }`}
     >
       <div>
@@ -16,10 +16,10 @@ export default function DossierCard({ item, featured = false }: { item: WorkItem
         <h3 className="mt-4 font-serif text-3xl leading-tight">{item.title}</h3>
       </div>
       <div className="mt-5 md:mt-0">
-        <p className="leading-7 text-ink/72">{item.oneLine}</p>
+        <p className="max-w-2xl leading-7 text-ink/70">{item.oneLine}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {item.stack.slice(0, 5).map((tag) => (
-            <span key={tag} className="border border-ink/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink/60">
+            <span key={tag} className="rounded-full border border-ink/10 bg-bone px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink/60">
               {tag}
             </span>
           ))}

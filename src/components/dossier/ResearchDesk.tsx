@@ -12,22 +12,24 @@ export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
 
   return (
     <section id="research" className="bg-ink px-5 py-24 text-paper">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 grid gap-6 md:grid-cols-[.8fr_1.2fr]">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-old-gold">
               Research desk
             </p>
-            <h2 className="mt-4 font-serif text-5xl">Papers, notes, open problems.</h2>
+            <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight md:text-5xl">
+              Papers, notes, open problems.
+            </h2>
           </div>
           <div>
-            <div className="inline-flex flex-wrap gap-px border border-bone/20 bg-bone/20">
+            <div className="inline-flex flex-wrap gap-1 rounded-sm border border-bone/12 bg-paper/5 p-1">
               {modes.map((item) => (
                 <button
                   key={item}
                   type="button"
                   onClick={() => setMode(item)}
-                  className={`bg-ink px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] transition ${
+                  className={`rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] transition ${
                     mode === item ? "bg-old-gold text-ink" : "text-bone hover:bg-slate"
                   }`}
                 >
@@ -38,9 +40,9 @@ export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
           </div>
         </div>
 
-        <div className="grid gap-px border border-bone/15 bg-bone/15 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <article key={item.slug} className="bg-charcoal p-5">
+            <article key={item.slug} className="rounded-sm border border-bone/10 bg-charcoal p-6">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-verdigris">
@@ -52,7 +54,7 @@ export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
                   <ArrowUpRight size={18} />
                 </Link>
               </div>
-              <p className="min-h-28 leading-7 text-bone/78">
+              <p className="min-h-28 max-w-2xl leading-7 text-bone/76">
                 {mode === "story" && item.story}
                 {mode === "method" && item.method}
                 {mode === "evidence" && item.evidence}
@@ -60,7 +62,7 @@ export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                  <span key={tag} className="border border-bone/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-bone/70">
+                  <span key={tag} className="rounded-full border border-bone/12 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-bone/70">
                     {tag}
                   </span>
                 ))}

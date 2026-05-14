@@ -9,13 +9,13 @@ export default function PrinciplesArchive({
 }) {
   return (
     <section id="principles" className="bg-paper px-5 py-24 text-ink">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-vermilion">
               Operating notes
             </p>
-            <h2 className="mt-4 max-w-xl font-serif text-5xl leading-tight md:text-6xl">
+            <h2 className="mt-4 max-w-xl font-serif text-4xl leading-tight md:text-5xl">
               The site should show the mind behind the work.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-ink/68">
@@ -25,16 +25,16 @@ export default function PrinciplesArchive({
             </p>
           </div>
 
-          <div className="grid gap-px border border-ink/15 bg-ink/15 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2">
             {principles.map((principle) => (
-              <article key={principle.title} className="group bg-bone p-5 transition hover:bg-ink hover:text-paper">
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-vermilion group-hover:text-old-gold">
+              <article key={principle.title} className="rounded-sm border border-ink/10 bg-bone/70 p-5 transition hover:border-vermilion/35">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-vermilion">
                   {principle.signal}
                 </p>
                 <h3 className="mt-4 font-serif text-3xl leading-tight">
                   {principle.title}
                 </h3>
-                <p className="mt-4 leading-7 text-ink/70 group-hover:text-bone/78">
+                <p className="mt-4 leading-7 text-ink/70">
                   {principle.body}
                 </p>
               </article>
@@ -55,9 +55,9 @@ export default function PrinciplesArchive({
               be remembered for the thesis and artifacts first.
             </p>
           </div>
-          <div className="grid gap-px border border-ink/15 bg-ink/15 md:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-4">
             {awards.map((award) => (
-              <article key={award.title} className="bg-paper p-5">
+              <article key={award.title} className="rounded-sm border border-ink/10 bg-bone/40 p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/45">
                   {award.year}
                 </p>
