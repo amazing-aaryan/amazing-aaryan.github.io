@@ -1,12 +1,10 @@
 import type { Chapter } from "./schema";
 
 export const proofLinks = [
-  { label: "Experience", href: "#experience" },
-  { label: "Work", href: "#work" },
+  { label: "Work", href: "#irene" },
   { label: "Research", href: "#research" },
-  { label: "Certs", href: "#certifications" },
-  { label: "Resume", href: "/resume" },
   { label: "Contact", href: "#contact" },
+  { label: "Resume", href: "/resume" },
 ];
 
 export const chapters: Chapter[] = [

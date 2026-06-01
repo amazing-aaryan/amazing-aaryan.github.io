@@ -2,54 +2,49 @@ import { FileText, Mail } from "lucide-react";
 import Link from "next/link";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
-const paths = [
-  {
-    title: "Research collaboration",
-    body: "Historical data, legal analytics, political trust, AI governance, or public-interest datasets.",
-  },
-  {
-    title: "Product / building",
-    body: "Accountable AI workflows, document extraction, automation, data systems, or reviewable interfaces.",
-  },
-  {
-    title: "Legal / policy",
-    body: "Compliance, litigation analytics, institutional risk, AI regulation, and legal research tooling.",
-  },
-  {
-    title: "General",
-    body: "A concrete question, a messy dataset, or a system that needs clearer accountability.",
-  },
-];
-
 export default function ContactPaths() {
   return (
-    <section id="contact" className="bg-bone px-5 py-24 text-ink">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-10 max-w-3xl">
+    <section id="contact" className="scroll-mt-16 snap-section border-t border-bone/10 bg-ink px-5 py-24 text-paper min-h-[calc(100vh-4rem)] flex items-center">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-12 max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-vermilion">
-            Invitation
+            Contact
           </p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">Four useful ways in.</h2>
+          <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
+            The best conversations start with a concrete problem.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-bone/60">
+            Research collaboration, accountable AI, legal and policy work, or something that doesn&apos;t fit a category yet.
+          </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-4">
-          {paths.map((path) => (
-            <article key={path.title} className="rounded-sm border border-ink/10 bg-paper p-5">
-              <h3 className="font-serif text-2xl">{path.title}</h3>
-              <p className="mt-4 leading-7 text-ink/68">{path.body}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a href="mailto:aaryansr@umich.edu" className="inline-flex items-center gap-2 bg-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-paper hover:bg-vermilion">
+
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="mailto:aaryansr@umich.edu"
+            className="inline-flex items-center gap-2 bg-old-gold px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-ink transition hover:bg-maize focus-visible:outline focus-visible:outline-2 focus-visible:outline-vermilion"
+          >
             <Mail size={16} /> Email
           </a>
-          <a href="https://github.com/amazing-aaryan" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-ink/20 px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-ink hover:border-vermilion">
+          <a
+            href="https://github.com/amazing-aaryan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-bone/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-bone/70 transition hover:border-bone/50 hover:text-paper"
+          >
             <GitHubIcon size={16} /> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/aaryan21/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-ink/20 px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-ink hover:border-vermilion">
+          <a
+            href="https://www.linkedin.com/in/aaryan21/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-bone/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-bone/70 transition hover:border-bone/50 hover:text-paper"
+          >
             <LinkedInIcon size={16} /> LinkedIn
           </a>
-          <Link href="/resume" className="inline-flex items-center gap-2 border border-ink/20 px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-ink hover:border-vermilion">
+          <Link
+            href="/resume"
+            className="inline-flex items-center gap-2 border border-bone/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-bone/70 transition hover:border-bone/50 hover:text-paper"
+          >
             <FileText size={16} /> Resume
           </Link>
         </div>
