@@ -1,5 +1,5 @@
-import { placeholderMedia } from "./media";
-import type { Award, EvidenceMetric, Principle, ResearchItem, WorkItem } from "./schema";
+import { ireneMedia, placeholderMedia, schedulingMedia, wwiCsvMedia, wwiRawMedia } from "./media";
+import type { Award, Certification, EvidenceMetric, ExperienceItem, Principle, ResearchItem, WorkItem } from "./schema";
 
 export const evidenceMetrics: EvidenceMetric[] = [
   {
@@ -106,7 +106,95 @@ export const awards: Award[] = [
   {
     title: "Academic Excellence Award",
     detail: "Repeated academic recognition across multiple years.",
-    year: "2023-2025",
+    year: "2023–2025",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    id: "google-ml",
+    title: "Machine Learning Crash Course",
+    issuer: "Google",
+    year: "2024",
+  },
+  {
+    id: "stanford-ml",
+    title: "Machine Learning Specialization",
+    issuer: "Stanford / Coursera",
+    year: "2024",
+  },
+  {
+    id: "microsoft-ai",
+    title: "Azure AI Fundamentals",
+    issuer: "Microsoft",
+    year: "2024",
+  },
+  {
+    id: "landingai",
+    title: "AI for Everyone",
+    issuer: "LandingAI",
+    year: "2024",
+  },
+  {
+    id: "agi-inc",
+    title: "Foundations of AGI",
+    issuer: "AGI Inc",
+    year: "2024",
+  },
+  {
+    id: "harvard-cs",
+    title: "CS50x: Introduction to Computer Science",
+    issuer: "Harvard",
+    year: "2023",
+  },
+  {
+    id: "oxford-ai",
+    title: "Artificial Intelligence Programme",
+    issuer: "Oxford",
+    year: "2024",
+  },
+];
+
+export const experienceItems: ExperienceItem[] = [
+  {
+    id: "irene",
+    role: "Founder",
+    org: "IRENE AI Logistics",
+    period: "Jan 2026 – Present",
+    kind: "project",
+    oneLine: "Accountable AI logistics platform for nonprofit volunteer networks — reviewable sorting decisions and human-in-the-loop design.",
+  },
+  {
+    id: "wwi-research",
+    role: "Research Assistant",
+    org: "University of Michigan",
+    period: "Jan 2026 – Present",
+    kind: "project",
+    oneLine: "Structured ~3M WWI service records for county-level political trust research using OCR and document extraction pipelines.",
+  },
+  {
+    id: "lsa-gov",
+    role: "Appointed Representative",
+    org: "LSA Student Government",
+    period: "Sep 2025 – Present",
+    kind: "leadership",
+    oneLine: "Appointed to represent student interests in the College of Literature, Science, and the Arts governance structure.",
+  },
+  {
+    id: "einsteins-square",
+    role: "Part-Time Executive",
+    org: "Einsteins Square",
+    period: "Feb 2024 – Jul 2025",
+    kind: "job",
+    oneLine: "Leadership and operations at an academic enrichment and tutoring organization serving K–12 students.",
+  },
+  {
+    id: "hedman-law",
+    role: "Legal Associate",
+    org: "Hedman Law Firm",
+    period: "Jul 2023 – Aug 2023",
+    kind: "job",
+    oneLine: "Legal research and associate support at a private law practice.",
   },
 ];
 
@@ -115,7 +203,7 @@ export const workItems: WorkItem[] = [
     slug: "irene-ai-logistics",
     title: "IRENE AI Logistics Platform",
     role: "Founder",
-    period: "Jan 2026 - Present",
+    period: "Jan 2026 – Present",
     status: "in-progress",
     oneLine:
       "An accountable AI logistics platform for nonprofit volunteer networks, built around reviewable sorting decisions.",
@@ -137,18 +225,32 @@ export const workItems: WorkItem[] = [
     outcomes: [
       evidenceMetrics[1],
       {
-        value: "50%",
-        label: "faster sorting target",
+        value: "~85%",
+        label: "efficiency improvement",
         context:
-          "Projected workflow improvement from reduced wait time and reviewable classification.",
+          "Sorting workflow efficiency gain from AI-assisted classification with confidence-aware human review.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+      {
+        value: "~15%",
+        label: "revenue increase",
+        context:
+          "Operational improvement enabling higher throughput and donor coordination yield.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+      {
+        value: "~50%",
+        label: "overhead cost reduction",
+        context:
+          "Reduced coordination overhead from automated routing and review queue design.",
         source: "project notes",
         confidence: "estimate",
       },
     ],
     stack: ["Python", "Computer Vision", "OCR", "Decision Logs", "Human Review"],
-    media: [
-      placeholderMedia("IRN-01", "Architecture, screenshots, and workflow videos can slot in here."),
-    ],
+    media: [ireneMedia],
     links: [{ label: "GitHub", href: "https://github.com/amazing-aaryan", kind: "github" }],
     ethics: [
       "Avoid silent automation by routing uncertainty to humans.",
@@ -162,7 +264,7 @@ export const workItems: WorkItem[] = [
     slug: "wwi-service-dataset",
     title: "WWI Soldier Service Dataset",
     role: "Research Assistant",
-    period: "Jan 2026 - Present",
+    period: "Jan 2026 – Present",
     status: "research",
     oneLine:
       "A structured, queryable dataset of American World War I service records for political trust research.",
@@ -182,7 +284,7 @@ export const workItems: WorkItem[] = [
     ],
     outcomes: [evidenceMetrics[2]],
     stack: ["OCR", "Document AI", "PostgreSQL", "Historical Data", "Statistics"],
-    media: [placeholderMedia("ARC-03", "Archival scan examples and schema diagrams can be added as media.")],
+    media: [wwiRawMedia, wwiCsvMedia],
     links: [],
     ethics: [
       "Represent archival uncertainty honestly in the dataset.",
@@ -196,7 +298,7 @@ export const workItems: WorkItem[] = [
     slug: "federal-litigation-bias-analysis",
     title: "Federal Litigation Bias Analysis",
     role: "Independent Researcher",
-    period: "Sep 2025 - Present",
+    period: "Sep 2025 – Present",
     status: "research",
     oneLine:
       "An AI-assisted legal analytics workflow for surfacing disparities in federal civil litigation outcomes.",
@@ -230,7 +332,7 @@ export const workItems: WorkItem[] = [
     slug: "scheduling-automation-system",
     title: "Scheduling Automation System",
     role: "Automation Builder",
-    period: "Dec 2025 - Present",
+    period: "Dec 2025 – Present",
     status: "in-progress",
     oneLine:
       "A browser automation system for class scheduling across teacher availability, constraints, and operational edge cases.",
@@ -248,9 +350,32 @@ export const workItems: WorkItem[] = [
       "Modeled hard and soft constraints for availability, rooms, subjects, and preferences.",
       "Built error summaries for cases that need human review rather than silent failure.",
     ],
-    outcomes: [evidenceMetrics[5]],
+    outcomes: [
+      evidenceMetrics[5],
+      {
+        value: "~85%",
+        label: "efficiency improvement",
+        context: "Scheduling workflow efficiency gain measured against manual coordination baseline.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+      {
+        value: "~15%",
+        label: "revenue increase",
+        context: "Higher class utilization from reduced scheduling conflicts and faster coordination.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+      {
+        value: "~50%",
+        label: "overhead reduction",
+        context: "Coordinator overhead cost reduction from automated conflict resolution and reporting.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+    ],
     stack: ["Python", "Playwright", "Constraint Logic", "Automation"],
-    media: [placeholderMedia("SCH-30", "A redacted workflow capture or constraint diagram can be mounted here.")],
+    media: [schedulingMedia],
     links: [{ label: "GitHub", href: "https://github.com/amazing-aaryan", kind: "github" }],
     ethics: [
       "Make automation failures explicit and recoverable.",
@@ -324,6 +449,22 @@ export const researchItems: ResearchItem[] = [
     tags: ["AI Policy", "EU", "United States", "International Law"],
     link: "https://ssrn.com/abstract=6662638",
     media: [placeholderMedia("SSRN-6662638", "Preprint link and policy timeline can be added here.")],
+  },
+  {
+    slug: "nehru-foreign-policy-cold-war",
+    title: "How Successful Was India's Foreign Policy Under Jawaharlal Nehru During the Cold War?",
+    venue: "SSRN",
+    year: "2025",
+    status: "preprint",
+    story:
+      "India's non-alignment doctrine under Nehru positioned a newly independent state between two superpowers, but the diplomatic record reveals tensions between principled neutrality and strategic pragmatism.",
+    method:
+      "Evaluate Nehru's foreign policy outcomes across Cold War flashpoints: Kashmir, Sino-Indian relations, Non-Aligned Movement leadership, and Korean War mediation.",
+    evidence:
+      "Non-alignment succeeded as a diplomatic posture but produced strategic vulnerabilities exposed by the 1962 Sino-Indian War.",
+    tags: ["Political Science", "International Relations", "Cold War", "India"],
+    link: "https://ssrn.com/abstract=6663358",
+    media: [placeholderMedia("SSRN-6663358", "Preprint available on SSRN.")],
   },
   {
     slug: "llm-microtargeted-political-messaging",

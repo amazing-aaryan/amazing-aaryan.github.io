@@ -45,9 +45,21 @@ export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
             <article key={item.slug} className="rounded-sm border border-bone/10 bg-charcoal p-6">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-verdigris">
-                    {item.status} / {item.year}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-verdigris">
+                      {item.status} / {item.year}
+                    </p>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-[10px] uppercase tracking-[0.14em] text-old-gold hover:text-maize"
+                      >
+                        SSRN ↗
+                      </a>
+                    )}
+                  </div>
                   <h3 className="mt-3 font-serif text-2xl leading-tight">{item.title}</h3>
                 </div>
                 <Link href={`/research/${item.slug}`} aria-label={`Open ${item.title}`} className="text-bone hover:text-old-gold">

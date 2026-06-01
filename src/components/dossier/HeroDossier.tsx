@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowDown, Mail } from "lucide-react";
@@ -24,8 +25,15 @@ export default function HeroDossier() {
       <div className="relative mx-auto grid min-h-[calc(100vh-7rem)] max-w-6xl items-center gap-12 pb-20 lg:grid-cols-[1.08fr_.72fr]">
         <div>
           <div className="mb-8 flex items-center gap-4">
-            <div className="grid h-14 w-14 place-items-center rounded-sm border border-bone/20 bg-paper text-ink">
-              <span className="font-serif text-2xl font-semibold">AS</span>
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm border border-bone/20">
+              <Image
+                src="/aaryan.jpg"
+                alt="Aaryan Srivastava"
+                fill
+                unoptimized
+                className="object-cover object-top"
+                priority
+              />
             </div>
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.28em] text-old-gold">

@@ -37,6 +37,17 @@ export default function DossierCard({ item, featured = false }: { item: WorkItem
           >
             Inspect evidence
           </a>
+          {item.links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 border border-ink/15 px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] text-ink/55 hover:text-ink"
+            >
+              {link.label} <ArrowUpRight size={13} />
+            </a>
+          ))}
         </div>
       </div>
     </article>

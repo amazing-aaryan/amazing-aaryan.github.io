@@ -99,3 +99,20 @@ export type Award = {
   detail: string;
   year: string;
 };
+
+export type Certification = {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  link?: string;
+};
+
+export type ExperienceItem = {
+  id: string;
+  role: string;
+  org: string;
+  period: string;
+  kind: "project" | "job" | "leadership";
+  oneLine: string;
+};
