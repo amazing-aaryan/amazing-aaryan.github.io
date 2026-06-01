@@ -1,5 +1,4 @@
-import { FileText, Mail } from "lucide-react";
-import Link from "next/link";
+import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 export default function ContactPaths() {
@@ -41,12 +40,6 @@ export default function ContactPaths() {
           >
             <LinkedInIcon size={16} /> LinkedIn
           </a>
-          <Link
-            href="/resume"
-            className="inline-flex items-center gap-2 border border-bone/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-bone/70 transition hover:border-bone/50 hover:text-paper"
-          >
-            <FileText size={16} /> Resume
-          </Link>
         </div>
       </div>
     </section>

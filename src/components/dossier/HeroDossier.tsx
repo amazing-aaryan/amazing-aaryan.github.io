@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowDown, Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
@@ -50,12 +49,6 @@ export default function HeroDossier() {
           >
             Research
           </a>
-          <Link
-            href="/resume"
-            className="border border-bone/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-bone/70 transition hover:border-verdigris hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-vermilion"
-          >
-            Resume
-          </Link>
         </div>
 
         <div className="mt-10 flex items-center gap-5 text-bone/45">

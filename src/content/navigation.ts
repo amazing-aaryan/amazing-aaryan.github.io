@@ -4,7 +4,6 @@ export const proofLinks = [
   { label: "Work", href: "#irene" },
   { label: "Research", href: "#research" },
   { label: "Contact", href: "#contact" },
-  { label: "Resume", href: "/resume" },
 ];
 
 export const chapters: Chapter[] = [
