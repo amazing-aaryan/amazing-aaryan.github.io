@@ -27,7 +27,7 @@ export const evidenceMetrics: EvidenceMetric[] = [
     confidence: "in-progress",
   },
   {
-    value: "60M",
+    value: "60,000",
     label: "federal cases",
     context:
       "Civil litigation records used for disparity analysis across federal courts and plaintiff categories.",
@@ -43,10 +43,10 @@ export const evidenceMetrics: EvidenceMetric[] = [
     confidence: "resume",
   },
   {
-    value: "30+",
-    label: "teachers scheduled",
+    value: "100,000+",
+    label: "meetings scheduled",
     context:
-      "Scheduling automation scope for class coordination and conflict handling in an EdTech setting.",
+      "Scheduling automation scope across coordinated class and meeting operations in an EdTech setting.",
     source: "project notes",
     confidence: "project",
   },
@@ -178,7 +178,8 @@ export const experienceItems: ExperienceItem[] = [
     org: "LSA Student Government",
     period: "Sep 2025 – Present",
     kind: "leadership",
-    oneLine: "Appointed to represent student interests in the College of Literature, Science, and the Arts governance structure.",
+    oneLine:
+      "Represents student interests in LSA governance, including AJC matters and the authorship proposal.",
   },
   {
     id: "einsteins-square",
@@ -194,7 +195,8 @@ export const experienceItems: ExperienceItem[] = [
     org: "Hedman Law Firm",
     period: "Jul 2023 – Aug 2023",
     kind: "job",
-    oneLine: "Legal research and associate support at a private law practice.",
+    oneLine:
+      "Built financial models and cryptocurrency valuation tools supporting a $200M international class-action lawsuit.",
   },
 ];
 
@@ -225,28 +227,20 @@ export const workItems: WorkItem[] = [
     outcomes: [
       evidenceMetrics[1],
       {
-        value: "~85%",
+        value: "~20%",
         label: "efficiency improvement",
         context:
-          "Sorting workflow efficiency gain from AI-assisted classification with confidence-aware human review.",
-        source: "project notes",
-        confidence: "estimate",
+          "Medical-item sorting efficiency gain from end-to-end workflow redesign and automation.",
+        source: "resume",
+        confidence: "resume",
       },
       {
-        value: "~15%",
-        label: "revenue increase",
+        value: "100+",
+        label: "weekly active users",
         context:
-          "Operational improvement enabling higher throughput and donor coordination yield.",
-        source: "project notes",
-        confidence: "estimate",
-      },
-      {
-        value: "~50%",
-        label: "overhead cost reduction",
-        context:
-          "Reduced coordination overhead from automated routing and review queue design.",
-        source: "project notes",
-        confidence: "estimate",
+          "Platform usage level reported for ongoing volunteer-network operations.",
+        source: "resume",
+        confidence: "resume",
       },
     ],
     stack: ["Python", "Computer Vision", "OCR", "Decision Logs", "Human Review"],
@@ -318,7 +312,7 @@ export const workItems: WorkItem[] = [
     ],
     outcomes: [evidenceMetrics[3]],
     stack: ["LangChain", "Azure OpenAI", "RAG", "Legal Analytics", "SQL"],
-    media: [placeholderMedia("CRT-60M", "Charts, query examples, and sourced answer demos can be added here.")],
+    media: [placeholderMedia("CRT-60000", "Charts, query examples, and sourced answer demos can be added here.")],
     links: [],
     ethics: [
       "Mark AI-assisted outcome coding as provisional where dispositions are ambiguous.",
@@ -353,25 +347,20 @@ export const workItems: WorkItem[] = [
     outcomes: [
       evidenceMetrics[5],
       {
-        value: "~85%",
-        label: "efficiency improvement",
-        context: "Scheduling workflow efficiency gain measured against manual coordination baseline.",
-        source: "project notes",
-        confidence: "estimate",
-      },
-      {
-        value: "~15%",
-        label: "revenue increase",
-        context: "Higher class utilization from reduced scheduling conflicts and faster coordination.",
-        source: "project notes",
-        confidence: "estimate",
-      },
-      {
         value: "~50%",
-        label: "overhead reduction",
-        context: "Coordinator overhead cost reduction from automated conflict resolution and reporting.",
-        source: "project notes",
-        confidence: "estimate",
+        label: "management overhead reduction",
+        context:
+          "Management overhead reduction from consolidating scheduling, finance, and hiring into a single AI-driven system.",
+        source: "resume",
+        confidence: "resume",
+      },
+      {
+        value: "+25%",
+        label: "MRR growth",
+        context:
+          "MRR increase from roughly $30k to roughly $40k during the AI agents and dashboards project.",
+        source: "resume",
+        confidence: "resume",
       },
     ],
     stack: ["Python", "Playwright", "Constraint Logic", "Automation"],
@@ -388,6 +377,26 @@ export const workItems: WorkItem[] = [
 ];
 
 export const researchItems: ResearchItem[] = [
+  {
+    slug: "gotv-vs-persuasion-abm",
+    title: "GOTV versus Persuasion in U.S. Battleground States",
+    venue: "Complex Systems 270",
+    year: "2026",
+    status: "working paper",
+    story:
+      "An agent-based campaign model asking when turnout mobilization beats persuasion, and when network structure flips that answer.",
+    method:
+      "Modeled seven battleground states as stochastic block networks with Democratic, swing, and Republican communities. Each eight-week simulation runs social influence, activation contagion, persuasion, and party-targeted GOTV phases, then sweeps 11x11 Democratic and Republican mobilization mixes across siloed, baseline, and porous network regimes.",
+    evidence:
+      "Produced 2,541 strategy runs across seven states and three connectivity profiles. The main result is conditional rather than universal: no single mobilization-versus-persuasion mix dominates across states; strategic performance changes with local electorate composition and cross-group exposure.",
+    tags: ["Agent-Based Modeling", "Political Science", "Networks", "Campaign Strategy"],
+    media: [
+      placeholderMedia(
+        "ABM-2541",
+        "Heatmaps and connectivity-profile exports from the notebook can be added here."
+      ),
+    ],
+  },
   {
     slug: "sacrifice-for-the-state",
     title: "Sacrifice for the State: Identification or Disillusionment?",
@@ -414,7 +423,7 @@ export const researchItems: ResearchItem[] = [
     method:
       "Analyze plaintiff type, court, circuit, category, time, and disposition signals across large-scale civil case records.",
     evidence:
-      "Uses a 60M-record federal civil litigation dataset and AI-assisted coding for difficult dispositions.",
+      "Uses a 60,000-record federal civil litigation dataset and AI-assisted coding for difficult dispositions.",
     tags: ["Legal Research", "Data Analysis", "Access to Justice"],
     media: [placeholderMedia("RST-CRT", "Charts and sourced examples can be added here.")],
   },

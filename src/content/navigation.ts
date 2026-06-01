@@ -32,7 +32,7 @@ export const chapters: Chapter[] = [
     body:
       "The archive uses expandable evidence rather than a loose list of achievements. Metrics name their context, source type, and confidence.",
     artifact: "Evidence ledger",
-    proof: ["100+ weekly users", "~3M records", "60M cases"],
+    proof: ["100+ weekly users", "~3M records", "60,000 cases"],
   },
   {
     id: "field",
@@ -50,7 +50,7 @@ export const chapters: Chapter[] = [
     body:
       "Federal case records can show where access to justice breaks down. The work uses retrieval and statistical tooling to surface disparities without flattening legal nuance.",
     artifact: "Court file",
-    proof: ["60M cases", "$200M litigation support", "RAG"],
+    proof: ["60,000 cases", "grounded retrieval", "RAG"],
   },
   {
     id: "archive",
@@ -68,7 +68,7 @@ export const chapters: Chapter[] = [
     body:
       "EdTech work connected compliance reviews, educator contracts, and automation systems where student data and daily operations meet.",
     artifact: "FERPA / COPPA",
-    proof: ["30+ teachers", "10+ platforms", "50+ contracts"],
+    proof: ["100,000+ meetings", "10+ platforms", "50+ contracts"],
   },
   {
     id: "questions",
