@@ -54,6 +54,17 @@ export default function NarrativeTimeline({ entries }: { entries: TimelineEntry[
 
                   <p className="mt-8 text-lg leading-8 text-bone/75">{entry.narrative}</p>
 
+                  {entry.highlights && entry.highlights.length > 0 && (
+                    <ul className="mt-6 space-y-2.5">
+                      {entry.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-3 text-sm leading-6 text-bone/60">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-old-gold/60" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   {entry.metrics && entry.metrics.length > 0 && (
                     <div className="mt-10 flex flex-wrap gap-10">
                       {entry.metrics.map((m) => (

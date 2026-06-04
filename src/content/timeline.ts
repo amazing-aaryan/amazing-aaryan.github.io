@@ -10,6 +10,7 @@ export type TimelineEntry = {
   period: string;
   kind: "project" | "research" | "job" | "leadership";
   narrative: string;
+  highlights?: string[];
   tags: string[];
   media: MediaAsset[];
   metrics?: { value: string; label: string }[];
@@ -27,6 +28,12 @@ export const timelineEntries: TimelineEntry[] = [
     kind: "project",
     narrative:
       "IRENE uses multimodal image intelligence to make supply-chain sorting legible in volunteer operations. The system keeps humans in the loop and treats each prediction as an operational record that can be reviewed, corrected, and traced.",
+    highlights: [
+      "Built a multimodal OCR + CV pipeline, reducing sorting errors and improving accuracy across 100+ volunteer workflows",
+      "Automated data collection and retraining, enabling continuous model improvement and scalable dataset growth",
+      "Improved volunteer sorting efficiency by ~20% for 100+ weekly users via optimized inference and UI-assisted validation",
+      "Designed a traceability system linking predictions to logistics metadata, enabling end-to-end auditability",
+    ],
     tags: ["Python", "Computer Vision", "OCR", "Human Review"],
     media: [ireneMedia],
     metrics: [
@@ -45,7 +52,12 @@ export const timelineEntries: TimelineEntry[] = [
     period: "Jan 2026 - Present",
     kind: "research",
     narrative:
-      "Three million American service records from World War I exist as archival scans - period handwriting, military abbreviations, damaged pages. Structured carefully, they become a dataset for testing how wartime sacrifice shaped political trust, turnout, and bond purchases decades later.",
+      "Three million American service records from World War I exist as archival scans — period handwriting, military abbreviations, damaged pages. Structured carefully, they become a dataset for testing how wartime sacrifice shaped political trust, turnout, and bond purchases decades later.",
+    highlights: [
+      "Designed an OCR + data processing pipeline to clean and structure ~3M historical records into a queryable dataset",
+      "Building and publishing the first large-scale dataset of American WWI soldiers' service data for downstream research use",
+      "Performing statistical analysis on millions of observations to evaluate how soldier deaths influenced political support",
+    ],
     tags: ["OCR", "Document AI", "PostgreSQL", "Historical Data"],
     media: [wwiRawMedia, wwiCsvMedia],
     metrics: [{ value: "~3M", label: "target records" }],
@@ -60,7 +72,11 @@ export const timelineEntries: TimelineEntry[] = [
     period: "Sep 2025 - Present",
     kind: "research",
     narrative:
-      "Sixty thousand federal civil cases are public record. The patterns inside - who wins, who settles, and which courts diverge - are harder to inspect. This work uses retrieval-augmented analysis to let researchers query those records while keeping answers grounded in the underlying case data.",
+      "Sixty thousand federal civil cases are public record. The patterns inside — who wins, who settles, and which courts diverge — are harder to inspect. This work uses retrieval-augmented analysis to let researchers query those records while keeping answers grounded in the underlying case data.",
+    highlights: [
+      "Created a RAG database agent leveraging pandas and SQL, developed via LangChain and Azure OpenAI",
+      "Constructed a comprehensive technical report discussing systematic biases discovered in the ~60M row dataset",
+    ],
     tags: ["LangChain", "Azure OpenAI", "RAG", "Legal Analytics"],
     media: [],
     metrics: [{ value: "60,000", label: "federal cases" }],
@@ -72,14 +88,19 @@ export const timelineEntries: TimelineEntry[] = [
     title: "Scheduling Automation System",
     role: "Automation Builder",
     org: "Outschool",
-    period: "Dec 2025 - Present",
+    period: "Dec 2025 - Feb 2026",
     kind: "project",
     narrative:
       "Browser-level automation turned a fragile scheduling workflow into a repeatable system. It handles operational edge cases through the same interface a human coordinator uses, while surfacing failures clearly instead of silently breaking.",
+    highlights: [
+      "Built deterministic RPA system automating class scheduling on Outschool using Python, Pydantic, pandas, Playwright",
+      "Improved efficiency by ~85% across 30+ teachers, increasing revenue by ~15% and reducing overhead cost by ~50%",
+    ],
     tags: ["Python", "Playwright", "Constraint Logic"],
     media: [schedulingMedia],
     metrics: [
-      { value: "100,000+", label: "meetings scheduled" },
+      { value: "~85%", label: "efficiency improvement" },
+      { value: "30+", label: "teachers automated" },
       { value: "~50%", label: "overhead reduction" },
     ],
     slug: "scheduling-automation-system",
@@ -90,12 +111,19 @@ export const timelineEntries: TimelineEntry[] = [
     title: "LSA Student Government",
     role: "Appointed Representative",
     org: "University of Michigan",
-    period: "Sep 2025 - Present",
+    period: "Sep 2025 - Dec 2025",
     kind: "leadership",
     narrative:
       "Appointed to represent students in LSA governance, with work that includes AJC matters and the authorship proposal. The role sits where institutional process, policy drafting, and student advocacy meet.",
+    highlights: [
+      "Drafted bylaw and constitutional amendments for the Internal Review Committee",
+      "Proposed an AI-authorship validation framework aiming to be adopted by the Academic Judiciary Committee, protecting academic integrity for 20,000+ students",
+    ],
     tags: ["Policy", "Governance", "AJC", "Authorship Proposal"],
     media: [],
+    metrics: [
+      { value: "20,000+", label: "students protected" },
+    ],
   },
   {
     id: "einsteins-square",
@@ -107,8 +135,18 @@ export const timelineEntries: TimelineEntry[] = [
     kind: "job",
     narrative:
       "Performed compliance audits across EdTech clients, mapped student-data flows, and helped standardize governance and contracts across a growing operating footprint.",
-    tags: ["Operations", "Education Management", "Compliance"],
+    highlights: [
+      "Audited 10+ EdTech platforms by mapping data flows and identifying compliance risks under COPPA/FERPA frameworks",
+      "Structured data governance workflows by standardizing contracts for 50+ educators, ensuring scalable compliance processes",
+      "Analyzed KPI-driven operational data to identify inefficiencies and improve compliance and audit readiness",
+      "Delivered improvement roadmaps to organizational leadership, driving adoption of compliance reforms",
+    ],
+    tags: ["Operations", "Education Management", "Compliance", "COPPA", "FERPA"],
     media: [],
+    metrics: [
+      { value: "10+", label: "EdTech platforms audited" },
+      { value: "50+", label: "educator contracts standardized" },
+    ],
   },
   {
     id: "hedman-law",
@@ -120,7 +158,54 @@ export const timelineEntries: TimelineEntry[] = [
     kind: "job",
     narrative:
       "Built financial models and cryptocurrency valuation tools supporting a $200M international class-action lawsuit, alongside cross-border IP and litigation support work.",
-    tags: ["Legal Research", "Litigation Support", "Finance"],
+    highlights: [
+      "Built financial models and valuation tools supporting a $200M international class-action lawsuit",
+      "Coordinated cross-border IP registrations across jurisdictions, reducing multi-jurisdictional friction",
+      "Structured incorporation and compliance documentation for international Hong Kong–Estonia entities",
+      "Advised on IP strategy, corporate structuring, and litigation alongside senior legal counsel",
+    ],
+    tags: ["Legal Research", "Litigation Support", "Finance", "IP Law"],
+    media: [],
+    metrics: [
+      { value: "$200M", label: "litigation supported" },
+    ],
+  },
+  {
+    id: "visionary-summit",
+    index: 8,
+    title: "Visionary Summit",
+    role: "Founder",
+    org: "Visionary Summit",
+    period: "Nov 2023 - May 2025",
+    kind: "leadership",
+    narrative:
+      "Founded an organization bridging students, diplomats, and founders across AI, law, and innovation in Tallinn. Brought together ambassadors, NGOs, and venture capitalists for panels that drew a significant share of the city's international high school community.",
+    highlights: [
+      "Founded organization aimed at bridging students, diplomats, and founders on AI, law, and innovation",
+      "Hosted panels with ambassadors, NGOs, VCs, and startup founders (Bolt, Alpa Kids, Forus Auto, Clanbeat)",
+      "Achieved full capacity at events, engaging ~30% of Tallinn's international high school student community",
+    ],
+    tags: ["Leadership", "AI Policy", "Events", "Diplomacy"],
+    media: [],
+    metrics: [
+      { value: "~30%", label: "of Tallinn IHS community engaged" },
+    ],
+  },
+  {
+    id: "noscroll",
+    index: 9,
+    title: "NoScroll",
+    role: "Founder",
+    org: "NoScroll",
+    period: "May 2026 - Present",
+    kind: "project",
+    narrative:
+      "The first app natively converting doom-scrolling behavior into reading. Identified an untapped behavioral market and built native Instagram quote-sharing to drive social engagement and organic user acquisition.",
+    highlights: [
+      "Identified untapped behavioral market and built the first app natively converting doom-scrolling to reading",
+      "Integrated native Instagram quote-sharing to drive social engagement and organic user acquisition",
+    ],
+    tags: ["Product", "Behavioral Design", "Reading", "Mobile"],
     media: [],
   },
 ];

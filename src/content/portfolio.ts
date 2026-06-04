@@ -112,46 +112,46 @@ export const awards: Award[] = [
 
 export const certifications: Certification[] = [
   {
-    id: "google-ml",
-    title: "Machine Learning Crash Course",
+    id: "google-ai-agents",
+    title: "AI Agents Intensive Course",
     issuer: "Google",
-    year: "2024",
+    year: "2025",
   },
   {
     id: "stanford-ml",
-    title: "Machine Learning Specialization",
+    title: "Supervised Machine Learning",
     issuer: "Stanford / Coursera",
     year: "2024",
   },
   {
-    id: "microsoft-ai",
-    title: "Azure AI Fundamentals",
+    id: "microsoft-rag",
+    title: "RAG Database Agent Course",
     issuer: "Microsoft",
-    year: "2024",
+    year: "2025",
   },
   {
-    id: "landingai",
-    title: "AI for Everyone",
+    id: "landingai-doc",
+    title: "Agentic Document Extraction",
     issuer: "LandingAI",
-    year: "2024",
+    year: "2025",
   },
   {
-    id: "agi-inc",
-    title: "Foundations of AGI",
+    id: "agi-inc-browser",
+    title: "AI Browser Agents",
     issuer: "AGI Inc",
-    year: "2024",
+    year: "2025",
   },
   {
-    id: "harvard-cs",
-    title: "CS50x: Introduction to Computer Science",
-    issuer: "Harvard",
-    year: "2023",
+    id: "harvard-govtech",
+    title: "The Governance of Emerging Technologies",
+    issuer: "Harvard Summer School",
+    year: "2025",
   },
   {
-    id: "oxford-ai",
-    title: "Artificial Intelligence Programme",
-    issuer: "Oxford",
-    year: "2024",
+    id: "oxford-criminal",
+    title: "Criminal Law",
+    issuer: "Oxford Summer School",
+    year: "2025",
   },
 ];
 
@@ -197,6 +197,15 @@ export const experienceItems: ExperienceItem[] = [
     kind: "job",
     oneLine:
       "Built financial models and cryptocurrency valuation tools supporting a $200M international class-action lawsuit.",
+  },
+  {
+    id: "visionary-summit",
+    role: "Founder",
+    org: "Visionary Summit",
+    period: "Nov 2023 – May 2025",
+    kind: "leadership",
+    oneLine:
+      "Founded an organization bridging students, diplomats, and founders on AI, law, and innovation in Tallinn — hosted panels with ambassadors, NGOs, and VCs.",
   },
 ];
 
@@ -373,6 +382,38 @@ export const workItems: WorkItem[] = [
     ],
     learned:
       "The best automation for fragile institutional workflows often behaves like a careful operator, not a brittle API client.",
+  },
+  {
+    slug: "noscroll-app",
+    title: "NoScroll",
+    role: "Founder",
+    period: "May 2026 – Present",
+    status: "in-progress",
+    oneLine:
+      "The first app natively converting doom-scrolling behavior into reading, with Instagram quote-sharing for organic growth.",
+    problem:
+      "Doom-scrolling is a pervasive behavioral habit with no native disruption mechanic inside existing social platforms.",
+    stakes:
+      "Attention reclaimed from passive feed consumption is meaningfully reallocated only if the replacement behavior is frictionless and socially reinforced.",
+    constraints: [
+      "Replacement behavior must feel as fluid as scrolling, not like a chore.",
+      "Social sharing loop needed to drive organic discovery without paid acquisition.",
+    ],
+    approach: [
+      "Identified the behavioral gap where no app natively intercepted the doom-scroll loop at the content level.",
+      "Built native Instagram quote-sharing so users could post reading excerpts directly to Stories and Reels.",
+      "Designed the reading surface to mirror the scroll cadence — bite-sized passages with forward momentum.",
+    ],
+    outcomes: [],
+    stack: ["Mobile", "Product Design", "Behavioral Design"],
+    media: [],
+    links: [],
+    ethics: [
+      "Do not replace one compulsive loop with another — reading sessions should have natural end points.",
+      "No dark patterns in the sharing flow; sharing is always opt-in per excerpt.",
+    ],
+    learned:
+      "Behavioral product design works best when the new habit hijacks the same trigger and reward structure as the old one.",
   },
 ];
 
