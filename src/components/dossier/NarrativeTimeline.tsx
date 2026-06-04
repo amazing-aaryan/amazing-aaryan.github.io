@@ -17,6 +17,13 @@ const kindLabel: Record<TimelineEntry["kind"], string> = {
   leadership: "Leadership",
 };
 
+const sectionAtmosphere: Record<TimelineEntry["kind"], string> = {
+  project:    "radial-gradient(ellipse 55% 50% at 90% 50%, rgba(46,166,164,0.07) 0%, transparent 100%)",
+  research:   "radial-gradient(ellipse 50% 45% at 88% 20%, rgba(214,168,79,0.08) 0%, transparent 100%)",
+  leadership: "radial-gradient(ellipse 50% 45% at 10% 55%, rgba(240,75,50,0.07) 0%, transparent 100%)",
+  job:        "none",
+};
+
 export default function NarrativeTimeline({ entries }: { entries: TimelineEntry[] }) {
   const total = entries.length;
 
@@ -29,6 +36,7 @@ export default function NarrativeTimeline({ entries }: { entries: TimelineEntry[
             key={entry.id}
             id={entry.id}
             className="scroll-mt-16 snap-section border-t border-bone/10 bg-ink px-5 py-24 min-h-[calc(100vh-4rem)] flex items-center"
+            style={{ backgroundImage: sectionAtmosphere[entry.kind] }}
           >
             <div className="mx-auto w-full max-w-6xl">
               <div
