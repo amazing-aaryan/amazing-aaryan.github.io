@@ -1,7 +1,7 @@
 import type { Chapter } from "./schema";
 
 export const proofLinks = [
-  { label: "Work", href: "#irene" },
+  { label: "Work", href: "#noscroll" },
   { label: "Research", href: "#research" },
   { label: "Contact", href: "#contact" },
 ];
