@@ -37,6 +37,13 @@ export const wwiCsvMedia: MediaAsset = {
   aspect: "wide",
 };
 
+export const ssrn6545939Media: MediaAsset = {
+  kind: "pdf",
+  src: "/ssrn-6545939.pdf",
+  title: "Autonomous Agent-Driven Analysis of Federal Sentencing Disparities",
+  caption: "SSRN preprint preview. Open the paper directly if the inline viewer is unavailable.",
+};
+
 export function placeholderMedia(code: string, caption: string): MediaAsset {
   return {
     kind: "embed",

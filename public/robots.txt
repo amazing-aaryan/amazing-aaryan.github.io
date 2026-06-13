@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AI and crawler context
+Allow: /llms.txt

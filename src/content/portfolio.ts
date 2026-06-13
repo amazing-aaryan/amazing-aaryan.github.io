@@ -1,4 +1,4 @@
-import { ireneMedia, placeholderMedia, schedulingMedia, wwiCsvMedia, wwiRawMedia } from "./media";
+import { ireneMedia, placeholderMedia, schedulingMedia, ssrn6545939Media, wwiCsvMedia, wwiRawMedia } from "./media";
 import type { Award, Certification, EvidenceMetric, ExperienceItem, Principle, ResearchItem, WorkItem } from "./schema";
 
 export const evidenceMetrics: EvidenceMetric[] = [
@@ -12,9 +12,9 @@ export const evidenceMetrics: EvidenceMetric[] = [
   },
   {
     value: "100+",
-    label: "weekly IRENE users/workflows",
+    label: "weekly active users",
     context:
-      "Volunteer-network logistics workflows served by IRENE's AI sorting and review platform.",
+      "Weekly active users on IRENE's AI sorting and review platform.",
     source: "project notes",
     confidence: "project",
   },
@@ -234,7 +234,6 @@ export const workItems: WorkItem[] = [
       "Used corrected volunteer actions as labeled training data for a self-improving loop.",
     ],
     outcomes: [
-      evidenceMetrics[1],
       {
         value: "~20%",
         label: "efficiency improvement",
@@ -482,7 +481,7 @@ export const researchItems: ResearchItem[] = [
       "Published as an SSRN preprint with reproducible prompts and pipeline logic.",
     tags: ["AI Agents", "Sentencing", "Legal Analytics"],
     link: "https://ssrn.com/abstract=6545939",
-    media: [placeholderMedia("SSRN-6545939", "Preprint and replication materials can be linked here.")],
+    media: [ssrn6545939Media],
   },
   {
     slug: "ai-regulation-eu-us",

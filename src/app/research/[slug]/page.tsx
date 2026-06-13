@@ -56,7 +56,9 @@ export default async function ResearchPage({ params }: { params: Promise<{ slug:
           <h2 className="font-serif text-4xl">Media and links</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {item.media.map((asset, index) => (
-              <MediaFrame key={index} asset={asset} />
+              <div key={index} className={asset.kind === "pdf" ? "md:col-span-2" : undefined}>
+                <MediaFrame asset={asset} />
+              </div>
             ))}
           </div>
           {item.link && (

@@ -1,0 +1,287 @@
+{
+  "C:\\Users\\aarya\\Desktop\\personal-website\\.codex\\hooks.json": {
+    "mtime": 1780351751.962231,
+    "ast_hash": "9022294730aa0f2f31926dcd590c07f4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\eslint.config.mjs": {
+    "mtime": 1779353535.4603164,
+    "ast_hash": "6c4307ffa009658f5c97f5629094c0c2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\next-env.d.ts": {
+    "mtime": 1778685291.2622337,
+    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\next.config.ts": {
+    "mtime": 1779353535.4623125,
+    "ast_hash": "34056f66f121b3625fd7a6151ab48927",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\package.json": {
+    "mtime": 1779353535.4643176,
+    "ast_hash": "ebce6f7497dc0717ce8aeb531876e141",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\postcss.config.mjs": {
+    "mtime": 1779353535.466316,
+    "ast_hash": "481fac0fdecd70e1821cc30b86030c1a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\layout.tsx": {
+    "mtime": 1779353535.4756465,
+    "ast_hash": "f94739aeb42887850d964c92992b5526",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\not-found.tsx": {
+    "mtime": 1779353535.47615,
+    "ast_hash": "4ed86e8607a7171a79c0a7f4829a5e8e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\page.tsx": {
+    "mtime": 1780595959.5206409,
+    "ast_hash": "dbc6b3d4488cd7ab8a845ce936f143ba",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\research\\[slug]\\page.tsx": {
+    "mtime": 1781367474.8240135,
+    "ast_hash": "a00c20bfe15e06213b3c7862f06ff4b4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\resume\\page.tsx": {
+    "mtime": 1779353535.4781573,
+    "ast_hash": "7800a4c23e20c7675051b123a41501c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\work\\[slug]\\page.tsx": {
+    "mtime": 1779353535.480158,
+    "ast_hash": "84de4b5b3bd40c59a1cbd365f8f5d3a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\About.tsx": {
+    "mtime": 1779353535.480158,
+    "ast_hash": "9a3712863f7363fa1d943a55267abc70",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Contact.tsx": {
+    "mtime": 1779353535.4811544,
+    "ast_hash": "07b15aed53706dcb2134e0f967a76976",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Experience.tsx": {
+    "mtime": 1779353535.4821534,
+    "ast_hash": "a97e8e51b161183ae6b683eb04a2fdd7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Hero.tsx": {
+    "mtime": 1779353535.4831536,
+    "ast_hash": "9e06d6085c0cf0f5c34f548bcf7364ac",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Modal.tsx": {
+    "mtime": 1779353535.4841535,
+    "ast_hash": "78d6911703554ab0b01f461898f84fb3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Nav.tsx": {
+    "mtime": 1779353535.4851532,
+    "ast_hash": "4dacb405d33bbd38ab17f123909d1cd1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Projects.tsx": {
+    "mtime": 1779353535.4861531,
+    "ast_hash": "455a1310ecfc054308acbf116ef7b084",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\Research.tsx": {
+    "mtime": 1779353535.4871535,
+    "ast_hash": "8b9282bcfd377678a495ff6c5c7eb8d5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\AccessibleDialog.tsx": {
+    "mtime": 1779353535.4881532,
+    "ast_hash": "f8af7258e17e95d8906aa89c58b60698",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\CaseStudyLayout.tsx": {
+    "mtime": 1779353535.4881532,
+    "ast_hash": "d0228ed7045be87d1a42d57fe838c3d1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\Certifications.tsx": {
+    "mtime": 1780347175.2241862,
+    "ast_hash": "af958e6762cfcf6f12d70033aa078e0f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ChapterSection.tsx": {
+    "mtime": 1779353535.4891567,
+    "ast_hash": "16af846d3f8b3b09a75159ebc42a4312",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ChronologicalScrubber.tsx": {
+    "mtime": 1780578585.478763,
+    "ast_hash": "9c6949569bf992e2445dc883f56104f0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ContactPaths.tsx": {
+    "mtime": 1780349814.6561365,
+    "ast_hash": "c74599bf87792fa45d5e62ce7bb5afb4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\DossierCard.tsx": {
+    "mtime": 1780347204.6991253,
+    "ast_hash": "d25fded0a78282c9d621b2bdb6bbe1aa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\EvidenceLedger.tsx": {
+    "mtime": 1779353535.4901555,
+    "ast_hash": "089f172b52d55e31b4a1cfd9c8a7c4e8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ExperienceTimeline.tsx": {
+    "mtime": 1780347151.7307963,
+    "ast_hash": "3cf552b019e64b5bc8d3f56b4e3f914c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\HeroDossier.tsx": {
+    "mtime": 1780349825.362913,
+    "ast_hash": "0585695e5f88120f5d932a3c14af7210",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\InteractiveTimeline.tsx": {
+    "mtime": 1779353535.4911559,
+    "ast_hash": "21fc9461e8c94b5c81321c1d2277022c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\MediaFrame.tsx": {
+    "mtime": 1780351493.9143224,
+    "ast_hash": "5b339b3b8ad186b26b404b8044a83c91",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\MediaLightbox.tsx": {
+    "mtime": 1779353535.4911559,
+    "ast_hash": "5f189e97cddb4915708d4cf805516114",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\NarrativeTimeline.tsx": {
+    "mtime": 1780595925.6443448,
+    "ast_hash": "41a774234ff3c95ab87f1cb22baddb71",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\PrinciplesArchive.tsx": {
+    "mtime": 1779353535.4921556,
+    "ast_hash": "ca72139be7d0d2ed3a57ddd2915e72db",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ResearchDesk.tsx": {
+    "mtime": 1780348239.898197,
+    "ast_hash": "b8e355f102f37546758f9f8bc69fe658",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ResumeViewer.tsx": {
+    "mtime": 1779353535.4921556,
+    "ast_hash": "40a65605f748db681d5dbf41418db5b1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\ScrollProgress.tsx": {
+    "mtime": 1780347123.9114637,
+    "ast_hash": "8289216e4d73e390c89cfd9d83daea72",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\StoryProgressNav.tsx": {
+    "mtime": 1779353535.4931552,
+    "ast_hash": "d9634d1d4ee84a6ed1ac70ec2f7d4aed",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\StoryShell.tsx": {
+    "mtime": 1779353535.4931552,
+    "ast_hash": "70b6afd81051ec09660e6d2b2029b487",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\dossier\\TimelineSpine.tsx": {
+    "mtime": 1780595881.5006497,
+    "ast_hash": "c6fed352bca46a0f51a591f4f495c314",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\components\\icons.tsx": {
+    "mtime": 1779353535.4931552,
+    "ast_hash": "b3b9240c6b7052a6695181f9c888c216",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\content\\media.ts": {
+    "mtime": 1781367451.2849245,
+    "ast_hash": "b470d49a00b033d2d35e2a848fa898d8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\content\\navigation.ts": {
+    "mtime": 1780578646.51632,
+    "ast_hash": "2f9c03e7b831b6174409b65d1d634088",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\content\\portfolio.ts": {
+    "mtime": 1781367463.963598,
+    "ast_hash": "ac0b2e0f373162592826458f0adeeede",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\content\\schema.ts": {
+    "mtime": 1780346833.0064006,
+    "ast_hash": "19a704f3c9050d2d83ace933781e3af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\src\\content\\timeline.ts": {
+    "mtime": 1780578528.2748394,
+    "ast_hash": "d41a779e85ecc5783ec60a82888d1fa2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\tsconfig.json": {
+    "mtime": 1779353535.4951556,
+    "ast_hash": "0a2f4ed9289b65cd3feb4fb4ab3a4fcd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\.github\\workflows\\deploy.yml": {
+    "mtime": 1779353535.451313,
+    "ast_hash": "b386565cccfaee76bfc4c4a474868f90",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\AGENTS.md": {
+    "mtime": 1779353535.455319,
+    "ast_hash": "9346a4897ff955555ddedb7bebf77adb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\CLAUDE.md": {
+    "mtime": 1780326817.138034,
+    "ast_hash": "b0517ee048d45b5cd5463430230eb52f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\README.md": {
+    "mtime": 1779353535.4593134,
+    "ast_hash": "9162add00befbcdb432430f405c4ad8d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\reasoning.md": {
+    "mtime": 1780314925.0427394,
+    "ast_hash": "19a71c0d386a8f78f72dc2d8fb927090",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\resume.pdf": {
+    "mtime": 1779353535.4713125,
+    "ast_hash": "51a382f7eb702214aff71b0c887c094d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\ssrn-6545939.pdf": {
+    "mtime": 1781367200.577895,
+    "ast_hash": "3b36244fafcf1a3a34505740af84d060",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\IRENE.mp4": {
+    "mtime": 1776374726.2549596,
+    "ast_hash": "c041773050b26318043c19626646c9e5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\Outschool_scheduler_cdp.mp4": {
+    "mtime": 1780338715.1833153,
+    "ast_hash": "87e6777d6aff3c96a7f46763b18334b4",
+    "semantic_hash": ""
+  }
+}
