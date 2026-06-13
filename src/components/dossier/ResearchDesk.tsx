@@ -4,7 +4,7 @@ import type { ResearchItem } from "@/content/schema";
 
 export default function ResearchDesk({ items }: { items: ResearchItem[] }) {
   return (
-    <section id="research" className="scroll-mt-16 snap-section border-t border-bone/10 bg-ink px-5 py-24 text-paper min-h-[calc(100vh-4rem)] flex items-center">
+    <section id="research" className="scroll-mt-16 border-t border-bone/10 bg-ink px-5 py-24 text-paper min-h-[calc(100vh-4rem)] flex items-center">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-12">
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-old-gold">

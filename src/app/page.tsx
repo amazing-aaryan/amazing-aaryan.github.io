@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ChronologicalScrubber from "@/components/dossier/ChronologicalScrubber";
-import TimelineSpine from "@/components/dossier/TimelineSpine";
 import ContactPaths from "@/components/dossier/ContactPaths";
 import HeroDossier from "@/components/dossier/HeroDossier";
 import NarrativeTimeline from "@/components/dossier/NarrativeTimeline";
@@ -86,12 +85,11 @@ export default function Home() {
       </header>
       <main>
         <HeroDossier />
+        <ChronologicalScrubber entries={timelineEntries} />
         <NarrativeTimeline entries={timelineEntries} />
         <ResearchDesk items={researchItems} />
         <ContactPaths />
       </main>
-      <ChronologicalScrubber entries={timelineEntries} />
-      <TimelineSpine entries={timelineEntries} />
       <footer className="border-t border-bone/10 bg-ink px-5 py-8 text-paper">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <p className="font-mono text-xs text-bone/30">

@@ -3,7 +3,7 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 export default function ContactPaths() {
   return (
-    <section id="contact" className="scroll-mt-16 snap-section border-t border-bone/10 bg-ink px-5 py-24 text-paper min-h-[calc(100vh-4rem)] flex items-center">
+    <section id="contact" className="scroll-mt-16 border-t border-bone/10 bg-ink px-5 py-24 text-paper min-h-[calc(100vh-4rem)] flex items-center">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-12 max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-vermilion">

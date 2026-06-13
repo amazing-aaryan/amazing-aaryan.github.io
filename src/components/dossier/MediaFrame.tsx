@@ -34,33 +34,30 @@ function Placeholder({ label, caption }: { label: string; caption?: string }) {
 
 export default function MediaFrame({ asset, priority = false }: MediaFrameProps) {
   const [loaded, setLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const frameRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (asset.kind !== "video" || !videoRef.current) {
+    if (asset.kind !== "video" || !frameRef.current || videoReady) {
       return;
     }
 
-    const video = videoRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          void video.play().catch(() => undefined);
-          return;
+          setVideoReady(true);
+          observer.disconnect();
         }
-
-        video.pause();
       },
-      { threshold: 0.6 }
+      { rootMargin: "360px 0px", threshold: 0.1 }
     );
 
-    observer.observe(video);
+    observer.observe(frameRef.current);
 
     return () => {
       observer.disconnect();
-      video.pause();
     };
-  }, [asset]);
+  }, [asset.kind, videoReady]);
 
   if (asset.kind === "embed" && asset.src.startsWith("placeholder:")) {
     return <Placeholder label={asset.title} caption={asset.caption} />;
@@ -118,19 +115,16 @@ export default function MediaFrame({ asset, priority = false }: MediaFrameProps)
 
   if (asset.kind === "video") {
     return (
-      <figure className="border border-bone/20 bg-charcoal p-3 text-paper">
+      <figure ref={frameRef} className="border border-bone/20 bg-charcoal p-3 text-paper">
         <video
-          ref={videoRef}
-          autoPlay
           muted
-          loop
           playsInline
           controls
-          preload="metadata"
+          preload="none"
           poster={asset.poster}
           className="aspect-video w-full bg-ink"
         >
-          <source src={asset.src} />
+          {videoReady && <source src={asset.src} />}
           {asset.captions && <track src={asset.captions} kind="captions" />}
         </video>
         {asset.caption && <figcaption className="mt-3 text-sm text-bone/75">{asset.caption}</figcaption>}
