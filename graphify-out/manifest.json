@@ -10,7 +10,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\personal-website\\next-env.d.ts": {
-    "mtime": 1778685291.2622337,
+    "mtime": 1781367842.8783286,
     "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
     "semantic_hash": ""
   },
@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\research\\[slug]\\page.tsx": {
-    "mtime": 1781367474.8240135,
-    "ast_hash": "a00c20bfe15e06213b3c7862f06ff4b4",
+    "mtime": 1781367911.1267896,
+    "ast_hash": "9fa36bcb58f9ec59578aa5022f5d0d9b",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\personal-website\\src\\app\\resume\\page.tsx": {
@@ -282,6 +282,16 @@
   "C:\\Users\\aarya\\Desktop\\personal-website\\public\\Outschool_scheduler_cdp.mp4": {
     "mtime": 1780338715.1833153,
     "ast_hash": "87e6777d6aff3c96a7f46763b18334b4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\llms.txt": {
+    "mtime": 1781367810.0464537,
+    "ast_hash": "9ae8bf528b546b5240568ac28c064828",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\personal-website\\public\\robots.txt": {
+    "mtime": 1781367810.04845,
+    "ast_hash": "264c1a4771fdf565395b880bae6107a9",
     "semantic_hash": ""
   }
 }
