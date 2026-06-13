@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { TimelineEntry } from "@/content/timeline";
 
@@ -83,7 +84,7 @@ export default function ChronologicalScrubber({
   }, [entries]);
 
   useEffect(() => {
-    if (!activeId || !window.matchMedia("(max-width: 1023px)").matches) return;
+    if (!activeId) return;
     const item = itemRefs.current[activeId];
     const strip = stripRef.current;
 
@@ -96,6 +97,33 @@ export default function ChronologicalScrubber({
   }, [activeId]);
 
   const active = items.find((item) => item.id === activeId) ?? items[0];
+  const activeIndex = Math.max(
+    0,
+    items.findIndex((item) => item.id === active.id)
+  );
+
+  function scrollToIndex(index: number) {
+    const item = items[index];
+    const strip = stripRef.current;
+
+    if (!item || !strip) return;
+
+    itemRefs.current[item.id]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }
+
+  function scrollStrip(direction: -1 | 1) {
+    const nextIndex = Math.min(
+      items.length - 1,
+      Math.max(0, activeIndex + direction)
+    );
+
+    scrollToIndex(nextIndex);
+    setActiveId(items[nextIndex]?.id ?? active.id);
+  }
 
   return (
     <nav
@@ -124,7 +152,25 @@ export default function ChronologicalScrubber({
           </div>
         </div>
 
-        <div ref={stripRef} className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] lg:mx-0 lg:px-0">
+        <div className="grid min-w-0 gap-2 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center">
+          <button
+            type="button"
+            aria-label="Show newer timeline entries"
+            onClick={() => scrollStrip(-1)}
+            disabled={activeIndex === 0}
+            className="hidden h-10 w-10 place-items-center border border-bone/12 text-bone/55 transition hover:border-old-gold/50 hover:text-old-gold disabled:pointer-events-none disabled:opacity-25 lg:grid"
+          >
+            <ChevronLeft size={16} />
+          </button>
+
+          <div
+            ref={stripRef}
+            onWheel={(event) => {
+              if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+              event.currentTarget.scrollLeft += event.deltaY;
+            }}
+            className="-mx-4 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] lg:mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden"
+          >
           <div className="relative flex min-w-max items-stretch gap-2 pb-1">
             <div className="pointer-events-none absolute left-0 right-0 top-8 h-px bg-bone/10" />
             {items.map((item) => {
@@ -164,6 +210,17 @@ export default function ChronologicalScrubber({
               );
             })}
           </div>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Show older timeline entries"
+            onClick={() => scrollStrip(1)}
+            disabled={activeIndex === items.length - 1}
+            className="hidden h-10 w-10 place-items-center border border-bone/12 text-bone/55 transition hover:border-old-gold/50 hover:text-old-gold disabled:pointer-events-none disabled:opacity-25 lg:grid"
+          >
+            <ChevronRight size={16} />
+          </button>
         </div>
       </div>
     </nav>
