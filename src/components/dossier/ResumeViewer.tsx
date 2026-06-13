@@ -2,6 +2,8 @@ import { Download, FileText } from "lucide-react";
 import { resumeMedia } from "@/content/media";
 import MediaFrame from "./MediaFrame";
 
+const resumePdfHref = "/documents/resume/aaryan-srivastava-resume.pdf";
+
 export default function ResumeViewer() {
   return (
     <main className="min-h-screen bg-bone px-5 py-24 text-ink">
@@ -17,7 +19,7 @@ export default function ResumeViewer() {
             </p>
           </div>
           <a
-            href="/resume.pdf"
+            href={resumePdfHref}
             download
             className="inline-flex items-center gap-2 bg-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-paper hover:bg-vermilion"
           >
@@ -27,7 +29,7 @@ export default function ResumeViewer() {
         <div className="mt-10">
           <MediaFrame asset={resumeMedia} priority />
         </div>
-        <a href="/resume.pdf" className="mt-6 inline-flex items-center gap-2 text-sm underline decoration-vermilion underline-offset-4">
+        <a href={resumePdfHref} className="mt-6 inline-flex items-center gap-2 text-sm underline decoration-vermilion underline-offset-4">
           <FileText size={16} /> Open PDF directly
         </a>
       </div>

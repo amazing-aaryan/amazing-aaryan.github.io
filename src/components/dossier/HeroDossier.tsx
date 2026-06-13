@@ -15,7 +15,7 @@ export default function HeroDossier() {
         <div className="mb-10 flex items-center gap-3">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-sm border border-bone/18">
             <Image
-              src="/aaryan.jpg"
+              src="/profile/aaryan.jpg"
               alt="Aaryan Srivastava"
               fill
               unoptimized

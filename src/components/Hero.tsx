@@ -43,7 +43,7 @@ export default function Hero() {
         <motion.div {...fadeUp(0.10)} className="mb-8">
           <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#c4611a]/30 ring-4 ring-[#c4611a]/10">
             <Image
-              src="/avatar.jpg"
+              src="/profile/aaryan.jpg"
               alt="Aaryan Srivastava"
               width={80}
               height={80}

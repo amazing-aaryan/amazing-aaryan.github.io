@@ -64,7 +64,7 @@ export default function Contact() {
               <span>Email</span>
             </a>
             <a
-              href="/resume.pdf"
+              href="/documents/resume/aaryan-srivastava-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-[#7a4c26] hover:text-[#c4611a] transition-colors"

@@ -1,4 +1,4 @@
-import { ireneMedia, placeholderMedia, schedulingMedia, ssrn6545939Media, wwiCsvMedia, wwiRawMedia } from "./media";
+import { ireneMedia, noScrollMedia, placeholderMedia, schedulingMedia, ssrn6545939Media, visionarySummitMedia, wwiCsvMedia, wwiRawMedia } from "./media";
 import type { Award, Certification, EvidenceMetric, ExperienceItem, Principle, ResearchItem, WorkItem } from "./schema";
 
 export const evidenceMetrics: EvidenceMetric[] = [
@@ -405,7 +405,7 @@ export const workItems: WorkItem[] = [
     ],
     outcomes: [],
     stack: ["Mobile", "Product Design", "Behavioral Design"],
-    media: [],
+    media: noScrollMedia,
     links: [],
     ethics: [
       "Do not replace one compulsive loop with another — reading sessions should have natural end points.",
@@ -413,6 +413,58 @@ export const workItems: WorkItem[] = [
     ],
     learned:
       "Behavioral product design works best when the new habit hijacks the same trigger and reward structure as the old one.",
+  },
+  {
+    slug: "visionary-summit",
+    title: "Visionary Summit",
+    role: "Founder",
+    period: "Nov 2023 - May 2025",
+    status: "archived",
+    oneLine:
+      "A student-led Tallinn summit series connecting high-school students with diplomats, founders, lawyers, NGOs, and venture leaders.",
+    problem:
+      "High-school students interested in AI, law, and innovation rarely get direct access to the people shaping those fields locally and internationally.",
+    stakes:
+      "Without serious student-facing spaces, emerging technology and policy conversations stay abstract, credential-gated, and disconnected from the people who will inherit their consequences.",
+    constraints: [
+      "Events had to feel serious enough for senior speakers and accessible enough for high-school students.",
+      "Programming needed to bridge AI, diplomacy, law, entrepreneurship, and civic institutions without becoming unfocused.",
+      "Capacity, venue, speaker coordination, and audience trust had to be handled by a student-led team.",
+    ],
+    approach: [
+      "Founded and ran the organization for 18 months in Tallinn.",
+      "Built event programming around diplomats, NGOs, VCs, startup founders, and lawyers working on AI, law, and innovation.",
+      "Hosted panels with ambassadors and founders from organizations including Bolt, Alpa Kids, Forus Auto, and Clanbeat.",
+      "Positioned the summit as a bridge between international high-school students and the institutions shaping emerging technology policy.",
+    ],
+    outcomes: [
+      {
+        value: "18",
+        label: "months running",
+        context:
+          "Duration of the Visionary Summit organization and event series.",
+        source: "project notes",
+        confidence: "project",
+      },
+      {
+        value: "~30%",
+        label: "Tallinn IHS reach",
+        context:
+          "Peak reach across Tallinn's international high school community.",
+        source: "project notes",
+        confidence: "estimate",
+      },
+    ],
+    stack: ["Event Strategy", "Speaker Relations", "AI Policy", "Diplomacy"],
+    media: visionarySummitMedia,
+    links: [],
+    ethics: [
+      "Keep student access meaningful rather than performative.",
+      "Present technical and legal topics without flattening uncertainty or institutional stakes.",
+      "Treat speaker credibility and student trust as the core operating constraint.",
+    ],
+    learned:
+      "Serious youth-facing institutions work when the format respects students as participants in public life, not just an audience for inspiration.",
   },
 ];
 

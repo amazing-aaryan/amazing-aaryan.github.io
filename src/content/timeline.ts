@@ -1,4 +1,4 @@
-import { ireneMedia, schedulingMedia, wwiCsvMedia, wwiRawMedia } from "./media";
+import { ireneMedia, noScrollMedia, schedulingMedia, visionarySummitMedia, wwiCsvMedia, wwiRawMedia } from "./media";
 import type { MediaAsset } from "./schema";
 
 export type TimelineEntry = {
@@ -36,7 +36,8 @@ export const timelineEntries: TimelineEntry[] = [
       "Integrated native Instagram quote-sharing to drive social engagement and organic user acquisition",
     ],
     tags: ["Product", "Behavioral Design", "Reading", "Mobile"],
-    media: [],
+    media: noScrollMedia,
+    slug: "noscroll-app",
   },
   {
     id: "irene",
@@ -190,7 +191,7 @@ export const timelineEntries: TimelineEntry[] = [
       "Achieved full capacity at events, engaging ~30% of Tallinn's international high school student community",
     ],
     tags: ["Leadership", "AI Policy", "Events", "Diplomacy"],
-    media: [],
+    media: visionarySummitMedia,
     metrics: [
       { value: "18", label: "months running" },
       { value: "~30%", label: "of Tallinn IHS community" },
