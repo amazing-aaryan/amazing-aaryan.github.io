@@ -34,6 +34,14 @@ function dateNum(d: string): number {
   return Number(y) * 100 + Number(m);
 }
 
+function clamp(n: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, n));
+}
+
+function lerp(a: number, b: number, t: number): number {
+  return a + (b - a) * t;
+}
+
 function formatDate(date: string): string {
   const [year, month = "01"] = date.split("-");
   const parsed = new Date(Number(year), Number(month) - 1, 1);
@@ -65,36 +73,113 @@ export default function ChronologicalScrubber({
   );
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (changes) => {
-        const visible = changes
-          .filter((c) => c.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    let frame = 0;
 
-        if (visible) setActiveId(visible.target.id);
-      },
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0.15, 0.35, 0.6] }
-    );
+    const centeredLeft = (item: HTMLAnchorElement, strip: HTMLDivElement) =>
+      clamp(
+        item.offsetLeft - strip.clientWidth / 2 + item.clientWidth / 2,
+        0,
+        Math.max(0, strip.scrollWidth - strip.clientWidth)
+      );
 
-    entries.forEach((e) => {
-      const el = document.getElementById(e.id);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
-  }, [entries]);
+    const update = () => {
+      frame = 0;
+      const strip = stripRef.current;
+      if (!strip) return;
 
-  useEffect(() => {
-    if (!activeId) return;
-    const item = itemRefs.current[activeId];
-    const strip = stripRef.current;
+      const points = items
+        .map((item) => {
+          const section = document.getElementById(item.id);
+          const node = itemRefs.current[item.id];
+          if (!section || !node) return null;
 
-    if (!item || !strip) return;
+          const rect = section.getBoundingClientRect();
 
-    strip.scrollTo({
-      left: item.offsetLeft - strip.clientWidth / 2 + item.clientWidth / 2,
-      behavior: "smooth",
-    });
-  }, [activeId]);
+          return {
+            item,
+            node,
+            top: rect.top + window.scrollY,
+            viewportTop: rect.top,
+            viewportBottom: rect.bottom,
+          };
+        })
+        .filter((point): point is NonNullable<typeof point> => point !== null)
+        .sort((a, b) => a.top - b.top);
+
+      if (points.length === 0) return;
+
+      const trackingY = window.scrollY + window.innerHeight * 0.46;
+      const activePoint =
+        points.find(
+          (point) =>
+            point.viewportTop <= window.innerHeight * 0.5 &&
+            point.viewportBottom >= window.innerHeight * 0.5
+        ) ??
+        points.reduce((best, point) =>
+          Math.abs(
+            (point.viewportTop + point.viewportBottom) / 2 -
+              window.innerHeight / 2
+          ) <
+          Math.abs(
+            (best.viewportTop + best.viewportBottom) / 2 -
+              window.innerHeight / 2
+          )
+            ? point
+            : best
+      );
+
+      setActiveId((current) =>
+        current === activePoint.item.id ? current : activePoint.item.id
+      );
+
+      let targetLeft = centeredLeft(activePoint.node, strip);
+
+      for (let i = 0; i < points.length - 1; i += 1) {
+        const current = points[i];
+        const next = points[i + 1];
+
+        if (trackingY >= current.top && trackingY <= next.top) {
+          const segmentProgress = clamp(
+            (trackingY - current.top) / Math.max(1, next.top - current.top),
+            0,
+            1
+          );
+
+          targetLeft = lerp(
+            centeredLeft(current.node, strip),
+            centeredLeft(next.node, strip),
+            segmentProgress
+          );
+          break;
+        }
+      }
+
+      if (trackingY <= points[0].top) {
+        targetLeft = centeredLeft(points[0].node, strip);
+      }
+
+      if (trackingY >= points[points.length - 1].top) {
+        targetLeft = centeredLeft(points[points.length - 1].node, strip);
+      }
+
+      strip.scrollLeft = targetLeft;
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, [items]);
 
   const active = items.find((item) => item.id === activeId) ?? items[0];
   const activeIndex = Math.max(
@@ -104,14 +189,12 @@ export default function ChronologicalScrubber({
 
   function scrollToIndex(index: number) {
     const item = items[index];
-    const strip = stripRef.current;
 
-    if (!item || !strip) return;
+    if (!item) return;
 
-    itemRefs.current[item.id]?.scrollIntoView({
+    document.getElementById(item.id)?.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
+      block: "start",
     });
   }
 
