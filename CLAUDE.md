@@ -1,11 +1,24 @@
-@AGENTS.md
+# Personal Website Implementation Notes
 
-## graphify
+Canonical redesign spec:
+`docs/superpowers/specs/2026-09-10-personal-website-redesign-design.md`
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+Implementation plan:
+`docs/superpowers/plans/2026-09-10-personal-website-redesign.md`
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+## Current architecture
+
+- `site/` — the new public website source (HTML/CSS/JS).
+- `public/` — existing verified binary assets and documents; keep these reusable assets intact.
+- `scripts/build-static.mjs` — flattens `public/` into the deployment root, then overlays `site/`.
+- `dist/` — generated deployment output; never edit by hand.
+
+The active website is intentionally rebuilt from scratch rather than adapting the old dossier UI. Old `src/` files may remain temporarily as historical/dead source, but they are not part of the deployed build.
+
+## Content integrity
+
+Never copy render-only fictional experiences or projects into the site. Use verified repository/resume content only.
+
+## Graphify
+
+The legacy codebase may still have `graphify-out/`. It describes the previous Next.js implementation and is not authoritative for the new `site/` architecture.
