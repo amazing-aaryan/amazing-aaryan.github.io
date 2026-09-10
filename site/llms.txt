@@ -1,0 +1,15 @@
+# Aaryan Srivastava
+
+Personal portfolio of Aaryan Srivastava, a University of Michigan student and builder/researcher working across AI, political science, law, institutions, and data systems.
+
+Primary pages:
+- / — About
+- /experiences/ — Work, leadership, research, and institutional experience
+- /projects/ — IRENE, NoScroll, scheduling automation, legal analytics, WWI service data, and Visionary Summit
+- /papers/ — Research papers and working papers
+- /resume/ — Resume
+
+Contact:
+- GitHub: https://github.com/amazing-aaryan
+- LinkedIn: https://www.linkedin.com/in/aaryan21/
+- Email: aaryansr@umich.edu
