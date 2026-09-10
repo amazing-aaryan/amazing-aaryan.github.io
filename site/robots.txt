@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://amazing-aaryan.github.io/sitemap.xml
