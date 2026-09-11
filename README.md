@@ -1,20 +1,22 @@
-# Aaryan Srivastava — Personal Website
+# Aaryan Srivastava — Portfolio
 
-The public website is a dependency-free static portfolio built for GitHub Pages.
+This repository contains Aaryan Srivastava's personal website.
 
-## Source
+## Current redesign
 
-- `site/` — About, Experiences, Projects, Papers, shared CSS/JS, and static detail pages.
-- `public/` — verified media from the previous site: profile photo, project videos/screenshots, research PDF, and resume.
-- `scripts/build-static.mjs` — builds `dist/` by flattening `public/` into the web root and overlaying `site/`.
+The canonical design specification is:
 
-## Commands
+`docs/superpowers/specs/2026-09-10-personal-website-redesign-design.md`
 
-```bash
-npm test
-npm run build
-```
+The implementation plan is:
 
-## Design source of truth
+`docs/superpowers/plans/2026-09-10-personal-website-redesign.md`
 
-Read `docs/superpowers/specs/2026-09-10-personal-website-redesign-design.md` before changing the public design.
+Primary routes:
+
+- `/` — About
+- `/experiences/` — Experiences
+- `/projects/` — Projects
+- `/papers/` — Papers
+
+The site is generated as static HTML for GitHub Pages. Verified media lives in `public/` and is copied into `dist/` during `npm run build`.
