@@ -63,6 +63,46 @@ test('papers page contains core real research titles', () => {
   }
 });
 
+test('paper taxonomy reflects the corrected research record', () => {
+  const papers = read('site/papers/index.html');
+  const projects = read('site/projects/index.html');
+  assert.match(papers, /GOTV versus Persuasion in U\.S\. Battleground States[\s\S]*?Work in progress/i);
+  assert.doesNotMatch(papers, /Assessing Federal Litigation Success Disparities/);
+  assert.doesNotMatch(projects, /WWI Soldier Service Dataset/);
+});
+
+test('published paper cards link directly to their publication destinations', () => {
+  const html = read('site/papers/index.html');
+  for (const href of [
+    'https://ssrn.com/abstract=6545939',
+    'https://ssrn.com/abstract=6662638',
+    'https://ssrn.com/abstract=6663358',
+    'https://ssrn.com/abstract=6662538',
+    'https://ssrn.com/abstract=6546018'
+  ]) {
+    assert.ok(html.includes(`class="paper-card" href="${href}"`), `paper card must directly link to ${href}`);
+  }
+});
+
+test('published SSRN papers expose real abstract copy', () => {
+  const html = read('site/papers/index.html');
+  for (const phrase of [
+    'What explains persistent disparities in federal sentencing outcomes across race, citizenship status, and socioeconomic position',
+    'International cooperation on artificial intelligence (AI) regulation between the European Union and the United States faces two fundamental structural barriers',
+    "This paper evaluates the success of India's foreign policy under Jawaharlal Nehru during the Cold War",
+    'The emergence of large language models (LLMs) as tools for automated political messaging represents a qualitative shift',
+    'This paper explains variation in compliance with the Laws of Armed Conflict (LOAC) under asymmetric conditions where reciprocity is weak or absent'
+  ]) {
+    assert.ok(html.includes(phrase), `missing verified abstract phrase: ${phrase}`);
+  }
+});
+
+test('nuclear proliferation journal paper links to the supplied journal at page 39', () => {
+  const html = read('site/papers/index.html');
+  assert.match(html, /6a9223c28e9103b92ebd163d_FINALW26-compressed\.pdf#page=39/);
+  assert.match(html, /Nuclear Proliferation/i);
+});
+
 test('deployment build script stages site and public into dist', () => {
   const script = read('scripts/build-static.mjs');
   assert.match(script, /site/);
