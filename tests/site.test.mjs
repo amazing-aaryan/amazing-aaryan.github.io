@@ -35,12 +35,20 @@ test('about page keeps the AI agent surface inert', () => {
   assert.doesNotMatch(html, /api\/chat|fetch\s*\(/i);
 });
 
-test('projects page features the three approved projects in order', () => {
+test('projects page features ADN after the existing three approved projects', () => {
   const html = read('site/projects/index.html');
   const irene = html.indexOf('IRENE AI Logistics Platform');
   const noscroll = html.indexOf('NoScroll');
   const scheduling = html.indexOf('Scheduling Automation System');
-  assert.ok(irene >= 0 && noscroll > irene && scheduling > noscroll);
+  const adn = html.indexOf('Agent Demand Network (ADN)');
+  assert.ok(irene >= 0 && noscroll > irene && scheduling > noscroll && adn > scheduling);
+});
+
+test('ADN project uses the third-party validation artifact and labels it independently', () => {
+  const html = read('site/projects/index.html');
+  assert.match(html, /\/projects\/adn\/third-party-validation\.png/);
+  assert.match(html, /Independent industry commentary/i);
+  assert.equal(fs.existsSync(path.join(root, 'public/projects/adn/third-party-validation.png')), true);
 });
 
 test('papers page contains core real research titles', () => {
