@@ -88,17 +88,18 @@ test('published SSRN papers expose real abstract copy', () => {
   const html = read('site/papers/index.html');
   for (const phrase of [
     'What explains persistent disparities in federal sentencing outcomes across race, citizenship status, and socioeconomic position',
-    'International cooperation on artificial intelligence (AI) regulation between the European Union and the United States faces two fundamental structural barriers',
+    'International cooperation on artificial intelligence regulation between the European Union and the United States faces two fundamental structural barriers',
     "This paper evaluates the success of India's foreign policy under Jawaharlal Nehru during the Cold War",
-    'The emergence of large language models (LLMs) as tools for automated political messaging represents a qualitative shift',
-    'This paper explains variation in compliance with the Laws of Armed Conflict (LOAC) under asymmetric conditions where reciprocity is weak or absent'
+    'The emergence of large language models as tools for automated political messaging represents a qualitative shift',
+    'This paper explains variation in compliance with the Laws of Armed Conflict under asymmetric conditions where reciprocity is weak or absent'
   ]) {
     assert.ok(html.includes(phrase), `missing verified abstract phrase: ${phrase}`);
   }
 });
 
-test('every published paper preview uses a local PDF asset', () => {
+test('every published paper preview uses a locally served PDF path', () => {
   const html = read('site/papers/index.html');
+  const fetcher = read('scripts/fetch-paper-assets.mjs');
   const pdfs = [
     '/research/nuclear-proliferation/nuclear-proliferation.pdf',
     '/research/federal-sentencing-disparities/ssrn-6545939.pdf',
@@ -109,13 +110,16 @@ test('every published paper preview uses a local PDF asset', () => {
   ];
   for (const pdf of pdfs) {
     assert.ok(html.includes(`${pdf}#`), `${pdf} must be embedded locally`);
-    assert.equal(fs.existsSync(path.join(root, 'public', pdf)), true, `${pdf} must exist in public`);
+  }
+  assert.equal(fs.existsSync(path.join(root, 'public/research/federal-sentencing-disparities/ssrn-6545939.pdf')), true);
+  for (const generated of pdfs.filter((pdf) => !pdf.includes('6545939'))) {
+    assert.ok(fetcher.includes(`public${generated}`), `${generated} must be staged by the build`);
   }
 });
 
 test('paper layout prioritizes large readable PDF previews', () => {
   const html = read('site/papers/index.html');
-  const css = read('site/assets/styles.css');
+  const css = read('site/assets/papers.css');
   assert.equal((html.match(/class="paper-pdf"/g) || []).length, 6, 'each paper needs a large PDF preview');
   assert.match(css, /\.paper-pdf\{[^}]*min-height:\s*4\d\dpx/i);
   assert.match(css, /\.paper-card\{[^}]*grid-template-columns:[^;}]*minmax\(0,\.\d+fr\)[^;}]*minmax\(0,1\.\d+fr\)/i);
@@ -124,11 +128,15 @@ test('paper layout prioritizes large readable PDF previews', () => {
 test('nuclear proliferation journal paper links to the supplied journal at page 39', () => {
   const html = read('site/papers/index.html');
   assert.match(html, /6a9223c28e9103b92ebd163d_FINALW26-compressed\.pdf#page=39/);
-  assert.match(html, /Nuclear Proliferation/i);
+  assert.match(html, /nuclear-proliferation\.pdf#page=39/);
 });
 
-test('deployment build script stages site and public into dist', () => {
+test('build fetches paper PDFs before static export', () => {
+  const pkg = read('package.json');
+  const fetcher = read('scripts/fetch-paper-assets.mjs');
   const script = read('scripts/build-static.mjs');
+  assert.match(pkg, /fetch-paper-assets\.mjs/);
+  assert.match(fetcher, /%PDF-/);
   assert.match(script, /site/);
   assert.match(script, /public/);
   assert.match(script, /dist/);
