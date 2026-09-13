@@ -38,6 +38,20 @@ test('Visionary Summit has its own completed-project preview page instead of an 
   assert.doesNotMatch(html, />Archive</i);
 });
 
+test('portfolio metadata classifies Visionary Summit as a completed project', () => {
+  const portfolio = read('src/content/portfolio.ts');
+  const experienceMatch = portfolio.match(/id: "visionary-summit"[\s\S]*?kind: "([^"]+)"/);
+  assert.ok(experienceMatch, 'Visionary Summit experience metadata must exist');
+  assert.equal(experienceMatch[1], 'project');
+
+  const workMatch = portfolio.match(/slug: "visionary-summit"[\s\S]*?status: "([^"]+)"/);
+  assert.ok(workMatch, 'Visionary Summit project metadata must exist');
+  assert.equal(workMatch[1], 'completed');
+
+  const schema = read('src/content/schema.ts');
+  assert.match(schema, /status: "live" \| "in-progress" \| "research" \| "completed" \| "archived"/);
+});
+
 test('static build no longer generates Visionary Summit under the legacy work route', () => {
   const script = read('scripts/build-static.mjs');
   assert.doesNotMatch(script, /\['visionary-summit','Visionary Summit'/);
