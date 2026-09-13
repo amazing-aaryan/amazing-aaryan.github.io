@@ -61,6 +61,14 @@ test('legacy experiences route redirects back to the About experience section', 
   assert.match(html, /href="\/#experience"/i);
 });
 
+test('shared shell exposes a persistent theme toggle', () => {
+  for (const file of ['site/index.html', 'site/projects/index.html', 'site/papers/index.html', 'site/resume/index.html', 'site/404.html']) {
+    assert.match(read(file), /data-theme-toggle/);
+  }
+  assert.match(read('site/assets/site.js'), /localStorage/);
+  assert.match(read('site/assets/styles.css'), /html\[data-theme="dark"\]/);
+});
+
 test('legacy about, experience, and CV routes remain reachable', () => {
   assert.match(read('site/about/index.html'), /url=\/"/i);
   assert.match(read('site/experience/index.html'), /url=\/#experience/i);

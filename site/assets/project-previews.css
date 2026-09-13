@@ -133,13 +133,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   padding: 18px;
+  align-items: center;
   background: radial-gradient(circle at 70% 40%, rgba(195, 189, 232, .26), transparent 43%), #f7f4fb;
 }
 
 .project-article-media.noscroll-article-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #11131b;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(27, 34, 48, .10);
 }

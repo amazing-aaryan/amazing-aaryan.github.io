@@ -29,7 +29,7 @@ function nav(active) {
     ['Projects', '/projects/', 'grid'],
     ['Papers', '/papers/', 'paper'],
   ];
-  return `<div class="site-nav-wrap"><nav class="site-nav" aria-label="Primary">${items.map(([label, href, icon]) => `<a class="nav-link" href="${href}"${label === active ? ' aria-current="page"' : ''}><span class="nav-icon">${icons[icon]}</span>${label}</a>`).join('')}</nav></div>`;
+  return `<div class="site-nav-wrap"><nav class="site-nav" aria-label="Primary">${items.map(([label, href, icon]) => `<a class="nav-link" href="${href}"${label === active ? ' aria-current="page"' : ''}><span class="nav-icon">${icons[icon]}</span>${label}</a>`).join('')}<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-toggle-icon" aria-hidden="true">☾</span></button></nav></div>`;
 }
 
 const footer = '<footer class="site-footer"><div>© 2026 Aaryan Srivastava</div><div class="footer-links"><a href="https://www.linkedin.com/in/aaryan21/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/amazing-aaryan" target="_blank" rel="noopener">GitHub</a><a href="mailto:aaryansr@umich.edu">Email</a><span class="footer-phrase">Build for a better tomorrow.</span></div></footer>';

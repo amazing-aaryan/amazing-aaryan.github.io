@@ -26,3 +26,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Use a later IRENE video frame showing the scanned product instead of the earlier loading-spinner frame.
 **Why:** The live responsive capture confirmed the poster prevented blank media, but the later frame communicates the project faster to first-time visitors.
 **Impact:** Featured IRENE media now opens with a clearer product state at every tested viewport.
+
+## [2026-09-13 14:10] Improve NoScroll continuity and add theme control
+**Decision:** Preserve complete NoScroll 4:5 screenshots with contain framing, then add a persistent light/dark theme toggle to the shared static shell.
+**Why:** Live collage capture showed cover cropping across the three screens, and the site had no dark mode despite the visual system being suited to a night reading palette.
+**Impact:** NoScroll screens remain legible and aligned across breakpoints; all primary, detail, generated, and diagram routes can switch themes consistently.
