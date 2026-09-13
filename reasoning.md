@@ -31,3 +31,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Preserve complete NoScroll 4:5 screenshots with contain framing, then add a persistent light/dark theme toggle to the shared static shell.
 **Why:** Live collage capture showed cover cropping across the three screens, and the site had no dark mode despite the visual system being suited to a night reading palette.
 **Impact:** NoScroll screens remain legible and aligned across breakpoints; all primary, detail, generated, and diagram routes can switch themes consistently.
+
+## [2026-09-13 14:25] Keep theme toggle inside navigation chrome
+**Decision:** Position theme control absolutely within the shared nav and reserve its space in the three-link grid across responsive breakpoints.
+**Why:** Live GitHub Pages capture showed the button becoming an implicit fourth grid row, creating a large broken strip below navigation.
+**Impact:** Theme control stays compact, aligned, and usable on desktop and mobile while preserving the three-link navigation layout.
