@@ -32,15 +32,16 @@ test('featured project media uses a consistent 16:9 preview frame', () => {
 
 test('ADN and AgentShare use the normal alternating featured-project layout with single-image previews', () => {
   const html = read('site/projects/index.html');
-  for (const [id, src] of [
-    ['adn', '/projects/adn/workflow-diagram.webp'],
-    ['agentshare', '/projects/agentshare/architecture-diagram.webp'],
+  for (const [id, src, asset] of [
+    ['adn', '/projects/adn/workflow-diagram-preview.webp', 'public/projects/adn/workflow-diagram-preview.webp'],
+    ['agentshare', '/projects/agentshare/architecture-diagram-preview.webp', 'public/projects/agentshare/architecture-diagram-preview.webp'],
   ]) {
     const section = html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?<\\/section>`));
     assert.ok(section, `missing featured project ${id}`);
     assert.doesNotMatch(section[0], /diagram-feature/);
     assert.match(section[0], new RegExp(`src="${src.replaceAll('/', '\\/')}"`));
     assert.doesNotMatch(section[0], /diagram-[1-4]\.webp/);
+    assert.equal(exists(asset), true, `${asset} must exist`);
   }
 });
 
