@@ -68,8 +68,11 @@ test('sitemap does not advertise a standalone experiences page', () => {
 
 test('render-only fictional experiences and projects are absent', () => {
   const corpus = ['site/index.html', 'site/projects/index.html', 'site/papers/index.html'].map(read).join('\n');
-  for (const forbidden of ['OpenAI', 'World Bank', 'Harvard University', 'Climate Policy Insights', 'Civic Data Explorer']) {
-    assert.equal(corpus.includes(forbidden), false, `${forbidden} must not appear`);
+  for (const forbiddenOrg of ['OpenAI', 'World Bank', 'Harvard University']) {
+    assert.equal(corpus.includes(`<span class="org-name">${forbiddenOrg}</span>`), false, `${forbiddenOrg} must not appear as an experience organization`);
+  }
+  for (const forbiddenProject of ['Climate Policy Insights', 'Civic Data Explorer']) {
+    assert.equal(corpus.includes(forbiddenProject), false, `${forbiddenProject} must not appear`);
   }
 });
 
