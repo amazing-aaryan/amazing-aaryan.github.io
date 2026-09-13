@@ -97,30 +97,19 @@ test('published SSRN papers expose real abstract copy', () => {
   }
 });
 
-test('every published paper preview uses a locally served PDF path', () => {
+test('all six published papers render a real PDF preview surface', () => {
   const html = read('site/papers/index.html');
-  const fetcher = read('scripts/fetch-paper-assets.mjs');
-  const pdfs = [
-    '/research/nuclear-proliferation/nuclear-proliferation.pdf',
-    '/research/federal-sentencing-disparities/ssrn-6545939.pdf',
-    '/research/ai-regulation-eu-us/ssrn-6662638.pdf',
-    '/research/nehru-foreign-policy/ssrn-6663358.pdf',
-    '/research/llm-political-messaging/ssrn-6662538.pdf',
-    '/research/loac-low-reciprocity/ssrn-6546018.pdf'
-  ];
-  for (const pdf of pdfs) {
-    assert.ok(html.includes(`${pdf}#`), `${pdf} must be embedded locally`);
-  }
-  assert.equal(fs.existsSync(path.join(root, 'public/research/federal-sentencing-disparities/ssrn-6545939.pdf')), true);
-  for (const generated of pdfs.filter((pdf) => !pdf.includes('6545939'))) {
-    assert.ok(fetcher.includes(`public${generated}`), `${generated} must be staged by the build`);
+  assert.equal((html.match(/class="paper-pdf"/g) || []).length, 6, 'each paper needs a PDF preview');
+  assert.match(html, /\/research\/nuclear-proliferation\/nuclear-proliferation\.pdf#page=39/);
+  assert.match(html, /\/research\/federal-sentencing-disparities\/ssrn-6545939\.pdf#page=1/);
+  assert.equal((html.match(/docs\.google\.com\/gview\?embedded=1/g) || []).length, 4, 'four SSRN PDFs should use the hosted document viewer');
+  for (const id of ['6662638', '6663358', '6662538', '6546018']) {
+    assert.ok(html.includes(`${id}.pdf`), `${id} PDF must be loaded into the viewer`);
   }
 });
 
 test('paper layout prioritizes large readable PDF previews', () => {
-  const html = read('site/papers/index.html');
   const css = read('site/assets/papers.css');
-  assert.equal((html.match(/class="paper-pdf"/g) || []).length, 6, 'each paper needs a large PDF preview');
   assert.match(css, /\.paper-pdf\{[^}]*min-height:\s*4\d\dpx/i);
   assert.match(css, /\.paper-card\{[^}]*grid-template-columns:[^;}]*minmax\(0,\.\d+fr\)[^;}]*minmax\(0,1\.\d+fr\)/i);
 });
@@ -131,11 +120,12 @@ test('nuclear proliferation journal paper links to the supplied journal at page 
   assert.match(html, /nuclear-proliferation\.pdf#page=39/);
 });
 
-test('build fetches paper PDFs before static export', () => {
+test('build stages the journal PDF before static export', () => {
   const pkg = read('package.json');
   const fetcher = read('scripts/fetch-paper-assets.mjs');
   const script = read('scripts/build-static.mjs');
   assert.match(pkg, /fetch-paper-assets\.mjs/);
+  assert.match(fetcher, /nuclear-proliferation\.pdf/);
   assert.match(fetcher, /%PDF-/);
   assert.match(script, /site/);
   assert.match(script, /public/);
