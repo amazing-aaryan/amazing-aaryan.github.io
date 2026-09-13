@@ -51,24 +51,24 @@ test('ADN project uses the third-party validation artifact and labels it indepen
   assert.equal(fs.existsSync(path.join(root, 'public/projects/adn/third-party-validation.webp')), true);
 });
 
-test('papers page contains core real research titles', () => {
+test('papers page shows published papers only', () => {
   const html = read('site/papers/index.html');
-  for (const title of [
+  for (const removed of [
     'GOTV versus Persuasion in U.S. Battleground States',
-    'Sacrifice for the State: Identification or Disillusionment?',
-    'Autonomous Agent-Driven Analysis of Federal Sentencing Disparities',
-    'Why Has International Cooperation on AI Regulation Been Difficult Between the EU and the United States?'
+    'Sacrifice for the State: Identification or Disillusionment?'
   ]) {
-    assert.ok(html.includes(title), `${title} missing`);
+    assert.equal(html.includes(removed), false, `${removed} must not appear on Papers`);
   }
-});
-
-test('paper taxonomy reflects the corrected research record', () => {
-  const papers = read('site/papers/index.html');
-  const projects = read('site/projects/index.html');
-  assert.match(papers, /GOTV versus Persuasion in U\.S\. Battleground States[\s\S]*?Work in progress/i);
-  assert.doesNotMatch(papers, /Assessing Federal Litigation Success Disparities/);
-  assert.doesNotMatch(projects, /WWI Soldier Service Dataset/);
+  for (const kept of [
+    'Nuclear Proliferation',
+    'Autonomous Agent-Driven Analysis of Federal Sentencing Disparities',
+    'Why Has International Cooperation on AI Regulation Been Difficult Between the EU and the United States?',
+    "How Successful Was India's Foreign Policy Under Jawaharlal Nehru During the Cold War?",
+    'How Effectively Do LLM-Driven, Micro-Tailored Political Messages Influence Public Opinion?',
+    'What Explains Variation in State Compliance with the Laws of Armed Conflict Under Conditions of Low Reciprocity?'
+  ]) {
+    assert.ok(html.includes(kept), `${kept} missing`);
+  }
 });
 
 test('published paper cards link directly to their publication destinations', () => {
@@ -95,6 +95,30 @@ test('published SSRN papers expose real abstract copy', () => {
   ]) {
     assert.ok(html.includes(phrase), `missing verified abstract phrase: ${phrase}`);
   }
+});
+
+test('every published paper preview uses a local PDF asset', () => {
+  const html = read('site/papers/index.html');
+  const pdfs = [
+    '/research/nuclear-proliferation/nuclear-proliferation.pdf',
+    '/research/federal-sentencing-disparities/ssrn-6545939.pdf',
+    '/research/ai-regulation-eu-us/ssrn-6662638.pdf',
+    '/research/nehru-foreign-policy/ssrn-6663358.pdf',
+    '/research/llm-political-messaging/ssrn-6662538.pdf',
+    '/research/loac-low-reciprocity/ssrn-6546018.pdf'
+  ];
+  for (const pdf of pdfs) {
+    assert.ok(html.includes(`${pdf}#`), `${pdf} must be embedded locally`);
+    assert.equal(fs.existsSync(path.join(root, 'public', pdf)), true, `${pdf} must exist in public`);
+  }
+});
+
+test('paper layout prioritizes large readable PDF previews', () => {
+  const html = read('site/papers/index.html');
+  const css = read('site/assets/styles.css');
+  assert.equal((html.match(/class="paper-pdf"/g) || []).length, 6, 'each paper needs a large PDF preview');
+  assert.match(css, /\.paper-pdf\{[^}]*min-height:\s*4\d\dpx/i);
+  assert.match(css, /\.paper-card\{[^}]*grid-template-columns:[^;}]*minmax\(0,\.\d+fr\)[^;}]*minmax\(0,1\.\d+fr\)/i);
 });
 
 test('nuclear proliferation journal paper links to the supplied journal at page 39', () => {
