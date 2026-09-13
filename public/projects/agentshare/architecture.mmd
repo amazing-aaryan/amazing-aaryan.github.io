@@ -1,0 +1,27 @@
+flowchart LR
+  subgraph CREATOR["CREATOR · PLAINTEXT"]
+    direction TB
+    C0["AI working context<br/>conversation · constraints · decisions<br/>failed paths · open work"] --> C1[Select]
+    C1 --> C2[Review exact boundary]
+    C2 --> C3[Agent Context Bundle]
+    C3 --> C4[Encrypt locally]
+  end
+
+  C4 -->|"ONE CAPABILITY LINK<br/>read + key"| R["BLIND RELAY<br/>ciphertext + delivery metadata<br/>no context plaintext<br/>no decryption key"]
+  R --> D[Decrypt locally]
+
+  subgraph RECIPIENT["RECIPIENT · PLAINTEXT"]
+    direction TB
+    D --> P0["AI working context<br/>conversation · constraints · decisions<br/>failed paths · open work"]
+    P0 --> P1[Local evidence]
+    P1 --> P2[Continue with your agent]
+  end
+
+  P2 -. "encrypted proposal (optional)" .-> C2
+
+  classDef context fill:#f8fbff,stroke:#8ca4bf,color:#17243a,stroke-width:1px;
+  classDef secure fill:#eef5ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  classDef relay fill:#ffffff,stroke:#17243a,color:#17243a,stroke-width:1.5px;
+  class C0,C1,C2,P0,P1,P2 context;
+  class C3,C4,D secure;
+  class R relay;
