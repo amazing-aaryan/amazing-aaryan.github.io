@@ -1,0 +1,9 @@
+flowchart LR
+  subgraph RECIPIENT["RECIPIENT · PLAINTEXT"]
+    direction LR
+    P0["AI working context<br/>conversation · constraints · decisions<br/>failed paths · open work"] --> P1[Local evidence] --> P2[Continue with your agent]
+    P2 -. encrypted proposal optional .-> P3[Creator review]
+  end
+
+  classDef context fill:#f8fbff,stroke:#8ca4bf,color:#17243a,stroke-width:1px;
+  class P0,P1,P2,P3 context;
