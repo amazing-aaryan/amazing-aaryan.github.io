@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph WEB["WEB / SEARCH"]
+    direction LR
+    W0[Demand] --> W1[Search / browse] --> W2[Pages + snippets] --> W3[Parse + reconcile] --> W4[Decision]
+    W4 -. repeat next task .-> W1
+  end
+
+  subgraph META["STRUCTURED METADATA"]
+    direction LR
+    M0[Demand] --> M1[Registry / directory] --> M2[Structured product facts] --> M3[Compare] --> M4[Decision]
+  end
+
+  subgraph ADN["ADN"]
+    direction LR
+    D0[Demand] --> D1[find] --> D2[Supported facts] --> D3[Decision] --> D4[Direct attempt]
+    D4 --> O["Observed outcome<br/>status · latency · schema · retries"]
+    D4 --> E["Interpreted experience<br/>goal satisfied? · cause · confidence"]
+    O --> K["Accumulated knowledge<br/>truth · observations · experience"]
+    E --> K
+    K --> D1
+    T["Product truth<br/>assertions · evidence · freshness · uncertainty"] --> D2
+    D2 -. inspect deeper only when needed .-> D2
+  end
+
+  classDef neutral fill:#ffffff,stroke:#718096,color:#17243a,stroke-width:1px;
+  classDef adn fill:#f4f8ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  classDef knowledge fill:#eef5ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  class W0,W1,W2,W3,W4,M0,M1,M2,M3,M4 neutral;
+  class D0,D1,D2,D3,D4,T,O,E adn;
+  class K knowledge;

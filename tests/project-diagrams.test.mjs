@@ -7,26 +7,28 @@ const root = path.resolve(process.cwd());
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const exists = (p) => fs.existsSync(path.join(root, p));
 
-test('full ADN workflow diagram remains available from its dedicated technical view', () => {
+test('full ADN workflow diagram remains available as a Mermaid technical view', () => {
   const full = read('site/projects/adn/workflow-diagram/index.html');
   assert.equal(exists('site/projects/adn/workflow-diagram/index.html'), true);
-  for (let i = 1; i <= 4; i += 1) {
-    assert.match(full, new RegExp(`/projects/adn/workflow-diagram-${i}\\.webp`));
-    assert.equal(exists(`public/projects/adn/workflow-diagram-${i}.webp`), true);
-  }
+  assert.equal(exists('public/projects/adn/workflow.mmd'), true);
+  assert.match(full, /data-mermaid-source="\/projects\/adn\/workflow\.mmd"/);
+  assert.match(full, /class="mermaid-full mermaid-diagram"/);
+  assert.match(full, /\/assets\/mermaid-render\.js/);
 });
 
-test('full AgentShare architecture diagram remains available from its dedicated technical view', () => {
+test('full AgentShare architecture remains available as a Mermaid technical view', () => {
   const full = read('site/projects/agentshare/architecture-diagram/index.html');
   assert.equal(exists('site/projects/agentshare/architecture-diagram/index.html'), true);
-  for (let i = 1; i <= 4; i += 1) {
-    assert.match(full, new RegExp(`/projects/agentshare/architecture-diagram-${i}\\.webp`));
-    assert.equal(exists(`public/projects/agentshare/architecture-diagram-${i}.webp`), true);
-  }
+  assert.equal(exists('public/projects/agentshare/architecture.mmd'), true);
+  assert.match(full, /data-mermaid-source="\/projects\/agentshare\/architecture\.mmd"/);
+  assert.match(full, /class="mermaid-full mermaid-diagram"/);
+  assert.match(full, /\/assets\/mermaid-render\.js/);
 });
 
-test('main Projects page uses compact diagram previews instead of full-width technical stacks', () => {
+test('main Projects page uses compact Mermaid previews instead of full-width technical stacks', () => {
   const html = read('site/projects/index.html');
+  assert.match(html, /data-mermaid-source="\/projects\/adn\/workflow\.mmd"/);
+  assert.match(html, /data-mermaid-source="\/projects\/agentshare\/architecture\.mmd"/);
   assert.match(html, /\/projects\/adn\/workflow-diagram-preview\.webp/);
   assert.match(html, /\/projects\/agentshare\/architecture-diagram-preview\.webp/);
   assert.doesNotMatch(html, /diagram-feature/);
