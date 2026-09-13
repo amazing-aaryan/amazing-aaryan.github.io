@@ -32,8 +32,14 @@ test('featured project media uses a consistent 16:9 preview frame', () => {
 
 test('autoplay project videos have static poster frames for first paint', () => {
   const html = read('site/projects/index.html');
-  assert.match(html, /src="\/projects\/irene\/demo\.mp4" poster="\/projects\/irene\/demo-poster\.jpg"/);
-  assert.match(html, /src="\/projects\/scheduling-automation\/demo\.mp4" poster="\/projects\/scheduling-automation\/demo-poster\.jpg"/);
+  for (const [file, video, poster] of [
+    ['site/projects/index.html', '/projects/irene/demo.mp4', '/projects/irene/demo-poster.jpg'],
+    ['site/projects/index.html', '/projects/scheduling-automation/demo.mp4', '/projects/scheduling-automation/demo-poster.jpg'],
+    ['site/projects/irene/index.html', '/projects/irene/demo.mp4', '/projects/irene/demo-poster.jpg'],
+    ['site/projects/scheduling/index.html', '/projects/scheduling-automation/demo.mp4', '/projects/scheduling-automation/demo-poster.jpg'],
+  ]) {
+    assert.match(read(file), new RegExp(`src="${video.replaceAll('/', '\\/')}" poster="${poster.replaceAll('/', '\\/')}"`));
+  }
   for (const poster of ['public/projects/irene/demo-poster.jpg', 'public/projects/scheduling-automation/demo-poster.jpg']) {
     assert.equal(exists(poster), true, `${poster} must exist`);
   }

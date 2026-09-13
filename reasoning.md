@@ -36,3 +36,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Position theme control absolutely within the shared nav and reserve its space in the three-link grid across responsive breakpoints.
 **Why:** Live GitHub Pages capture showed the button becoming an implicit fourth grid row, creating a large broken strip below navigation.
 **Impact:** Theme control stays compact, aligned, and usable on desktop and mobile while preserving the three-link navigation layout.
+
+## [2026-09-13 15:05] Add fallback posters to project detail videos
+**Decision:** Give IRENE and Scheduling detail-page videos the same static poster frames already used on the Projects listing.
+**Why:** Live media audit found both detail videos served successfully but remained at `readyState=0` until playback, leaving a blank first paint when autoplay or metadata loading was delayed.
+**Impact:** Detail pages show useful project media immediately while videos load or remain blocked, with no route or asset contract changes.
