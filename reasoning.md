@@ -21,3 +21,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Extract first-use poster frames from IRENE and Scheduling demo videos and attach them to the featured project video elements.
 **Why:** Live browser capture briefly showed neutral gray media frames before video metadata loaded; poster frames preserve visual continuity during first paint.
 **Impact:** Projects page now has immediate media content while autoplay videos initialize, with source assets covered by regression tests.
+
+## [2026-09-13 13:48] Refined IRENE first-paint poster
+**Decision:** Use a later IRENE video frame showing the scanned product instead of the earlier loading-spinner frame.
+**Why:** The live responsive capture confirmed the poster prevented blank media, but the later frame communicates the project faster to first-time visitors.
+**Impact:** Featured IRENE media now opens with a clearer product state at every tested viewport.
