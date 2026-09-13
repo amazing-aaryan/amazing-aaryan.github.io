@@ -6,23 +6,68 @@ import path from 'node:path';
 const root = path.resolve(process.cwd());
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 
-test('primary four-page information architecture exists', () => {
-  for (const file of ['site/index.html', 'site/experiences/index.html', 'site/projects/index.html', 'site/papers/index.html']) {
+test('primary three-page information architecture exists', () => {
+  for (const file of ['site/index.html', 'site/projects/index.html', 'site/papers/index.html']) {
     assert.equal(fs.existsSync(path.join(root, file)), true, `${file} must exist`);
   }
 });
 
-test('all primary pages expose the same four navigation destinations', () => {
-  for (const file of ['site/index.html', 'site/experiences/index.html', 'site/projects/index.html', 'site/papers/index.html']) {
+test('primary navigation exposes About, Projects, and Papers without a separate Experiences tab', () => {
+  for (const file of ['site/index.html', 'site/projects/index.html', 'site/papers/index.html', 'site/resume/index.html']) {
     const html = read(file);
-    for (const href of ['/', '/experiences/', '/projects/', '/papers/']) {
+    for (const href of ['/', '/projects/', '/papers/']) {
       assert.ok(html.includes(`href="${href}"`), `${file} missing ${href}`);
     }
+    assert.equal(html.includes('href="/experiences/"'), false, `${file} must not link to a separate Experiences tab`);
   }
 });
 
+test('about page contains the complete work experience and leadership sections', () => {
+  const html = read('site/index.html');
+  assert.match(html, />Work Experience</);
+  assert.match(html, />Leadership</);
+
+  for (const phrase of [
+    'Einsteins Square',
+    'Tech Executive',
+    'Dec 2025 – Present',
+    'Terra Ventures',
+    'Part-Time Consultant',
+    'May 2026 – Aug 2026',
+    'Compliance Executive',
+    'Feb 2024 – Jul 2025',
+    'Hedman Law Firm',
+    'Legal Associate',
+    'Jul 2023 – Aug 2023',
+    'LSA Student Government',
+    'Appointed Representative',
+    'Sep 2025 – Present',
+    'Academic Judiciary Committee',
+    'AI-authorship validation framework',
+    'Internal Review Committee',
+    'bylaw and constitutional amendments'
+  ]) {
+    assert.ok(html.includes(phrase), `About page missing experience detail: ${phrase}`);
+  }
+
+  for (const projectOnly of ['IRENE AI Logistics', 'Visionary Summit']) {
+    assert.equal(html.includes(projectOnly), false, `${projectOnly} must not appear in About experience sections`);
+  }
+});
+
+test('legacy experiences route redirects back to the About experience section', () => {
+  const html = read('site/experiences/index.html');
+  assert.match(html, /url=\/#experience/i);
+  assert.match(html, /href="\/#experience"/i);
+});
+
+test('sitemap does not advertise a standalone experiences page', () => {
+  const sitemap = read('site/sitemap.xml');
+  assert.equal(sitemap.includes('/experiences/'), false);
+});
+
 test('render-only fictional experiences and projects are absent', () => {
-  const corpus = ['site/index.html', 'site/experiences/index.html', 'site/projects/index.html', 'site/papers/index.html'].map(read).join('\n');
+  const corpus = ['site/index.html', 'site/projects/index.html', 'site/papers/index.html'].map(read).join('\n');
   for (const forbidden of ['OpenAI', 'World Bank', 'Harvard University', 'Climate Policy Insights', 'Civic Data Explorer']) {
     assert.equal(corpus.includes(forbidden), false, `${forbidden} must not appear`);
   }
