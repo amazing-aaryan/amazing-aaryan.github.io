@@ -61,6 +61,19 @@ test('legacy experiences route redirects back to the About experience section', 
   assert.match(html, /href="\/#experience"/i);
 });
 
+test('legacy about, experience, and CV routes remain reachable', () => {
+  assert.match(read('site/about/index.html'), /url=\/"/i);
+  assert.match(read('site/experience/index.html'), /url=\/#experience/i);
+  assert.match(read('site/cv/index.html'), /url=\/resume\//i);
+});
+
+test('custom 404 page provides a useful return path', () => {
+  const html = read('site/404.html');
+  assert.match(html, /Page not found/i);
+  assert.match(html, /href="\//i);
+  assert.match(html, /href="\/projects\//i);
+});
+
 test('sitemap does not advertise a standalone experiences page', () => {
   const sitemap = read('site/sitemap.xml');
   assert.equal(sitemap.includes('/experiences/'), false);
@@ -165,8 +178,8 @@ test('broken hosted viewers are replaced by static SSRN first-page previews', ()
 test('all six published papers retain the large preview surface', () => {
   const html = read('site/papers/index.html');
   assert.equal((html.match(/<(?:object|img) class="paper-pdf/g) || []).length, 6, 'each paper needs a large preview surface');
-  assert.match(html, /\/research\/nuclear-proliferation\/nuclear-proliferation\.pdf#page=39/);
-  assert.match(html, /\/research\/federal-sentencing-disparities\/ssrn-6545939\.pdf#page=1/);
+  assert.match(html, /\/research\/nuclear-proliferation\/nuclear-proliferation-preview\.png/);
+  assert.match(html, /\/research\/federal-sentencing-disparities\/ssrn-6545939-preview\.png/);
 });
 
 test('paper layout prioritizes large readable PDF previews', () => {
@@ -178,7 +191,7 @@ test('paper layout prioritizes large readable PDF previews', () => {
 test('nuclear proliferation journal paper links to the supplied journal at page 39', () => {
   const html = read('site/papers/index.html');
   assert.match(html, /6a9223c28e9103b92ebd163d_FINALW26-compressed\.pdf#page=39/);
-  assert.match(html, /nuclear-proliferation\.pdf#page=39/);
+  assert.match(html, /nuclear-proliferation-preview\.png/);
 });
 
 test('build stages the journal PDF before static export', () => {
