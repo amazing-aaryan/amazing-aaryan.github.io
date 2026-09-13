@@ -24,7 +24,7 @@ test('Visionary Summit is a featured project and the small Project Directory sta
   );
 });
 
-test('Visionary Summit has its own project preview page instead of an archive route', () => {
+test('Visionary Summit has its own completed-project preview page instead of an archive route', () => {
   const projectPath = path.join(root, 'site/projects/visionary-summit/index.html');
   assert.equal(fs.existsSync(projectPath), true, 'Visionary Summit project page must exist');
 
@@ -33,18 +33,9 @@ test('Visionary Summit has its own project preview page instead of an archive ro
   assert.match(html, /Founder/);
   assert.match(html, /Nov 2023/);
   assert.match(html, /May 2025/);
+  assert.match(html, /Completed project/i);
   assert.match(html, /\/experiences\/visionary-summit\/panel-discussion\.jpg/);
   assert.doesNotMatch(html, />Archive</i);
-});
-
-test('portfolio metadata marks Visionary Summit as a completed project, not archived work', () => {
-  const portfolio = read('src/content/portfolio.ts');
-  const match = portfolio.match(/slug: "visionary-summit"[\s\S]*?status: "([^"]+)"/);
-  assert.ok(match, 'Visionary Summit work item must exist');
-  assert.equal(match[1], 'completed');
-
-  const schema = read('src/content/schema.ts');
-  assert.match(schema, /"completed"/);
 });
 
 test('static build no longer generates Visionary Summit under the legacy work route', () => {
