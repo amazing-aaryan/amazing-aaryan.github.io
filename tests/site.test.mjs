@@ -44,8 +44,8 @@ test('projects page features ADN after the existing three approved projects', ()
   assert.ok(irene >= 0 && noscroll > irene && scheduling > noscroll && adn > scheduling);
 });
 
-test('ADN project uses the third-party validation artifact and labels it independently', () => {
-  const html = read('site/projects/index.html');
+test('ADN detail page uses the third-party validation artifact and labels it independently', () => {
+  const html = read('site/projects/adn/index.html');
   assert.match(html, /\/projects\/adn\/third-party-validation\.webp/);
   assert.match(html, /Independent industry commentary/i);
   assert.equal(fs.existsSync(path.join(root, 'public/projects/adn/third-party-validation.webp')), true);

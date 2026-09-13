@@ -1,0 +1,222 @@
+.featured-projects {
+  gap: 34px;
+}
+
+.featured-project {
+  padding: 14px 0 26px;
+}
+
+.featured-project .project-media {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+}
+
+.featured-project .project-media > img,
+.project-diagram-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+.project-diagram-preview {
+  padding: 10px;
+  background: #fff;
+}
+
+.featured-project .project-copy {
+  align-self: center;
+}
+
+.featured-project .project-summary {
+  max-width: 540px;
+}
+
+.link-row {
+  align-items: center;
+}
+
+.link-pill.primary-cta {
+  border-color: #162238;
+  background: #162238;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(22, 34, 56, 0.12);
+}
+
+.link-pill.primary-cta:hover {
+  background: #26354d;
+  border-color: #26354d;
+}
+
+.link-pill.secondary-cta {
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.project-article {
+  width: min(1040px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 138px 0 76px;
+}
+
+.project-article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #69778a;
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+.project-article-header {
+  max-width: 780px;
+  margin-top: 34px;
+}
+
+.project-article-header h1 {
+  margin: 8px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(46px, 6vw, 76px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: #111c2f;
+}
+
+.project-article-period {
+  margin-top: 8px;
+  font-family: var(--serif);
+  color: #6a7a91;
+  font-size: 15px;
+}
+
+.project-article-deck {
+  margin: 18px 0 0;
+  max-width: 720px;
+  font-family: var(--serif);
+  color: #56657a;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.project-article-actions {
+  margin-top: 20px;
+}
+
+.project-article-media {
+  margin-top: 38px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f2f4f7;
+  box-shadow: 0 16px 42px rgba(33, 41, 52, 0.07);
+}
+
+.project-article-media video,
+.project-article-media > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.project-article-media.diagram-media-large > img {
+  object-fit: contain;
+  padding: 16px;
+  background: #fff;
+}
+
+.project-article-media.noscroll-article-media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 18px;
+  background: radial-gradient(circle at 70% 40%, rgba(195, 189, 232, .26), transparent 43%), #f7f4fb;
+}
+
+.project-article-media.noscroll-article-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(27, 34, 48, .10);
+}
+
+.project-supporting-note {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .52fr);
+  gap: 24px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .62);
+}
+
+.project-supporting-note img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.project-story-slot {
+  margin-top: 44px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line-soft);
+  min-height: 190px;
+}
+
+.project-story-slot h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: #17243a;
+}
+
+.story-open-space {
+  min-height: 130px;
+}
+
+@media (max-width: 860px) {
+  .featured-project,
+  .featured-project.reverse {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .featured-project.reverse .project-copy,
+  .featured-project.reverse .project-media {
+    order: initial;
+  }
+
+  .project-article {
+    width: min(100% - 34px, 1040px);
+    padding-top: 116px;
+  }
+
+  .project-supporting-note {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .featured-projects {
+    gap: 24px;
+  }
+
+  .featured-project .project-media,
+  .project-article-media {
+    border-radius: 16px;
+  }
+
+  .project-article-media.noscroll-article-media {
+    gap: 7px;
+    padding: 10px;
+  }
+}

@@ -7,45 +7,43 @@ const root = path.resolve(process.cwd());
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const exists = (p) => fs.existsSync(path.join(root, p));
 
-test('ADN uses the supplied workflow diagram as its primary expandable visual', () => {
-  const html = read('site/projects/index.html');
-  assert.match(html, /href="\/projects\/adn\/workflow-diagram\/"/);
-  assert.match(html, /Agent Demand Network \(ADN\)/);
+test('full ADN workflow diagram remains available from its dedicated technical view', () => {
+  const full = read('site/projects/adn/workflow-diagram/index.html');
+  assert.equal(exists('site/projects/adn/workflow-diagram/index.html'), true);
   for (let i = 1; i <= 4; i += 1) {
-    assert.match(html, new RegExp(`src="/projects/adn/workflow-diagram-${i}\\.webp"`));
+    assert.match(full, new RegExp(`/projects/adn/workflow-diagram-${i}\\.webp`));
     assert.equal(exists(`public/projects/adn/workflow-diagram-${i}.webp`), true);
   }
-  assert.equal(exists('site/projects/adn/workflow-diagram/index.html'), true);
 });
 
-test('AgentShare is a featured portfolio project with the supplied architecture diagram', () => {
-  const html = read('site/projects/index.html');
-  assert.match(html, /id="agentshare"/);
-  assert.match(html, /AgentShare/);
-  assert.match(html, /Aug 2026 [–-] Present/);
-  assert.match(html, /href="\/projects\/agentshare\/architecture-diagram\/"/);
-  assert.match(html, /https:\/\/github\.com\/amazing-aaryan\/AgentShare/);
+test('full AgentShare architecture diagram remains available from its dedicated technical view', () => {
+  const full = read('site/projects/agentshare/architecture-diagram/index.html');
+  assert.equal(exists('site/projects/agentshare/architecture-diagram/index.html'), true);
   for (let i = 1; i <= 4; i += 1) {
-    assert.match(html, new RegExp(`src="/projects/agentshare/architecture-diagram-${i}\\.webp"`));
+    assert.match(full, new RegExp(`/projects/agentshare/architecture-diagram-${i}\\.webp`));
     assert.equal(exists(`public/projects/agentshare/architecture-diagram-${i}.webp`), true);
   }
-  assert.equal(exists('site/projects/agentshare/architecture-diagram/index.html'), true);
 });
 
-test('project diagrams use a dedicated large full-width treatment without cropping', () => {
+test('main Projects page uses compact diagram previews instead of full-width technical stacks', () => {
   const html = read('site/projects/index.html');
-  const css = read('site/assets/project-diagrams.css');
-  assert.match(html, /project-diagram-link/);
-  assert.match(html, /project-diagram-stack/);
-  assert.match(html, /project-diagram/);
-  assert.match(html, /\/assets\/project-diagrams\.css/);
-  assert.match(css, /\.project-diagram\s*\{[^}]*width:\s*100%[^}]*height:\s*auto[^}]*object-fit:\s*contain/is);
-  assert.match(css, /\.project-diagram-stack\s*\{[^}]*gap:\s*0/is);
-  assert.match(css, /\.diagram-feature\s*\{[^}]*grid-template-columns:\s*1fr/is);
+  assert.match(html, /\/projects\/adn\/workflow-diagram-preview\.webp/);
+  assert.match(html, /\/projects\/agentshare\/architecture-diagram-preview\.webp/);
+  assert.doesNotMatch(html, /diagram-feature/);
+  assert.doesNotMatch(html, /project-diagram-stack/);
+  assert.doesNotMatch(html, /\/assets\/project-diagrams\.css/);
 });
 
-test('ADN keeps the existing third-party validation as supporting evidence', () => {
-  const html = read('site/projects/index.html');
+test('ADN detail page keeps third-party validation as supporting evidence', () => {
+  const html = read('site/projects/adn/index.html');
   assert.match(html, /\/projects\/adn\/third-party-validation\.webp/);
   assert.match(html, /Independent industry commentary/);
+  assert.match(html, /\/projects\/adn\/workflow-diagram\//);
+});
+
+test('AgentShare exposes its real GitHub repository on both preview and detail surfaces', () => {
+  for (const file of ['site/projects/index.html', 'site/projects/agentshare/index.html']) {
+    const html = read(file);
+    assert.match(html, /https:\/\/github\.com\/amazing-aaryan\/AgentShare/);
+  }
 });
