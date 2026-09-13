@@ -18,6 +18,6 @@ test('AgentShare stacks Creator, Transport, and Recipient sections vertically', 
   assert.match(source, /^flowchart TB/m);
   assert.match(source, /subgraph TRANSPORT\[/);
   assert.match(source, /C4\s*-->\|"ONE CAPABILITY LINK/);
-  assert.match(source, /R\s*-->\s*D/);
+  assert.match(source, /BLIND RELAY[\s\S]*?-->\s*D\[Decrypt locally\]/);
   assert.match(source, /direction LR/g);
 });
