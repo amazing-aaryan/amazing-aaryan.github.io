@@ -47,7 +47,7 @@ export type WorkItem = {
   title: string;
   role: string;
   period: string;
-  status: "live" | "in-progress" | "research" | "archived";
+  status: "live" | "in-progress" | "research" | "completed" | "archived";
   oneLine: string;
   problem: string;
   stakes: string;
