@@ -1,0 +1,10 @@
+flowchart LR
+  subgraph TRANSPORT["CIPHERTEXT TRANSPORT"]
+    direction LR
+    L["ONE CAPABILITY LINK<br/>read + key"] --> R["BLIND RELAY<br/>ciphertext + delivery metadata<br/>no context plaintext<br/>no decryption key"] --> D[Decrypt locally]
+  end
+
+  classDef secure fill:#eef5ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  classDef relay fill:#ffffff,stroke:#17243a,color:#17243a,stroke-width:1.5px;
+  class L,D secure;
+  class R relay;

@@ -1,0 +1,20 @@
+flowchart TB
+  subgraph ADN["ADN"]
+    direction TB
+    subgraph PATH[" "]
+      direction LR
+      D0[Demand] --> D1[find] --> D2[Supported facts] --> D3[Decision] --> D4[Direct attempt]
+    end
+
+    T["Product truth<br/>assertions · evidence · freshness · uncertainty"] --> D2
+    D4 --> O["Observed outcome<br/>status · latency · schema · retries"]
+    D4 --> E["Interpreted experience<br/>goal satisfied? · cause · confidence"]
+    O --> K["Accumulated knowledge<br/>truth · observations · experience"]
+    E --> K
+    K -. reuse prior evidence + experience .-> D1
+  end
+
+  classDef adn fill:#f4f8ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  classDef knowledge fill:#eef5ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  class D0,D1,D2,D3,D4,T,O,E adn;
+  class K knowledge;

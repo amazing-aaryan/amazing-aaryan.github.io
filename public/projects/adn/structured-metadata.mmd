@@ -1,0 +1,8 @@
+flowchart LR
+  subgraph META["STRUCTURED METADATA"]
+    direction LR
+    M0[Demand] --> M1[Registry / directory] --> M2[Structured product facts] --> M3[Compare] --> M4[Decision]
+  end
+
+  classDef neutral fill:#ffffff,stroke:#718096,color:#17243a,stroke-width:1px;
+  class M0,M1,M2,M3,M4 neutral;

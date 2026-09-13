@@ -52,3 +52,18 @@ for (const [index, container] of diagrams.entries()) {
     console.warn('Mermaid diagram fallback retained.', error);
   }
 }
+
+const stacks = [...document.querySelectorAll('.mermaid-segment-stack')];
+for (const stack of stacks) {
+  const segments = [...stack.querySelectorAll('.mermaid-segment')];
+  const fallback = stack.querySelector('.mermaid-stack-fallback');
+  const allReady = segments.length > 0 && segments.every((segment) => segment.classList.contains('mermaid-ready'));
+
+  if (allReady) {
+    if (fallback) fallback.hidden = true;
+    stack.classList.add('mermaid-stack-ready');
+  } else {
+    for (const segment of segments) segment.hidden = true;
+    stack.classList.add('mermaid-stack-error');
+  }
+}

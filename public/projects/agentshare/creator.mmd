@@ -1,0 +1,10 @@
+flowchart LR
+  subgraph CREATOR["CREATOR · PLAINTEXT"]
+    direction LR
+    C0["AI working context<br/>conversation · constraints · decisions<br/>failed paths · open work"] --> C1[Select] --> C2[Review exact boundary] --> C3[Agent Context Bundle] --> C4[Encrypt locally]
+  end
+
+  classDef context fill:#f8fbff,stroke:#8ca4bf,color:#17243a,stroke-width:1px;
+  classDef secure fill:#eef5ff,stroke:#245fbe,color:#123b78,stroke-width:1.5px;
+  class C0,C1,C2 context;
+  class C3,C4 secure;
