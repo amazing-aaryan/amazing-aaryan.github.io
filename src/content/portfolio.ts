@@ -203,7 +203,7 @@ export const experienceItems: ExperienceItem[] = [
     role: "Founder",
     org: "Visionary Summit",
     period: "Nov 2023 – May 2025",
-    kind: "leadership",
+    kind: "project",
     oneLine:
       "Founded an organization bridging students, diplomats, and founders on AI, law, and innovation in Tallinn — hosted panels with ambassadors, NGOs, and VCs.",
   },
@@ -418,8 +418,8 @@ export const workItems: WorkItem[] = [
     slug: "visionary-summit",
     title: "Visionary Summit",
     role: "Founder",
-    period: "Nov 2023 - May 2025",
-    status: "archived",
+    period: "Nov 2023 – May 2025",
+    status: "completed",
     oneLine:
       "A student-led Tallinn summit series connecting high-school students with diplomats, founders, lawyers, NGOs, and venture leaders.",
     problem:
