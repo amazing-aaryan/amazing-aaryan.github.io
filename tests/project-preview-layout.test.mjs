@@ -30,6 +30,15 @@ test('featured project media uses a consistent 16:9 preview frame', () => {
   assert.match(css, /\.featured-project\s+\.project-media\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9[^}]*height:\s*auto/is);
 });
 
+test('autoplay project videos have static poster frames for first paint', () => {
+  const html = read('site/projects/index.html');
+  assert.match(html, /src="\/projects\/irene\/demo\.mp4" poster="\/projects\/irene\/demo-poster\.jpg"/);
+  assert.match(html, /src="\/projects\/scheduling-automation\/demo\.mp4" poster="\/projects\/scheduling-automation\/demo-poster\.jpg"/);
+  for (const poster of ['public/projects/irene/demo-poster.jpg', 'public/projects/scheduling-automation/demo-poster.jpg']) {
+    assert.equal(exists(poster), true, `${poster} must exist`);
+  }
+});
+
 test('ADN and AgentShare use the normal alternating featured-project layout with single-image previews', () => {
   const html = read('site/projects/index.html');
   for (const [id, src, asset] of [

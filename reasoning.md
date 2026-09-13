@@ -16,3 +16,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Replace live PDF object viewers with generated static page previews, remove obsolete Experiences links from project detail navigation, add fixed-nav anchor spacing, preserve legacy route aliases, and add a custom 404 page.
 **Why:** Live GitHub Pages QA showed blank PDF panels and inconsistent detail-page navigation; recruiter-facing routes should remain reachable with predictable visual rendering.
 **Impact:** Static build now serves image-based paper/resume previews, three-item navigation, reachable `/about/`, `/experience/`, `/cv/` aliases, and a branded fallback page.
+
+## [2026-09-13 13:22] Added poster frames for autoplay demos
+**Decision:** Extract first-use poster frames from IRENE and Scheduling demo videos and attach them to the featured project video elements.
+**Why:** Live browser capture briefly showed neutral gray media frames before video metadata loaded; poster frames preserve visual continuity during first paint.
+**Impact:** Projects page now has immediate media content while autoplay videos initialize, with source assets covered by regression tests.
