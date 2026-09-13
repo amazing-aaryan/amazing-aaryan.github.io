@@ -116,7 +116,7 @@ test('broken hosted viewers are replaced by static SSRN first-page previews', ()
 
 test('all six published papers retain the large preview surface', () => {
   const html = read('site/papers/index.html');
-  assert.equal((html.match(/class="paper-pdf/g) || []).length, 6, 'each paper needs a large preview surface');
+  assert.equal((html.match(/<(?:object|img) class="paper-pdf/g) || []).length, 6, 'each paper needs a large preview surface');
   assert.match(html, /\/research\/nuclear-proliferation\/nuclear-proliferation\.pdf#page=39/);
   assert.match(html, /\/research\/federal-sentencing-disparities\/ssrn-6545939\.pdf#page=1/);
 });
