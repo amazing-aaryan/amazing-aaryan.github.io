@@ -28,11 +28,11 @@ test('render-only fictional experiences and projects are absent', () => {
   }
 });
 
-test('about page keeps the AI agent surface inert', () => {
+test('about page does not expose the AI agent preview', () => {
   const html = read('site/index.html');
-  assert.match(html, /Talk to my AI Agent About me/);
-  assert.match(html, /Ask me anything/);
-  assert.doesNotMatch(html, /api\/chat|fetch\s*\(/i);
+  assert.doesNotMatch(html, /Talk to my AI Agent About me/);
+  assert.doesNotMatch(html, /Ask me anything/);
+  assert.doesNotMatch(html, /class="agent-row"/);
 });
 
 test('projects page features ADN after the existing three approved projects', () => {
