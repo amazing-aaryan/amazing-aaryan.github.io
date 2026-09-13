@@ -97,15 +97,28 @@ test('published SSRN papers expose real abstract copy', () => {
   }
 });
 
-test('all six published papers render a real PDF preview surface', () => {
+test('broken hosted viewers are replaced by static SSRN first-page previews', () => {
   const html = read('site/papers/index.html');
-  assert.equal((html.match(/class="paper-pdf"/g) || []).length, 6, 'each paper needs a PDF preview');
+  assert.doesNotMatch(html, /docs\.google\.com\/gview/i);
+  assert.equal((html.match(/<iframe/g) || []).length, 0, 'Papers page must not depend on iframe PDF viewers');
+
+  const previews = [
+    '/research/ai-regulation-eu-us/first-page.svg',
+    '/research/nehru-foreign-policy/first-page.svg',
+    '/research/llm-political-messaging/first-page.svg',
+    '/research/loac-low-reciprocity/first-page.svg'
+  ];
+  for (const preview of previews) {
+    assert.ok(html.includes(`src="${preview}"`), `${preview} must be used as a static preview`);
+    assert.equal(fs.existsSync(path.join(root, 'public', preview)), true, `${preview} must exist in public`);
+  }
+});
+
+test('all six published papers retain the large preview surface', () => {
+  const html = read('site/papers/index.html');
+  assert.equal((html.match(/<(?:object|img) class="paper-pdf/g) || []).length, 6, 'each paper needs a large preview surface');
   assert.match(html, /\/research\/nuclear-proliferation\/nuclear-proliferation\.pdf#page=39/);
   assert.match(html, /\/research\/federal-sentencing-disparities\/ssrn-6545939\.pdf#page=1/);
-  assert.equal((html.match(/docs\.google\.com\/gview\?embedded=1/g) || []).length, 4, 'four SSRN PDFs should use the hosted document viewer');
-  for (const id of ['6662638', '6663358', '6662538', '6546018']) {
-    assert.ok(html.includes(`${id}.pdf`), `${id} PDF must be loaded into the viewer`);
-  }
 });
 
 test('paper layout prioritizes large readable PDF previews', () => {

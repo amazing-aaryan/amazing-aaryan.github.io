@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="792" viewBox="0 0 612 792">
+  <rect width="612" height="792" fill="#ffffff"/>
+  <g fill="#111827" font-family="Georgia, 'Times New Roman', serif">
+    <text x="306" y="72" text-anchor="middle" font-size="23" font-weight="700">
+      <tspan x="306" dy="0">Why Has International Cooperation on</tspan>
+      <tspan x="306" dy="30">Artificial Intelligence Regulation Been</tspan>
+      <tspan x="306" dy="30">Difficult Between the European Union</tspan>
+      <tspan x="306" dy="30">and the United States?</tspan>
+    </text>
+    <text x="306" y="214" text-anchor="middle" font-size="15">Aaryan Srivastava</text>
+    <text x="306" y="236" text-anchor="middle" font-size="12" fill="#4b5563">University of Michigan, Ann Arbor</text>
+    <text x="306" y="256" text-anchor="middle" font-size="11" fill="#6b7280">Date Written: November 15, 2025</text>
+    <line x1="68" y1="280" x2="544" y2="280" stroke="#d1d5db" stroke-width="1"/>
+    <text x="68" y="312" font-size="14" font-weight="700">Abstract</text>
+    <text x="68" y="338" font-size="11.5" fill="#374151">
+      <tspan x="68" dy="0">International cooperation on artificial intelligence (AI) regulation between the European</tspan>
+      <tspan x="68" dy="18">Union and the United States faces two fundamental structural barriers that conventional</tspan>
+      <tspan x="68" dy="18">institutional design cannot readily overcome. The first is an information and enforcement</tspan>
+      <tspan x="68" dy="18">problem: AI systems are opaque by nature, preventing regulators from verifying compliance</tspan>
+      <tspan x="68" dy="18">with any agreement that might be reached. The second is a domestic political divergence:</tspan>
+      <tspan x="68" dy="18">the U.S. prioritizes innovation and resists heavy-handed regulation, while the EU centers</tspan>
+      <tspan x="68" dy="18">its approach on users' rights and precautionary governance, producing incompatible</tspan>
+      <tspan x="68" dy="18">institutional preferences with almost no overlap in acceptable rules.</tspan>
+      <tspan x="68" dy="18">Drawing on the analytical framework of Professor James D. Morrow's POLSCI 160 course,</tspan>
+      <tspan x="68" dy="18">this paper argues that these barriers make a binding international AI regulatory institution</tspan>
+      <tspan x="68" dy="18">unlikely in the foreseeable future. Cooperation will instead remain confined to soft law:</tspan>
+      <tspan x="68" dy="18">voluntary commitments, shared technical standards, and non-binding guidelines.</tspan>
+    </text>
+    <text x="68" y="592" font-size="11" font-style="italic" fill="#4b5563">Keywords: artificial intelligence governance, international cooperation, EU AI Act,</text>
+    <text x="68" y="609" font-size="11" font-style="italic" fill="#4b5563">soft law, domestic politics, enforcement, U.S.-EU relations</text>
+    <line x1="68" y1="642" x2="544" y2="642" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="68" y="673" font-size="10.5" fill="#6b7280">Available at SSRN: https://ssrn.com/abstract=6662638</text>
+    <text x="544" y="744" text-anchor="end" font-size="10" fill="#9ca3af">SSRN 6662638</text>
+  </g>
+</svg>
