@@ -38,7 +38,7 @@ test('portfolio previews and project pages render Mermaid instead of raster as t
     for (const page of diagram.pages) {
       const html = read(page);
       assert.match(html, new RegExp(`data-mermaid-source="${diagram.source.replaceAll('/', '\\/')}"`), `${page} must load ${diagram.source}`);
-      assert.match(html, /class="mermaid-diagram/);
+      assert.match(html, /class="[^"]*\bmermaid-diagram\b[^"]*"/);
       assert.match(html, /\/assets\/mermaid-render\.js/);
     }
   }
