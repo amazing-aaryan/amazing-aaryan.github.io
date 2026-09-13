@@ -3,10 +3,9 @@
 Personal portfolio of Aaryan Srivastava, a University of Michigan student and builder/researcher working across AI, political science, law, institutions, and data systems.
 
 Primary pages:
-- / — About
-- /experiences/ — Work, leadership, research, and institutional experience
-- /projects/ — IRENE, NoScroll, scheduling automation, legal analytics, WWI service data, and Visionary Summit
-- /papers/ — Research papers and working papers
+- / — About, work experience, and leadership
+- /projects/ — IRENE, NoScroll, scheduling automation, legal analytics, WWI service data, Visionary Summit, ADN, and AgentShare
+- /papers/ — Published research papers
 - /resume/ — Resume
 
 Contact:

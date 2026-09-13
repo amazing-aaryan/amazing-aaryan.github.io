@@ -5,11 +5,11 @@
 Approved visual direction based on:
 1. the user's hand-drawn information-architecture sketch;
 2. the generated About reference;
-3. the generated Experiences reference;
+3. the generated Experiences reference, now applied as a section within About rather than a standalone route;
 4. the generated Projects reference;
 5. the generated Papers reference.
 
-This file is the canonical design source for all agents working on the website. The implementation should preserve the visual language of the references while using only real, verified Aaryan Srivastava content from the repository. The AI-agent surface is visual-only in this phase.
+This file is the canonical design source for all agents working on the website. The implementation should preserve the visual language of the references while using only real, verified Aaryan Srivastava content from the repository. Later explicit user decisions override older reference layouts where they conflict with this specification.
 
 ## Goal
 
@@ -22,8 +22,7 @@ The active public site may be rebuilt from scratch rather than adapting the prev
 ## Information Architecture
 
 Primary routes:
-- `/` — About
-- `/experiences/` — Experiences
+- `/` — About, Work Experience, and Leadership
 - `/projects/` — Projects
 - `/papers/` — Papers
 
@@ -31,6 +30,9 @@ Secondary routes should remain available where practical:
 - `/work/[slug]/`
 - `/research/[slug]/`
 - `/resume/`
+
+Legacy compatibility:
+- `/experiences/` is not a primary page and should redirect to `/#experience`.
 
 ## Global Visual Direction
 
@@ -49,15 +51,15 @@ Secondary routes should remain available where practical:
 
 ## Navigation
 
-A floating, centered, rounded “liquid glass” navigation bar appears on all primary routes.
+A floating, centered, rounded “liquid glass” navigation bar appears on all primary routes and generated detail pages.
 
 Items in this exact order:
 - About
-- Experiences
 - Projects
 - Papers
 
 Requirements:
+- There is no separate Experiences tab.
 - Active route uses a filled/soft-highlighted pill.
 - Small simple icons plus labels.
 - Fixed near the top.
@@ -73,28 +75,37 @@ Desktop:
 - Eyebrow: “Builder · Researcher · Policy Enthusiast”.
 - Short introduction centered on AI, policy, law, institutions, research, and building.
 - A subtle right-side editorial statement may be used if it does not compete with the hero.
-- Prominent horizontal AI-agent prompt surface below the intro.
-- Prompt surface is visual only in phase 1:
-  - “Talk to my AI Agent About me”
-  - “Ask me anything...”
-  - no network request
-  - no fake chat
-- Below the hero, show a compact experience preview using real experiences.
-- “View all experiences” links to `/experiences/`.
+- Do not show the old non-functional AI-agent prompt preview.
+- Directly below the About hero, show the complete experience content rather than a preview or “View all experiences” link.
+
+### Work Experience
+
+Use the existing accordion row treatment with monogram/logo, organization, role/title, date range, chevron, and concise verified highlights.
+
+Only these roles belong in Work Experience:
+1. Einsteins Square — Tech Executive — Dec 2025–Present
+2. Terra Ventures — Part-Time Consultant — May 2026–Aug 2026
+3. Einsteins Square — Compliance Executive — Feb 2024–Jul 2025
+4. Hedman Law Firm — Legal Associate — Jul 2023–Aug 2023
+
+IRENE and Visionary Summit are projects, not work experience. Research roles/projects should not be inserted into the Work Experience list unless the user explicitly changes the taxonomy.
+
+### Leadership
+
+Immediately following Work Experience, show a distinct Leadership subsection using the same visual language.
+
+Current leadership entry:
+- LSA Student Government — Appointed Representative — Sep 2025–Present
+
+Its expanded content should reflect substantive committee work, including:
+- Academic Judiciary Committee (AJC): AI-authorship validation / academic-integrity framework work.
+- Internal Review Committee (IRC): drafting, debating, and evaluating bylaw, constitutional, and governance proposals.
+
+Experience and leadership accordions must use buttons with `aria-expanded` and `aria-controls` and must not invent organizations, titles, dates, or metrics.
 
 Mobile:
-- Stack profile, copy, and agent surface vertically.
-- Experience preview becomes compact rows.
-
-## Experiences Page
-
-- Large “Experiences” heading and one-line introduction.
-- Accordion list.
-- Each row: monogram/logo, organization, role/title, date range, chevron.
-- Only one row needs to be open by default.
-- Expanded row reveals concise verified highlights.
-- Accordion must use buttons with `aria-expanded` and `aria-controls`.
-- No invented organizations, titles, dates, or metrics.
+- Stack profile and copy vertically.
+- Work Experience and Leadership remain compact readable accordion rows.
 
 ## Projects Page
 
@@ -103,10 +114,13 @@ Featured projects in this order:
 2. NoScroll
 3. Scheduling Automation System
 
+Additional approved featured projects may follow when backed by real project artifacts, including Agent Demand Network and AgentShare.
+
 Desktop alternation:
 - Project 1 media left, copy right.
 - Project 2 copy left, media right.
 - Project 3 media left, copy right.
+- Continue the alternating pattern for later featured projects.
 
 Each featured project:
 - category/discipline eyebrow;
@@ -142,7 +156,7 @@ Project Directory:
 ## Content Integrity
 
 Visual mockups are design references only. Never copy their fictional content, including:
-- OpenAI experience;
+- a fictional OpenAI employer/experience;
 - Google experience;
 - World Bank experience;
 - Harvard experience;
@@ -150,7 +164,9 @@ Visual mockups are design references only. Never copy their fictional content, i
 - fake product screenshots or metrics;
 - invented project names.
 
-When repository sources disagree, prefer conservative public copy and avoid claiming “Present” or a metric unless reasonably supported.
+Truthful references to technologies or providers such as OpenAI are allowed when they describe a verified technical stack rather than a fictional employer.
+
+When repository sources disagree, prefer conservative public copy and avoid claiming “Present” or a metric unless reasonably supported or explicitly provided by the user.
 
 ## Typography
 
@@ -228,6 +244,7 @@ Disallowed:
 
 - Unique title/description for each primary page.
 - Keep/update `robots.txt`, `llms.txt`, and sitemap.
+- Do not advertise `/experiences/` as a primary route in sitemap or discovery metadata.
 - Preserve resume and research URLs where possible.
 
 ## Non-Goals for Phase 1

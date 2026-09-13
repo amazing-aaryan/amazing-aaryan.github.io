@@ -19,7 +19,6 @@ copyTree(site, out);
 
 const icons = {
   user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.3"/><path d="M5.7 19c1.5-3.4 3.7-5.1 6.3-5.1s4.8 1.7 6.3 5.1"/></svg>',
-  brief: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="11" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M4 11.5h16"/></svg>',
   grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6" height="6" rx="1.3"/><rect x="14" y="4" width="6" height="6" rx="1.3"/><rect x="4" y="14" width="6" height="6" rx="1.3"/><rect x="14" y="14" width="6" height="6" rx="1.3"/></svg>',
   paper: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3.5h7l4 4V20H7z"/><path d="M14 3.5V8h4M10 12h5M10 15h5"/></svg>',
 };
@@ -27,7 +26,6 @@ const icons = {
 function nav(active) {
   const items = [
     ['About', '/', 'user'],
-    ['Experiences', '/experiences/', 'brief'],
     ['Projects', '/projects/', 'grid'],
     ['Papers', '/papers/', 'paper'],
   ];
@@ -52,7 +50,6 @@ const work = [
   ['scheduling-automation-system','Scheduling Automation System','Automation Builder · Dec 2025 – Feb 2026','Browser-level automation for a fragile class-scheduling workflow.','The system coordinates teacher availability and operational constraints through the same browser surface used by human coordinators and makes failures explicit rather than silent.'],
   ['wwi-service-dataset','WWI Soldier Service Dataset','Research Assistant · Jan 2026 – Present','A structured, queryable dataset of American World War I service records.','OCR and document-extraction workflows preserve uncertainty in period handwriting, military abbreviations, damaged pages, and inconsistent archival formatting.'],
   ['federal-litigation-bias-analysis','Federal Litigation Bias Analysis','Independent Researcher · Sep 2025 – Present','AI-assisted legal analytics for federal civil litigation outcomes.','The work structures public case records for statistical querying and source-grounded analysis while keeping exploratory findings separate from legal claims.'],
-  ['visionary-summit','Visionary Summit','Founder · Nov 2023 – May 2025','A student-led Tallinn summit series connecting students with diplomats, founders, lawyers, NGOs, and venture leaders.','Programming brought together technology, law, diplomacy, entrepreneurship, and civic institutions while treating students as participants in public life rather than a passive audience.'],
 ];
 for (const [slug,title,meta,summary,body] of work) {
   writeRoute(`work/${slug}`, detailPage({active:'Projects',backHref:'/projects/',backLabel:'Back to Projects',eyebrow:'Project',title,meta,summary,body}));
