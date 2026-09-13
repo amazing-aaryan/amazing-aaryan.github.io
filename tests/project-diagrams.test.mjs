@@ -8,10 +8,10 @@ const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 
 test('ADN uses the supplied workflow diagram as its primary expandable visual', () => {
   const html = read('site/projects/index.html');
-  assert.match(html, /href="\/projects\/adn\/workflow-diagram\.png"/);
-  assert.match(html, /src="\/projects\/adn\/workflow-diagram\.png"/);
+  assert.match(html, /href="\/projects\/adn\/workflow-diagram\.webp"/);
+  assert.match(html, /src="\/projects\/adn\/workflow-diagram\.webp"/);
   assert.match(html, /Agent Demand Network \(ADN\)/);
-  assert.equal(fs.existsSync(path.join(root, 'public/projects/adn/workflow-diagram.png')), true);
+  assert.equal(fs.existsSync(path.join(root, 'public/projects/adn/workflow-diagram.webp')), true);
 });
 
 test('AgentShare is a featured portfolio project with the supplied architecture diagram', () => {
@@ -19,10 +19,10 @@ test('AgentShare is a featured portfolio project with the supplied architecture 
   assert.match(html, /id="agentshare"/);
   assert.match(html, /AgentShare/);
   assert.match(html, /Aug 2026 [–-] Present/);
-  assert.match(html, /href="\/projects\/agentshare\/architecture-diagram\.png"/);
-  assert.match(html, /src="\/projects\/agentshare\/architecture-diagram\.png"/);
+  assert.match(html, /href="\/projects\/agentshare\/architecture-diagram\.webp"/);
+  assert.match(html, /src="\/projects\/agentshare\/architecture-diagram\.webp"/);
   assert.match(html, /https:\/\/github\.com\/amazing-aaryan\/AgentShare/);
-  assert.equal(fs.existsSync(path.join(root, 'public/projects/agentshare/architecture-diagram.png')), true);
+  assert.equal(fs.existsSync(path.join(root, 'public/projects/agentshare/architecture-diagram.webp')), true);
 });
 
 test('project diagrams use a dedicated large full-width treatment without cropping', () => {
