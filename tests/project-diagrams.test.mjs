@@ -7,28 +7,34 @@ const root = path.resolve(process.cwd());
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const exists = (p) => fs.existsSync(path.join(root, p));
 
-test('full ADN workflow diagram remains available as a Mermaid technical view', () => {
+test('full ADN workflow diagram remains available as a segmented Mermaid technical view', () => {
   const full = read('site/projects/adn/workflow-diagram/index.html');
   assert.equal(exists('site/projects/adn/workflow-diagram/index.html'), true);
-  assert.equal(exists('public/projects/adn/workflow.mmd'), true);
-  assert.match(full, /data-mermaid-source="\/projects\/adn\/workflow\.mmd"/);
-  assert.match(full, /class="mermaid-full mermaid-diagram"/);
+  for (const source of ['/projects/adn/web-search.mmd', '/projects/adn/structured-metadata.mmd', '/projects/adn/adn-loop.mmd']) {
+    assert.match(full, new RegExp(`data-mermaid-source="${source.replaceAll('/', '\\/')}"`));
+  }
+  assert.match(full, /class="mermaid-full mermaid-segment-stack"/);
   assert.match(full, /\/assets\/mermaid-render\.js/);
 });
 
-test('full AgentShare architecture remains available as a Mermaid technical view', () => {
+test('full AgentShare architecture remains available as a segmented Mermaid technical view', () => {
   const full = read('site/projects/agentshare/architecture-diagram/index.html');
   assert.equal(exists('site/projects/agentshare/architecture-diagram/index.html'), true);
-  assert.equal(exists('public/projects/agentshare/architecture.mmd'), true);
-  assert.match(full, /data-mermaid-source="\/projects\/agentshare\/architecture\.mmd"/);
-  assert.match(full, /class="mermaid-full mermaid-diagram"/);
+  for (const source of ['/projects/agentshare/creator.mmd', '/projects/agentshare/transport.mmd', '/projects/agentshare/recipient.mmd']) {
+    assert.match(full, new RegExp(`data-mermaid-source="${source.replaceAll('/', '\\/')}"`));
+  }
+  assert.match(full, /class="mermaid-full mermaid-segment-stack"/);
   assert.match(full, /\/assets\/mermaid-render\.js/);
 });
 
-test('main Projects page uses compact Mermaid previews instead of full-width technical stacks', () => {
+test('main Projects page uses compact stacked Mermaid previews instead of full-width technical stacks', () => {
   const html = read('site/projects/index.html');
-  assert.match(html, /data-mermaid-source="\/projects\/adn\/workflow\.mmd"/);
-  assert.match(html, /data-mermaid-source="\/projects\/agentshare\/architecture\.mmd"/);
+  assert.match(html, /\/projects\/adn\/web-search\.mmd/);
+  assert.match(html, /\/projects\/adn\/structured-metadata\.mmd/);
+  assert.match(html, /\/projects\/adn\/adn-loop\.mmd/);
+  assert.match(html, /\/projects\/agentshare\/creator\.mmd/);
+  assert.match(html, /\/projects\/agentshare\/transport\.mmd/);
+  assert.match(html, /\/projects\/agentshare\/recipient\.mmd/);
   assert.match(html, /\/projects\/adn\/workflow-diagram-preview\.webp/);
   assert.match(html, /\/projects\/agentshare\/architecture-diagram-preview\.webp/);
   assert.doesNotMatch(html, /diagram-feature/);
