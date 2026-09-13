@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="792" viewBox="0 0 612 792">
+  <rect width="612" height="792" fill="#ffffff"/>
+  <g fill="#111827" font-family="Georgia, 'Times New Roman', serif">
+    <text x="306" y="70" text-anchor="middle" font-size="22" font-weight="700">
+      <tspan x="306" dy="0">What Explains Variation in State Compliance</tspan>
+      <tspan x="306" dy="29">with the Laws of Armed Conflict Under</tspan>
+      <tspan x="306" dy="29">Conditions of Low Reciprocity?</tspan>
+    </text>
+    <text x="306" y="190" text-anchor="middle" font-size="15">Aaryan Srivastava</text>
+    <text x="306" y="212" text-anchor="middle" font-size="12" fill="#4b5563">University of Michigan, Ann Arbor</text>
+    <text x="306" y="232" text-anchor="middle" font-size="11" fill="#6b7280">Date Written: December 03, 2025</text>
+    <line x1="68" y1="260" x2="544" y2="260" stroke="#d1d5db" stroke-width="1"/>
+    <text x="68" y="292" font-size="14" font-weight="700">Abstract</text>
+    <text x="68" y="318" font-size="11.5" fill="#374151">
+      <tspan x="68" dy="0">This paper explains variation in compliance with the Laws of Armed Conflict (LOAC) under</tspan>
+      <tspan x="68" dy="18">asymmetric conditions where reciprocity is weak or absent. Using the 1991 Gulf War, the</tspan>
+      <tspan x="68" dy="18">2006 Israel-Hezbollah War, and the Russo-Ukrainian War as comparative cases, it argues</tspan>
+      <tspan x="68" dy="18">that international reputation acts as a substitute compliance mechanism when material</tspan>
+      <tspan x="68" dy="18">reciprocity fails. Actors dependent on external legitimacy, diplomatic backing, or military</tspan>
+      <tspan x="68" dy="18">assistance maintain greater restraint toward civilians, while actors insulated from audience</tspan>
+      <tspan x="68" dy="18">costs are more likely to use LOAC violations instrumentally for tactical advantage.</tspan>
+      <tspan x="68" dy="18">The paper also identifies a boundary condition: reputational incentives can weaken when</tspan>
+      <tspan x="68" dy="18">perceived security costs of restraint exceed expected political penalties.</tspan>
+    </text>
+    <text x="68" y="530" font-size="11" font-style="italic" fill="#4b5563">Keywords: Laws of Armed Conflict, International Humanitarian Law, compliance in war,</text>
+    <text x="68" y="547" font-size="11" font-style="italic" fill="#4b5563">reciprocity, reputation, asymmetric warfare, civilian protection</text>
+    <line x1="68" y1="582" x2="544" y2="582" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="68" y="613" font-size="10.5" fill="#6b7280">Available at SSRN: https://ssrn.com/abstract=6546018</text>
+    <text x="544" y="744" text-anchor="end" font-size="10" fill="#9ca3af">SSRN 6546018</text>
+  </g>
+</svg>
