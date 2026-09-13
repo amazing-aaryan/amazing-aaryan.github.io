@@ -183,6 +183,76 @@
   min-height: 130px;
 }
 
+.mermaid-preview {
+  aspect-ratio: 16 / 9;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.mermaid-diagram {
+  position: relative;
+}
+
+.mermaid-diagram .mermaid-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mermaid-diagram svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.mermaid-diagram .mermaid-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+.mermaid-diagram.mermaid-ready .mermaid-fallback,
+.mermaid-diagram .mermaid-fallback[hidden] {
+  display: none;
+}
+
+.mermaid-detail {
+  padding: 18px;
+  background: #fff;
+}
+
+.mermaid-full {
+  width: 100%;
+  min-height: min(76vh, 900px);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 42px rgba(33, 41, 52, .07);
+}
+
+.mermaid-full .mermaid-svg {
+  width: 100%;
+  height: auto;
+}
+
+.mermaid-full svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
 @media (max-width: 860px) {
   .featured-project,
   .featured-project.reverse {
@@ -203,6 +273,11 @@
   .project-supporting-note {
     grid-template-columns: 1fr;
   }
+
+  .mermaid-full {
+    min-height: 0;
+    padding: 12px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -218,5 +293,10 @@
   .project-article-media.noscroll-article-media {
     gap: 7px;
     padding: 10px;
+  }
+
+  .mermaid-preview,
+  .mermaid-detail {
+    padding: 8px;
   }
 }
