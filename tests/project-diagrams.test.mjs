@@ -14,6 +14,8 @@ test('full ADN workflow diagram remains available as a segmented Mermaid technic
     assert.match(full, new RegExp(`data-mermaid-source="${source.replaceAll('/', '\\/')}"`));
   }
   assert.match(full, /class="mermaid-full mermaid-segment-stack"/);
+  assert.match(full, /\/projects\/adn\/workflow-diagram-fallback\.svg/);
+  assert.equal(exists('public/projects/adn/workflow-diagram-fallback.svg'), true);
   assert.match(full, /\/assets\/mermaid-render\.js/);
 });
 
@@ -35,7 +37,7 @@ test('main Projects page uses compact stacked Mermaid previews instead of full-w
   assert.match(html, /\/projects\/agentshare\/creator\.mmd/);
   assert.match(html, /\/projects\/agentshare\/transport\.mmd/);
   assert.match(html, /\/projects\/agentshare\/recipient\.mmd/);
-  assert.match(html, /\/projects\/adn\/workflow-diagram-preview\.webp/);
+  assert.match(html, /\/projects\/adn\/workflow-diagram-fallback\.svg/);
   assert.match(html, /\/projects\/agentshare\/architecture-diagram-preview\.webp/);
   assert.doesNotMatch(html, /diagram-feature/);
   assert.doesNotMatch(html, /project-diagram-stack/);

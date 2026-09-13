@@ -42,7 +42,7 @@ test('autoplay project videos have static poster frames for first paint', () => 
 test('ADN and AgentShare use the normal alternating featured-project layout with single-image previews', () => {
   const html = read('site/projects/index.html');
   for (const [id, src, asset] of [
-    ['adn', '/projects/adn/workflow-diagram-preview.webp', 'public/projects/adn/workflow-diagram-preview.webp'],
+    ['adn', '/projects/adn/workflow-diagram-fallback.svg', 'public/projects/adn/workflow-diagram-fallback.svg'],
     ['agentshare', '/projects/agentshare/architecture-diagram-preview.webp', 'public/projects/agentshare/architecture-diagram-preview.webp'],
   ]) {
     const section = html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?<\\/section>`));

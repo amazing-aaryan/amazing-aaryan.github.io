@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Demand Network workflow</title>
+  <desc id="desc">Web search, structured metadata, and accumulated agent knowledge feed a decision loop.</desc>
+  <style>
+    text{font-family:IBM Plex Sans,Inter,Arial,sans-serif;fill:#17243a} .label{font-size:18px;font-weight:700;letter-spacing:2px}.small{font-size:13px;fill:#526176}.box{fill:#fff;stroke:#718096;stroke-width:2}.blue{fill:#f4f8ff;stroke:#245fbe;stroke-width:2}.arrow{stroke:#526176;stroke-width:2;fill:none;marker-end:url(#arrow)}.blue-arrow{stroke:#245fbe;stroke-width:2;fill:none;marker-end:url(#blue-arrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4 0 8z" fill="#526176"/></marker>
+    <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4 0 8z" fill="#245fbe"/></marker>
+  </defs>
+  <rect width="1200" height="760" rx="18" fill="#fbfaf7"/>
+  <g transform="translate(40 34)">
+    <text class="label" x="0" y="22">WEB / SEARCH</text>
+    <g transform="translate(150 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Demand</text></g>
+    <path class="arrow" d="M310 27h32"/>
+    <g transform="translate(350 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Search / browse</text></g>
+    <path class="arrow" d="M510 27h32"/>
+    <g transform="translate(550 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Pages + snippets</text></g>
+    <path class="arrow" d="M710 27h32"/>
+    <g transform="translate(750 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Parse + reconcile</text></g>
+    <path class="arrow" d="M910 27h32"/>
+    <g transform="translate(950 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Decision</text></g>
+    <text class="small" x="150" y="78">Current information · repeated interpretation</text>
+  </g>
+  <path d="M40 145h1120" stroke="#d7dde5"/>
+  <g transform="translate(40 178)">
+    <text class="label" x="0" y="22">STRUCTURED METADATA</text>
+    <g transform="translate(150 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Demand</text></g>
+    <path class="arrow" d="M310 27h32"/>
+    <g transform="translate(350 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Registry / directory</text></g>
+    <path class="arrow" d="M510 27h32"/>
+    <g transform="translate(550 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Structured facts</text></g>
+    <path class="arrow" d="M710 27h32"/>
+    <g transform="translate(750 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Compare</text></g>
+    <path class="arrow" d="M910 27h32"/>
+    <g transform="translate(950 0)"><rect class="box" width="150" height="54" rx="8"/><text x="75" y="33" text-anchor="middle">Decision</text></g>
+  </g>
+  <path d="M40 290h1120" stroke="#d7dde5"/>
+  <g transform="translate(40 324)">
+    <text class="label" x="0" y="22" fill="#245fbe">ADN DECISION LOOP</text>
+    <g transform="translate(145 0)"><rect class="blue" width="145" height="52" rx="8"/><text x="72" y="31" text-anchor="middle">Demand</text></g>
+    <path class="blue-arrow" d="M300 26h28"/>
+    <g transform="translate(336 0)"><rect class="blue" width="145" height="52" rx="8"/><text x="72" y="31" text-anchor="middle">Find</text></g>
+    <path class="blue-arrow" d="M491 26h28"/>
+    <g transform="translate(527 0)"><rect class="blue" width="180" height="52" rx="8"/><text x="90" y="31" text-anchor="middle">Supported facts</text></g>
+    <path class="blue-arrow" d="M717 26h28"/>
+    <g transform="translate(753 0)"><rect class="blue" width="145" height="52" rx="8"/><text x="72" y="31" text-anchor="middle">Decision</text></g>
+    <path class="blue-arrow" d="M908 26h28"/>
+    <g transform="translate(944 0)"><rect class="blue" width="156" height="52" rx="8"/><text x="78" y="31" text-anchor="middle">Direct attempt</text></g>
+    <g transform="translate(248 108)"><rect class="blue" width="210" height="72" rx="10"/><text x="105" y="27" text-anchor="middle" font-weight="700">Product truth</text><text class="small" x="105" y="49" text-anchor="middle">evidence · freshness · uncertainty</text></g>
+    <g transform="translate(500 108)"><rect class="blue" width="210" height="72" rx="10"/><text x="105" y="27" text-anchor="middle" font-weight="700">Observed outcome</text><text class="small" x="105" y="49" text-anchor="middle">status · latency · retries</text></g>
+    <g transform="translate(752 108)"><rect class="blue" width="210" height="72" rx="10"/><text x="105" y="27" text-anchor="middle" font-weight="700">Accumulated knowledge</text><text class="small" x="105" y="49" text-anchor="middle">truth · observations · experience</text></g>
+    <path class="blue-arrow" d="M616 52v50"/>
+    <path class="blue-arrow" d="M1022 52v50"/>
+    <path class="blue-arrow" d="M856 108V78H408V52"/>
+    <text class="small" x="752" y="208">future decisions reuse prior evidence + experience</text>
+  </g>
+</svg>
