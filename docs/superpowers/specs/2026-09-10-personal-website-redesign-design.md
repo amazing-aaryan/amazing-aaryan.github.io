@@ -84,7 +84,7 @@ Use the existing accordion row treatment with monogram/logo, organization, role/
 
 Only these roles belong in Work Experience:
 1. Einsteins Square — Tech Executive — Dec 2025–Present
-2. Terra Ventures — Part-Time Consultant — May 2026–Aug 2026
+2. Tera Ventures — Part-Time Consultant — May 2026–Aug 2026
 3. Einsteins Square — Compliance Executive — Feb 2024–Jul 2025
 4. Hedman Law Firm — Legal Associate — Jul 2023–Aug 2023
 

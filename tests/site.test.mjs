@@ -31,7 +31,7 @@ test('about page contains the complete work experience and leadership sections',
     'Einsteins Square',
     'Tech Executive',
     'Dec 2025 – Present',
-    'Terra Ventures',
+    'Tera Ventures',
     'Part-Time Consultant',
     'May 2026 – Aug 2026',
     'Compliance Executive',
@@ -59,6 +59,21 @@ test('legacy experiences route redirects back to the About experience section', 
   const html = read('site/experiences/index.html');
   assert.match(html, /url=\/#experience/i);
   assert.match(html, /href="\/#experience"/i);
+});
+
+test('experience rows use local organization logo assets', () => {
+  const html = read('site/index.html');
+  const assets = [
+    'einsteins-square.png',
+    'tera-ventures-mark.png',
+    'hedman-mark.png',
+    'lsa-student-government.png'
+  ];
+  for (const asset of assets) {
+    assert.equal(fs.existsSync(path.join(root, 'public/experience/logos', asset)), true, `Missing organization logo asset: ${asset}`);
+    assert.match(html, new RegExp(`/experience/logos/${asset}`));
+  }
+  assert.equal((html.match(/class="monogram has-logo/g) || []).length, 5);
 });
 
 test('shared shell exposes a persistent theme toggle', () => {

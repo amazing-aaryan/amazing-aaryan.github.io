@@ -51,3 +51,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Add a commit version query to shared `styles.css` references and static-build output.
 **Why:** Current browser cache continued serving pre-fix CSS after successful deployment, hiding the responsive centering change.
 **Impact:** Existing and new page loads request corrected nav CSS immediately; tests now require cache-busted theme stylesheet references.
+
+## [2026-09-14 11:10] Replace experience monograms with verified organization marks
+**Decision:** Replace the five experience-row monograms with locally hosted official organization marks; correct Terra Ventures to Tera Ventures.
+**Why:** Live experience rows were still showing generic initials. The Miros connection identifies the venture firm as Tera Ventures, and official or company-published assets were available for all four organizations.
+**Impact:** About-page work and leadership rows now show consistent logo thumbnails that load from the deployed site and remain readable in light and dark themes.
