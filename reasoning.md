@@ -56,3 +56,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Replace the five experience-row monograms with locally hosted official organization marks; correct Terra Ventures to Tera Ventures.
 **Why:** Live experience rows were still showing generic initials. The Miros connection identifies the venture firm as Tera Ventures, and official or company-published assets were available for all four organizations.
 **Impact:** About-page work and leadership rows now show consistent logo thumbnails that load from the deployed site and remain readable in light and dark themes.
+
+## [2026-09-14 11:18] Increase LSA logo thumbnail legibility
+**Decision:** Crop the official LSA Student Government lockup to its maize M mark inside the square experience frame.
+**Why:** Live dark-mode QA showed the full horizontal lockup scaled too small to read beside the other organization marks.
+**Impact:** LSA-SG now has equal visual weight with the company logos while retaining the official mark and dark navy contrast.
