@@ -46,3 +46,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Vertically center the absolute theme toggle against the nav capsule with `top:50%` and `translateY(-50%)`.
 **Why:** Live geometry showed the control sitting roughly 6px below nav links at responsive widths because fixed `top:8px` ignored shorter nav rows.
 **Impact:** Moon/sun control shares the same vertical center as About, Projects, and Papers across desktop, tablet, and mobile layouts.
+
+## [2026-09-14 10:25] Version theme stylesheet to defeat stale browser cache
+**Decision:** Add a commit version query to shared `styles.css` references and static-build output.
+**Why:** Current browser cache continued serving pre-fix CSS after successful deployment, hiding the responsive centering change.
+**Impact:** Existing and new page loads request corrected nav CSS immediately; tests now require cache-busted theme stylesheet references.
