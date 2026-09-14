@@ -67,6 +67,7 @@ test('shared shell exposes a persistent theme toggle', () => {
   }
   assert.match(read('site/assets/site.js'), /localStorage/);
   assert.match(read('site/assets/styles.css'), /html\[data-theme="dark"\]/);
+  assert.match(read('site/assets/styles.css'), /\.theme-toggle\{[^}]*top:50%[^}]*transform:translateY\(-50%\)/);
 });
 
 test('legacy about, experience, and CV routes remain reachable', () => {

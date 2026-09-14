@@ -41,3 +41,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Give IRENE and Scheduling detail-page videos the same static poster frames already used on the Projects listing.
 **Why:** Live media audit found both detail videos served successfully but remained at `readyState=0` until playback, leaving a blank first paint when autoplay or metadata loading was delayed.
 **Impact:** Detail pages show useful project media immediately while videos load or remain blocked, with no route or asset contract changes.
+
+## [2026-09-14 10:15] Center theme control within shared navigation
+**Decision:** Vertically center the absolute theme toggle against the nav capsule with `top:50%` and `translateY(-50%)`.
+**Why:** Live geometry showed the control sitting roughly 6px below nav links at responsive widths because fixed `top:8px` ignored shorter nav rows.
+**Impact:** Moon/sun control shares the same vertical center as About, Projects, and Papers across desktop, tablet, and mobile layouts.
