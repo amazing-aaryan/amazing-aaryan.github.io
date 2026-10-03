@@ -61,3 +61,8 @@ Append-only. Never delete entries. Agents read this before making design decisio
 **Decision:** Crop the official LSA Student Government lockup to its maize M mark inside the square experience frame.
 **Why:** Live dark-mode QA showed the full horizontal lockup scaled too small to read beside the other organization marks.
 **Impact:** LSA-SG now has equal visual weight with the company logos while retaining the official mark and dark navy contrast.
+
+## [2026-10-02 22:39] Replaced live NoScroll collage with a screen-first carousel
+**Decision:** Update the GitHub Pages static source in site/projects/index.html and site/projects/noscroll/index.html with a large manual slideshow, compact copy, numbered fragment navigation, arrow controls, keyboard browsing, scroll snapping, and full-size image links. Add carousel-only CSS/JS assets while preserving the existing light/dark palette and project order.
+**Why:** User said the three-image collage made screens unreadable and explicitly clarified that amazing-aaryan.github.io is the target. The earlier changes in the historical Next.js branch were removed before continuing in this existing worktree, which matches deployed master.
+**Impact:** Public source lives in site/ and builds to dist/; do not edit historical src/ for this website. Manual browsing preserves inspection time and avoids automatic motion. Native scrolling and numbered fragment links remain available without JavaScript. All 47 static-site tests and build pass; browser checks cover both themes, 360/390/768/1440 widths, screen selectors, arrows, keyboard wrap, image fit/loading, full-size destinations, and no page overflow or console errors.

@@ -46,10 +46,14 @@ test('autoplay project videos have static poster frames for first paint', () => 
 });
 
 test('NoScroll screenshots preserve their complete 4:5 compositions', () => {
-  const css = read('site/assets/project-previews.css');
-  const globalCss = read('site/assets/styles.css');
-  assert.match(css, /noscroll-article-media img\s*\{[^}]*object-fit:\s*contain/is);
-  assert.match(globalCss, /noscroll-collage \.phone-shot img\{object-fit:contain/);
+  const css = read('site/assets/product-carousel.css');
+  assert.match(css, /\.screen-slide img\s*\{[^}]*object-fit:\s*contain/is);
+  for (const file of ['site/projects/index.html', 'site/projects/noscroll/index.html']) {
+    const html = read(file);
+    assert.match(html, /data-screen-carousel/);
+    assert.equal((html.match(/data-screen-slide\s/g) || []).length, 3);
+    assert.doesNotMatch(html, /noscroll-collage|noscroll-article-media/);
+  }
   for (const asset of ['public/projects/noscroll-app/blocker.png', 'public/projects/noscroll-app/reader.png', 'public/projects/noscroll-app/quote-share.png']) {
     assert.equal(exists(asset), true, `${asset} must exist`);
   }

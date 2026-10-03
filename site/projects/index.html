@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#fbfaf7">
   <link rel="stylesheet" href="/assets/styles.css?v=202609141">
   <link rel="stylesheet" href="/assets/project-previews.css">
+  <link rel="stylesheet" href="/assets/product-carousel.css?v=20261002">
 </head>
 <body>
   <div class="site-nav-wrap">
@@ -43,18 +44,30 @@
         </div>
       </section>
 
-      <section class="featured-project reverse" id="noscroll">
-        <div class="project-media noscroll-collage" aria-label="NoScroll product screenshots">
-          <div class="phone-shot"><img src="/projects/noscroll-app/blocker.png" alt="NoScroll blocker screen"><span>Blocker</span></div>
-          <div class="phone-shot"><img src="/projects/noscroll-app/reader.png" alt="NoScroll reader screen"><span>Reader</span></div>
-          <div class="phone-shot"><img src="/projects/noscroll-app/quote-share.png" alt="NoScroll quote sharing flow"><span>Quote sharing</span></div>
-          <div class="media-caption-chip">Real product screens</div>
+      <section class="featured-project reverse noscroll-feature" id="noscroll">
+        <div class="project-media screen-carousel" data-screen-carousel role="region" aria-roledescription="carousel" aria-label="NoScroll product screens">
+          <div class="screen-viewport" id="noscroll-screens" data-screen-viewport tabindex="0" role="group" aria-label="Product screens. Swipe or use left and right arrow keys to browse.">
+            <figure class="screen-slide" id="noscroll-screen-1" data-screen-slide data-screen-title="Block the scroll" role="group" aria-roledescription="slide" aria-label="1 of 3"><img src="/projects/noscroll-app/blocker.png" alt="NoScroll blocker screen appearing over Instagram" loading="lazy" decoding="async"></figure>
+            <figure class="screen-slide" id="noscroll-screen-2" data-screen-slide data-screen-title="Pick up your book" role="group" aria-roledescription="slide" aria-label="2 of 3"><img src="/projects/noscroll-app/reader.png" alt="NoScroll reader opening at the saved book page" loading="lazy" decoding="async"></figure>
+            <figure class="screen-slide" id="noscroll-screen-3" data-screen-slide data-screen-title="Share a quote" role="group" aria-roledescription="slide" aria-label="3 of 3"><img src="/projects/noscroll-app/quote-share.png" alt="NoScroll quote sharing flow with native Instagram targets" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="screen-controls">
+            <button class="screen-arrow" type="button" data-screen-direction="-1" aria-label="Previous screen" aria-controls="noscroll-screens" hidden>←</button>
+            <div class="screen-selectors" role="group" aria-label="Choose a screen">
+              <a class="screen-selector" href="#noscroll-screen-1" data-screen-select aria-label="Screen 1: Block the scroll" aria-current="true">01</a>
+              <a class="screen-selector" href="#noscroll-screen-2" data-screen-select aria-label="Screen 2: Pick up your book">02</a>
+              <a class="screen-selector" href="#noscroll-screen-3" data-screen-select aria-label="Screen 3: Share a quote">03</a>
+            </div>
+            <button class="screen-arrow" type="button" data-screen-direction="1" aria-label="Next screen" aria-controls="noscroll-screens" hidden>→</button>
+            <a class="screen-original" data-screen-original href="/projects/noscroll-app/blocker.png" target="_blank" rel="noopener" aria-label="Open Block the scroll at full size in a new tab">Full size ↗</a>
+          </div>
+          <p class="screen-caption" data-screen-caption aria-live="polite" aria-atomic="true">Block the scroll</p>
         </div>
         <div class="project-copy">
           <div class="project-eyebrow">Product · Behavioral Design · Reading</div>
           <h2 class="project-title">NoScroll</h2>
           <div class="project-period">May 2026 – Present</div>
-          <p class="project-summary">A mobile product built to convert doom-scrolling moments into reading, with a deliberately low-friction reader and native quote sharing designed for organic discovery.</p>
+          <p class="project-summary">Turn a scrolling impulse into reading. Pick up your book, then share a quote.</p>
           <div class="link-row"><a class="link-pill primary-cta" href="/projects/noscroll/">Read more</a></div>
         </div>
       </section>
@@ -139,5 +152,6 @@
   <footer class="site-footer"><div>© 2026 Aaryan Srivastava</div><div class="footer-links"><a href="https://www.linkedin.com/in/aaryan21/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/amazing-aaryan" target="_blank" rel="noopener">GitHub</a><a href="mailto:aaryansr@umich.edu">Email</a><span class="footer-phrase">Build for a better tomorrow.</span></div></footer>
   <script type="module" src="/assets/mermaid-render.js"></script>
   <script src="/assets/site.js" defer></script>
+  <script src="/assets/product-carousel.js?v=20261002" defer></script>
 </body>
 </html>
