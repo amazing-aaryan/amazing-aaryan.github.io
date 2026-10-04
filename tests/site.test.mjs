@@ -147,7 +147,7 @@ test('papers page shows published papers only', () => {
     assert.equal(html.includes(removed), false, `${removed} must not appear on Papers`);
   }
   for (const kept of [
-    'Nuclear Proliferation',
+    'Proliferation of Drone-Enabled Warfare in the Russo-Ukrainian Conflict and Its Influence on National Defense Planning in both States from 2019 to 2026',
     'Autonomous Agent-Driven Analysis of Federal Sentencing Disparities',
     'Why Has International Cooperation on AI Regulation Been Difficult Between the EU and the United States?',
     "How Successful Was India's Foreign Policy Under Jawaharlal Nehru During the Cold War?",
@@ -214,9 +214,10 @@ test('paper layout prioritizes large readable PDF previews', () => {
   assert.match(css, /\.paper-card\{[^}]*grid-template-columns:[^;}]*minmax\(0,\.\d+fr\)[^;}]*minmax\(0,1\.\d+fr\)/i);
 });
 
-test('nuclear proliferation journal paper links to the supplied journal at page 39', () => {
+test('drone warfare paper links to journal page 39 at PDF page 47', () => {
   const html = read('site/papers/index.html');
-  assert.match(html, /6a9223c28e9103b92ebd163d_FINALW26-compressed\.pdf#page=39/);
+  assert.match(html, /6a9223c28e9103b92ebd163d_FINALW26-compressed\.pdf#page=47/);
+  assert.doesNotMatch(html, /Nuclear Proliferation|paper on nuclear proliferation/);
   assert.match(html, /nuclear-proliferation-preview\.png/);
 });
 
