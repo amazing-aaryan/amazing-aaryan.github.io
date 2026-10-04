@@ -1,0 +1,31 @@
+.wwi-evidence-carousel .screen-viewport { background: #fff; }
+.wwi-evidence-carousel .screen-slide { aspect-ratio: 4 / 3; max-height: none; scroll-margin-top: 120px; }
+.wwi-evidence-carousel .screen-viewport:focus-visible { outline-color: #56657a; }
+.wwi-feature { scroll-margin-top: 120px; }
+.wwi-story { max-width: 780px; margin-top: 42px; }
+.wwi-story h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 28px; font-weight: 500; color: #17243a; }
+.wwi-story p, .wwi-story li { font-family: var(--serif); font-size: 18px; line-height: 1.6; color: #56657a; }
+.wwi-story ol { padding-left: 24px; }
+.wwi-story li + li { margin-top: 14px; }
+.wwi-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 30px 0 0; }
+.wwi-results > div { padding: 22px; border: 1px solid var(--line); border-radius: 16px; }
+.wwi-results dt { font-size: 12px; color: #56657a; }
+.wwi-results dd { margin: 8px 0 0; font-family: var(--serif); font-size: 32px; color: #17243a; }
+.wwi-results-note { max-width: 780px; margin: 18px 0 0; font-family: var(--serif); font-size: 16px; line-height: 1.6; color: #56657a; }
+.wwi-evidence { margin-top: 40px; }
+.wwi-evidence h2 { font-family: var(--serif); font-size: 28px; font-weight: 500; color: #17243a; }
+.wwi-evidence-note { font-size: 14px; line-height: 1.6; color: #56657a; }
+html[data-theme="dark"] .wwi-story h2,
+html[data-theme="dark"] .wwi-results dd,
+html[data-theme="dark"] .wwi-evidence h2 { color: #f3f6fb; }
+html[data-theme="dark"] .wwi-story p,
+html[data-theme="dark"] .wwi-story li,
+html[data-theme="dark"] .wwi-results dt,
+html[data-theme="dark"] .wwi-results-note,
+html[data-theme="dark"] .wwi-evidence-note { color: #c1ccdb; }
+@media (max-width: 560px) {
+  .wwi-results { grid-template-columns: 1fr; gap: 10px; }
+  .wwi-results > div { padding: 16px 20px; }
+  .wwi-results dd { font-size: 28px; }
+  .wwi-story p, .wwi-story li { font-size: 17px; }
+}

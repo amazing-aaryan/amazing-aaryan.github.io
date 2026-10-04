@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WWI Soldier Service Dataset · Aaryan Srivastava</title>
+  <meta name="description" content="Research-assistant work turning scanned Ohio WWI rosters into structured data through OCR, document extraction, validation, and source-linked review.">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="canonical" href="https://amazing-aaryan.github.io/projects/wwi-service-dataset/">
+  <link rel="stylesheet" href="/assets/styles.css?v=202609141">
+  <link rel="stylesheet" href="/assets/project-previews.css">
+  <link rel="stylesheet" href="/assets/product-carousel.css?v=20261002">
+  <link rel="stylesheet" href="/assets/wwi-project.css?v=20261004">
+</head>
+<body>
+  <div class="site-nav-wrap">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-link" href="/">About</a>
+      <a class="nav-link" href="/projects/" aria-current="page">Projects</a>
+      <a class="nav-link" href="/papers/">Papers</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-toggle-icon" aria-hidden="true">☾</span></button>
+    </nav>
+  </div>
+  <main class="project-article">
+    <a class="project-article-back" href="/projects/#wwi-service-dataset">← Back to projects</a>
+    <header class="project-article-header">
+      <div class="project-eyebrow">Research · OCR · Historical Data</div>
+      <h1>WWI Soldier Service Dataset</h1>
+      <div class="project-article-period">Research Assistant · University of Michigan · Jan 2026 – Present</div>
+      <p class="project-article-deck">I built OCR and document-extraction workflows to turn scanned Ohio WWI rosters into structured, reviewable data for <em>Sacrifice for the State: Identification or Disillusionment?</em></p>
+    </header>
+
+    <dl class="wwi-results" aria-label="Ohio roster processing scope">
+      <div><dt>Ohio roster volumes processed</dt><dd>23</dd></div>
+      <div><dt>Roster records processed</dt><dd>249,597</dd></div>
+      <div><dt>Death-marked rows prepared for review</dt><dd>6,679</dd></div>
+    </dl>
+    <p class="wwi-results-note">Ohio processing snapshot, September 2026. Death-marked rows are model-identified research review records, not a verified count of distinct people who died.</p>
+
+    <section class="wwi-evidence" aria-labelledby="wwi-evidence-heading">
+      <h2 id="wwi-evidence-heading">From archival scan to structured data</h2>
+      <div class="screen-carousel wwi-evidence-carousel" data-screen-carousel role="region" aria-roledescription="carousel" aria-label="WWI extraction and review images">
+        <div class="screen-viewport" id="wwi-evidence-images" data-screen-viewport tabindex="0" role="group" aria-label="Research images. Swipe or use left and right arrow keys to browse.">
+          <figure class="screen-slide" id="wwi-evidence-1" data-screen-slide data-screen-title="Original Ohio WWI roster scan" role="group" aria-roledescription="slide" aria-label="1 of 3"><img src="/projects/wwi-service-dataset/raw-service-record.png" alt="Original Ohio WWI roster scan with soldier identities and addresses beside their military service histories" decoding="async"></figure>
+          <figure class="screen-slide" id="wwi-evidence-2" data-screen-slide data-screen-title="Structured CSV extraction example" role="group" aria-roledescription="slide" aria-label="2 of 3"><img src="/projects/wwi-service-dataset/structured-csv-output.png" alt="Extraction output example in CSV format, with fields for name, residence, race, serial number, and service history" loading="lazy" decoding="async"></figure>
+          <figure class="screen-slide" id="wwi-evidence-3" data-screen-slide data-screen-title="Source review: a library stamp obscuring a record" role="group" aria-roledescription="slide" aria-label="3 of 3"><img src="/projects/wwi-service-dataset/stamp-review.png" alt="Detail from Volume 14, PDF page 1045, showing a library stamp across the final soldier record" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="screen-controls">
+          <button class="screen-arrow" type="button" data-screen-direction="-1" aria-label="Previous image" aria-controls="wwi-evidence-images" hidden>←</button>
+          <div class="screen-selectors" role="group" aria-label="Choose a research image">
+            <a class="screen-selector" href="#wwi-evidence-1" data-screen-select aria-label="Image 1: Original roster scan" aria-current="true">01</a>
+            <a class="screen-selector" href="#wwi-evidence-2" data-screen-select aria-label="Image 2: Structured CSV example">02</a>
+            <a class="screen-selector" href="#wwi-evidence-3" data-screen-select aria-label="Image 3: Source review">03</a>
+          </div>
+          <button class="screen-arrow" type="button" data-screen-direction="1" aria-label="Next image" aria-controls="wwi-evidence-images" hidden>→</button>
+          <a class="screen-original" data-screen-original href="/projects/wwi-service-dataset/raw-service-record.png" target="_blank" rel="noopener" aria-label="Open Original Ohio WWI roster scan at full size in a new tab">Full size ↗</a>
+        </div>
+        <p class="screen-caption" data-screen-caption aria-live="polite" aria-atomic="true">Original Ohio WWI roster scan</p>
+      </div>
+      <p class="wwi-evidence-note">Actual project artifacts: a source scan, a CSV extraction example, and a source-review detail. The CSV illustrates the extraction format; validation and review are separate steps.</p>
+    </section>
+
+    <section class="wwi-story project-story-slot">
+      <h2>The research question</h2>
+      <p>Does wartime sacrifice strengthen identification with the state, or lead to political disillusionment? My contribution was the data-engineering foundation: reconstructing historical service records so the research team could study those questions. The extraction work does not establish a causal finding.</p>
+    </section>
+    <section class="wwi-story">
+      <h2>What I built</h2>
+      <ol>
+        <li><strong>Document extraction.</strong> Rendered roster PDFs, used OCR and positioned text where available, and developed layout-aware extraction to keep each soldier's identity paired with the correct service history. The core schema captures name, residence, recorded race, serial number, and service history.</li>
+        <li><strong>Validation and recovery.</strong> Added row-count and column-shift checks, page-level checkpoints, and selective vision-model fallback for pages that failed structural validation. Source-linked corrections handled unusual serial numbers, missing text, and damaged records without repeating completed work.</li>
+        <li><strong>Casualty annotation.</strong> Preserved evidence quotes, volume and page references, and review flags while separating terminal-death labels from wounded-only or uncertain records.</li>
+        <li><strong>Advisor review.</strong> Built an editable workbook with filters, frozen headings, decision fields, and 402 priority cases. Deduplicated numeric serial numbers while retaining placeholder serials separately and preserving every collapsed source reference.</li>
+      </ol>
+    </section>
+    <section class="wwi-story">
+      <h2>Why source review matters</h2>
+      <p>On Volume 14's final roster page, a library stamp was mistaken for an extra soldier row. Checking the scan established that the page contained 12 soldiers, not 13; part of the final address remained illegible. The correction preserved the uncertainty and its source rather than filling the gap with a guess.</p>
+      <p>The Ohio pipeline processed 249,597 roster records across 23 volumes. It produced 6,749 death-marked records, reduced to 6,679 review rows by numeric-serial deduplication. These outputs still require human review of transcription, classification, page mapping, and conflicting records before publication.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div>© 2026 Aaryan Srivastava</div><div class="footer-links"><a href="https://www.linkedin.com/in/aaryan21/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/amazing-aaryan" target="_blank" rel="noopener">GitHub</a><a href="mailto:aaryansr@umich.edu">Email</a><span class="footer-phrase">Build for a better tomorrow.</span></div></footer>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/product-carousel.js?v=20261002" defer></script>
+</body>
+</html>

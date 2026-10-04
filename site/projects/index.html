@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/assets/styles.css?v=202609141">
   <link rel="stylesheet" href="/assets/project-previews.css">
   <link rel="stylesheet" href="/assets/product-carousel.css?v=20261002">
+  <link rel="stylesheet" href="/assets/wwi-project.css?v=20261004">
 </head>
 <body>
   <div class="site-nav-wrap">
@@ -133,6 +134,34 @@
           <div class="project-period">Nov 2023 – May 2025</div>
           <p class="project-summary">A student-led Tallinn summit series connecting students with diplomats, founders, lawyers, NGOs, and venture leaders.</p>
           <div class="link-row"><a class="link-pill primary-cta" href="/projects/visionary-summit/">Read more</a></div>
+        </div>
+      </section>
+
+      <section class="featured-project wwi-feature" id="wwi-service-dataset">
+        <div class="project-media screen-carousel wwi-evidence-carousel" data-screen-carousel role="region" aria-roledescription="carousel" aria-label="WWI research project images">
+          <div class="screen-viewport" id="wwi-images" data-screen-viewport tabindex="0" role="group" aria-label="Research images. Swipe or use left and right arrow keys to browse.">
+            <figure class="screen-slide" id="wwi-image-1" data-screen-slide data-screen-title="Original Ohio WWI roster scan" role="group" aria-roledescription="slide" aria-label="1 of 3"><img src="/projects/wwi-service-dataset/raw-service-record.png" alt="Scanned Ohio WWI roster with soldier details on the left and service histories on the right" loading="lazy" decoding="async"></figure>
+            <figure class="screen-slide" id="wwi-image-2" data-screen-slide data-screen-title="Structured CSV extraction example" role="group" aria-roledescription="slide" aria-label="2 of 3"><img src="/projects/wwi-service-dataset/structured-csv-output.png" alt="CSV extraction example showing name, residence, race, serial number, and service history columns" loading="lazy" decoding="async"></figure>
+            <figure class="screen-slide" id="wwi-image-3" data-screen-slide data-screen-title="Source review: a library stamp obscuring a record" role="group" aria-roledescription="slide" aria-label="3 of 3"><img src="/projects/wwi-service-dataset/stamp-review.png" alt="Volume 14 source detail with a library stamp overlapping a soldier's name and address" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="screen-controls">
+            <button class="screen-arrow" type="button" data-screen-direction="-1" aria-label="Previous image" aria-controls="wwi-images" hidden>←</button>
+            <div class="screen-selectors" role="group" aria-label="Choose a research image">
+              <a class="screen-selector" href="#wwi-image-1" data-screen-select aria-label="Image 1: Original roster scan" aria-current="true">01</a>
+              <a class="screen-selector" href="#wwi-image-2" data-screen-select aria-label="Image 2: Structured CSV example">02</a>
+              <a class="screen-selector" href="#wwi-image-3" data-screen-select aria-label="Image 3: Source review">03</a>
+            </div>
+            <button class="screen-arrow" type="button" data-screen-direction="1" aria-label="Next image" aria-controls="wwi-images" hidden>→</button>
+            <a class="screen-original" data-screen-original href="/projects/wwi-service-dataset/raw-service-record.png" target="_blank" rel="noopener" aria-label="Open Original Ohio WWI roster scan at full size in a new tab">Full size ↗</a>
+          </div>
+          <p class="screen-caption" data-screen-caption aria-live="polite" aria-atomic="true">Original Ohio WWI roster scan</p>
+        </div>
+        <div class="project-copy">
+          <div class="project-eyebrow">Research · OCR · Historical Data</div>
+          <h2 class="project-title">WWI Soldier Service Dataset</h2>
+          <div class="project-period">Research Assistant · University of Michigan · Jan 2026 – Present</div>
+          <p class="project-summary">Turning scanned Ohio WWI rosters into structured records for political-science research. I built extraction, validation, and source-linked review workflows across 23 volumes and 249,597 roster records.</p>
+          <div class="link-row"><a class="link-pill primary-cta" href="/projects/wwi-service-dataset/">Read more</a></div>
         </div>
       </section>
     </div>

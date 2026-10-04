@@ -8,6 +8,9 @@ Primary pages:
 - /papers/ — Published research papers
 - /resume/ — Resume
 
+Selected research project:
+- /projects/wwi-service-dataset/ — Research-assistant OCR and document extraction for Ohio WWI rosters, with source images, validation, and advisor review; 23 volumes and 249,597 processed roster records. Death annotations remain a review set.
+
 Contact:
 - GitHub: https://github.com/amazing-aaryan
 - LinkedIn: https://www.linkedin.com/in/aaryan21/

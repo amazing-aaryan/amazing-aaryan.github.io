@@ -13,6 +13,7 @@ const projectRoutes = [
   ['scheduling', '/projects/scheduling/'],
   ['adn', '/projects/adn/'],
   ['agentshare', '/projects/agentshare/'],
+  ['wwi-service-dataset', '/projects/wwi-service-dataset/'],
 ];
 
 test('every featured project exposes a primary Read more link to its project page', () => {
@@ -50,8 +51,12 @@ test('NoScroll screenshots preserve their complete 4:5 compositions', () => {
   assert.match(css, /\.screen-slide img\s*\{[^}]*object-fit:\s*contain/is);
   for (const file of ['site/projects/index.html', 'site/projects/noscroll/index.html']) {
     const html = read(file);
-    assert.match(html, /data-screen-carousel/);
-    assert.equal((html.match(/data-screen-slide\s/g) || []).length, 3);
+    const noscroll = file === 'site/projects/index.html'
+      ? html.match(/<section[^>]*id="noscroll"[\s\S]*?<\/section>/)?.[0]
+      : html;
+    assert.ok(noscroll, 'NoScroll project section must exist');
+    assert.match(noscroll, /data-screen-carousel/);
+    assert.equal((noscroll.match(/data-screen-slide\s/g) || []).length, 3);
     assert.doesNotMatch(html, /noscroll-collage|noscroll-article-media/);
   }
   for (const asset of ['public/projects/noscroll-app/blocker.png', 'public/projects/noscroll-app/reader.png', 'public/projects/noscroll-app/quote-share.png']) {
@@ -88,7 +93,17 @@ test('each Read more destination is a project-blog preview page', () => {
     assert.equal(exists(file), true, `${file} must exist`);
     const html = read(file);
     assert.match(html, /class="project-article"/);
-    assert.match(html, /class="project-story-slot"/);
-    assert.match(html, /href="\/projects\/"/);
+    assert.match(html, /class="[^"]*\bproject-story-slot\b[^"]*"/);
+    assert.match(html, /href="\/projects\/(?:#[^"]*)?"/);
   }
+});
+
+test('WWI write-up keeps measured Ohio scope separate from unverified casualty judgments', () => {
+  const html = read('site/projects/wwi-service-dataset/index.html');
+  assert.match(html, /249,597/);
+  assert.match(html, /6,679/);
+  assert.match(html, /not a verified count of distinct people who died/);
+  assert.match(html, /require human review/);
+  assert.doesNotMatch(html, /(?:3M|3 million|3,000,000)/i);
+  assert.doesNotMatch(html, /github\.com\/Camikii|advisor_review\.xlsx|Ohio_all_volumes_dead\.csv/);
 });

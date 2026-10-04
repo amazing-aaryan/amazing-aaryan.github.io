@@ -48,12 +48,14 @@ const work = [
   ['irene-ai-logistics','IRENE AI Logistics Platform','Founder · Jan 2026 – Present','An accountable AI logistics platform for nonprofit volunteer networks.','IRENE uses multimodal OCR and computer vision to improve sorting while preserving human review, confidence-aware workflows, and traceability.'],
   ['noscroll-app','NoScroll','Founder · May 2026 – Present','A mobile product built to redirect doom-scrolling moments into reading.','The product opens a low-friction reading surface at the moment a user would otherwise fall into passive scrolling, with native quote sharing for opt-in social discovery.'],
   ['scheduling-automation-system','Scheduling Automation System','Automation Builder · Dec 2025 – Feb 2026','Browser-level automation for a fragile class-scheduling workflow.','The system coordinates teacher availability and operational constraints through the same browser surface used by human coordinators and makes failures explicit rather than silent.'],
-  ['wwi-service-dataset','WWI Soldier Service Dataset','Research Assistant · Jan 2026 – Present','A structured, queryable dataset of American World War I service records.','OCR and document-extraction workflows preserve uncertainty in period handwriting, military abbreviations, damaged pages, and inconsistent archival formatting.'],
   ['federal-litigation-bias-analysis','Federal Litigation Bias Analysis','Independent Researcher · Sep 2025 – Present','AI-assisted legal analytics for federal civil litigation outcomes.','The work structures public case records for statistical querying and source-grounded analysis while keeping exploratory findings separate from legal claims.'],
 ];
 for (const [slug,title,meta,summary,body] of work) {
   writeRoute(`work/${slug}`, detailPage({active:'Projects',backHref:'/projects/',backLabel:'Back to Projects',eyebrow:'Project',title,meta,summary,body}));
 }
+
+// Keep the historical WWI URL pointing to the illustrated project write-up.
+writeRoute('work/wwi-service-dataset', '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=/projects/wwi-service-dataset/"><link rel="canonical" href="https://amazing-aaryan.github.io/projects/wwi-service-dataset/"><title>WWI Soldier Service Dataset · Aaryan Srivastava</title></head><body><p><a href="/projects/wwi-service-dataset/">Continue to the WWI Soldier Service Dataset project</a></p></body></html>');
 
 const research = [
   ['gotv-vs-persuasion-abm','GOTV versus Persuasion in U.S. Battleground States','2026 · Working paper · Complex Systems 270','An agent-based campaign model asking when turnout mobilization beats persuasion, and when network structure changes that answer.'],
