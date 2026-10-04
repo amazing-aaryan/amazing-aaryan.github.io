@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/assets/project-previews.css">
   <link rel="stylesheet" href="/assets/product-carousel.css?v=20261002">
   <link rel="stylesheet" href="/assets/wwi-project.css?v=20261004">
+  <link rel="stylesheet" href="/assets/election-simulation.css?v=20261004">
 </head>
 <body>
   <div class="site-nav-wrap">
@@ -164,6 +165,32 @@
           <div class="link-row"><a class="link-pill primary-cta" href="/projects/wwi-service-dataset/">Read more</a></div>
         </div>
       </section>
+      <section class="featured-project reverse election-feature" id="election-strategy-simulation">
+        <div class="project-media simulation-preview">
+          <figure class="simulation-figure" data-simulation-figure>
+            <picture>
+              <source media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/michigan_baseline_vote_margin.gif">
+              <img src="/projects/election-strategy-simulation/michigan_baseline_vote_margin_week_8.png" width="840" height="620" alt="Michigan baseline simulated Republican minus Democratic vote margin, with Democratic GOTV budget share on the horizontal axis and Republican share on the vertical axis" loading="lazy" decoding="async">
+            </picture>
+            <figcaption><strong>Michigan · Baseline network</strong>Simulated vote margin across campaign budget choices.</figcaption>
+            <div class="simulation-controls">
+              <button class="simulation-toggle" type="button" data-static-toggle aria-pressed="false" hidden>Static view</button>
+              <span><span class="simulation-loop-note">Weeks 0–8 · looping</span><span class="simulation-static-note">Week 8 · still</span></span>
+              <a data-simulation-original href="/projects/election-strategy-simulation/michigan_baseline_vote_margin_week_8.png" target="_blank" rel="noopener" aria-label="Open Michigan baseline vote margin at full size in a new tab">Full size ↗</a>
+            </div>
+          </figure>
+        </div>
+        <div class="project-copy">
+          <div class="project-eyebrow">Complex Systems · Networks · Simulation</div>
+          <h2 class="project-title">Election Strategy Simulation</h2>
+          <div class="project-period">GOTV vs Persuasion · Python · NumPy · NetworkX · Matplotlib</div>
+          <p class="project-summary">An agent-based simulation exploring how campaign budgets for voter turnout versus persuasion interact with voter networks. Animated Michigan heatmaps show weekly vote-margin and abstention changes.</p>
+          <div class="link-row">
+            <a class="link-pill primary-cta" href="/projects/election-strategy-simulation/">Read more</a>
+            <a class="link-pill secondary-cta" href="https://github.com/amazing-aaryan/michigan-political-digital-twin" target="_blank" rel="noopener">GitHub · private access</a>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Project Directory hidden until there are more secondary projects -->
@@ -182,5 +209,6 @@
   <script type="module" src="/assets/mermaid-render.js"></script>
   <script src="/assets/site.js" defer></script>
   <script src="/assets/product-carousel.js?v=20261002" defer></script>
+  <script src="/assets/election-simulation.js?v=20261004" defer></script>
 </body>
 </html>

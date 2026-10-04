@@ -10,6 +10,7 @@ Primary pages:
 
 Selected research project:
 - /projects/wwi-service-dataset/ — Research-assistant OCR and document extraction for Ohio WWI rosters, with source images, validation, and advisor review; 23 volumes and 249,597 processed roster records. Death annotations remain a review set.
+- /projects/election-strategy-simulation/ — GOTV versus persuasion agent-based simulation with looping Michigan baseline/siloed vote-margin and abstention heatmaps, reduced-motion stills, and separately labeled earlier-run charts. Simulation outputs, not validated forecasts; source repository requires private access.
 
 Contact:
 - GitHub: https://github.com/amazing-aaryan

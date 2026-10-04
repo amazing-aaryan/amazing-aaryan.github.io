@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Election Strategy Simulation · Aaryan Srivastava</title>
+  <meta name="description" content="An agent-based simulation of turnout versus persuasion budgets across voter networks, with animated Michigan vote-margin and abstention heatmaps.">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="canonical" href="https://amazing-aaryan.github.io/projects/election-strategy-simulation/">
+  <link rel="stylesheet" href="/assets/styles.css?v=202609141">
+  <link rel="stylesheet" href="/assets/project-previews.css">
+  <link rel="stylesheet" href="/assets/election-simulation.css?v=20261004">
+</head>
+<body>
+  <div class="site-nav-wrap">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-link" href="/">About</a>
+      <a class="nav-link" href="/projects/" aria-current="page">Projects</a>
+      <a class="nav-link" href="/papers/">Papers</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-toggle-icon" aria-hidden="true">☾</span></button>
+    </nav>
+  </div>
+  <main class="project-article election-article">
+    <a class="project-article-back" href="/projects/#election-strategy-simulation">← Back to projects</a>
+    <header class="project-article-header">
+      <div class="project-eyebrow">Complex Systems · Networks · Simulation</div>
+      <h1>Election Strategy Simulation</h1>
+      <div class="project-article-period">GOTV vs Persuasion · Python · NumPy · NetworkX · Matplotlib</div>
+      <p class="project-article-deck">An agent-based simulation exploring how campaign budgets for voter turnout versus persuasion interact with voter networks.</p>
+      <div class="project-article-actions link-row"><a class="link-pill" href="https://github.com/amazing-aaryan/michigan-political-digital-twin" target="_blank" rel="noopener">Source on GitHub · private access</a></div>
+    </header>
+
+    <div class="simulation-reading-key">
+      <strong>Reading the heatmaps.</strong> Horizontal axis: Democratic GOTV budget share. Vertical axis: Republican GOTV budget share. GOTV means get out the vote: mobilizing turnout rather than persuading voters. Vote margin is Republican minus Democratic; positive values favor Republicans, negative values favor Democrats. The other heatmap counts simulated abstained voters.
+    </div>
+
+    <section class="simulation-section" aria-labelledby="baseline-heading">
+      <h2 id="baseline-heading">Michigan · Baseline network</h2>
+      <p>Each looping heatmap follows saved Weeks 0–8 as both parties allocate their campaign budgets between turnout efforts and persuasion. Color scales stay fixed across weeks within each animation. Use Static view to inspect the matching Week 8 snapshot.</p>
+      <div class="simulation-grid">
+        <figure class="simulation-figure" data-simulation-figure>
+          <picture>
+            <source media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/michigan_baseline_vote_margin.gif">
+            <img src="/projects/election-strategy-simulation/michigan_baseline_vote_margin_week_8.png" width="840" height="620" alt="Michigan baseline simulated vote margin, Republican minus Democratic, across Democratic horizontal and Republican vertical GOTV budget shares" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><strong>Vote margin · Republican minus Democratic</strong>Compare the simulated vote balance across campaign budget allocations.</figcaption>
+          <div class="simulation-controls">
+            <button class="simulation-toggle" type="button" data-static-toggle aria-pressed="false" hidden>Static view</button>
+            <span><span class="simulation-loop-note">Weeks 0–8 · looping</span><span class="simulation-static-note">Week 8 · still</span></span>
+            <a data-simulation-original href="/projects/election-strategy-simulation/michigan_baseline_vote_margin_week_8.png" target="_blank" rel="noopener" aria-label="Open baseline vote margin at full size in a new tab">Full size ↗</a>
+          </div>
+        </figure>
+        <figure class="simulation-figure" data-simulation-figure>
+          <picture>
+            <source media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/michigan_baseline_abstained_voters.gif">
+            <img src="/projects/election-strategy-simulation/michigan_baseline_abstained_voters_week_8.png" width="840" height="620" alt="Michigan baseline simulated abstained voter counts across Democratic horizontal and Republican vertical GOTV budget shares" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><strong>Abstained voters</strong>Track simulated non-voting alongside the vote-margin result.</figcaption>
+          <div class="simulation-controls">
+            <button class="simulation-toggle" type="button" data-static-toggle aria-pressed="false" hidden>Static view</button>
+            <span><span class="simulation-loop-note">Weeks 0–8 · looping</span><span class="simulation-static-note">Week 8 · still</span></span>
+            <a data-simulation-original href="/projects/election-strategy-simulation/michigan_baseline_abstained_voters_week_8.png" target="_blank" rel="noopener" aria-label="Open baseline abstained voters at full size in a new tab">Full size ↗</a>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="simulation-section" aria-labelledby="siloed-heading">
+      <h2 id="siloed-heading">Michigan · Siloed network</h2>
+      <p>The same two outputs for the alternate siloed network profile. Compare how the budget-strategy landscape changes with network structure; each animation retains its own fixed color scale.</p>
+      <div class="simulation-grid">
+        <figure class="simulation-figure" data-simulation-figure>
+          <picture>
+            <source media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/michigan_siloed_vote_margin.gif">
+            <img src="/projects/election-strategy-simulation/michigan_siloed_vote_margin_week_8.png" width="840" height="620" alt="Michigan siloed-network simulated vote margin, Republican minus Democratic, across Democratic horizontal and Republican vertical GOTV budget shares" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><strong>Vote margin · Republican minus Democratic</strong>Budget-strategy comparison under the siloed network profile.</figcaption>
+          <div class="simulation-controls">
+            <button class="simulation-toggle" type="button" data-static-toggle aria-pressed="false" hidden>Static view</button>
+            <span><span class="simulation-loop-note">Weeks 0–8 · looping</span><span class="simulation-static-note">Week 8 · still</span></span>
+            <a data-simulation-original href="/projects/election-strategy-simulation/michigan_siloed_vote_margin_week_8.png" target="_blank" rel="noopener" aria-label="Open siloed vote margin at full size in a new tab">Full size ↗</a>
+          </div>
+        </figure>
+        <figure class="simulation-figure" data-simulation-figure>
+          <picture>
+            <source media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/michigan_siloed_abstained_voters.gif">
+            <img src="/projects/election-strategy-simulation/michigan_siloed_abstained_voters_week_8.png" width="840" height="620" alt="Michigan siloed-network simulated abstained voter counts across Democratic horizontal and Republican vertical GOTV budget shares" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><strong>Abstained voters</strong>Simulated non-voting under the siloed network profile.</figcaption>
+          <div class="simulation-controls">
+            <button class="simulation-toggle" type="button" data-static-toggle aria-pressed="false" hidden>Static view</button>
+            <span><span class="simulation-loop-note">Weeks 0–8 · looping</span><span class="simulation-static-note">Week 8 · still</span></span>
+            <a data-simulation-original href="/projects/election-strategy-simulation/michigan_siloed_abstained_voters_week_8.png" target="_blank" rel="noopener" aria-label="Open siloed abstained voters at full size in a new tab">Full size ↗</a>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="simulation-section simulation-story">
+      <h2>What these outputs show</h2>
+      <p>The animations are regenerated from saved legacy simulation checkpoints, with 41 frames interpolating between weekly snapshots. They show model behavior under the saved assumptions, not validated election forecasts.</p>
+      <p>The current Python model source and the legacy checkpoint corpus are separate. Rebuilding these visuals reads saved summaries; it does not rerun the current model. Graph neural election forecasting is a future research roadmap, not a demonstrated result of these charts.</p>
+      <p>The source repository is private and requires authorized GitHub access. All showcase images are hosted directly on this website. <a href="/projects/election-strategy-simulation/manifest.json">View image provenance and checksums ↗</a></p>
+    </section>
+
+    <details class="simulation-archive">
+      <summary>Original static charts · earlier run</summary>
+      <p>Recovered Michigan charts from an earlier run. These can differ from the regenerated animations and are not their Week 8 fallbacks. The porous profile is shown here only as original static images.</p>
+      <div class="simulation-grid">
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_baseline_vote_margin.png" width="947" height="751" alt="Earlier-run Michigan baseline vote-margin chart, separate from the regenerated animation" loading="lazy" decoding="async"><figcaption><strong>Baseline · Original vote margin</strong><a href="/projects/election-strategy-simulation/original_michigan_baseline_vote_margin.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_baseline_abstention.png" width="947" height="751" alt="Earlier-run Michigan baseline abstention chart, separate from the regenerated animation" loading="lazy" decoding="async"><figcaption><strong>Baseline · Original abstention</strong><a href="/projects/election-strategy-simulation/original_michigan_baseline_abstention.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_siloed_vote_margin.png" width="947" height="751" alt="Earlier-run Michigan siloed-network vote-margin chart, separate from the regenerated animation" loading="lazy" decoding="async"><figcaption><strong>Siloed · Original vote margin</strong><a href="/projects/election-strategy-simulation/original_michigan_siloed_vote_margin.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_siloed_abstention.png" width="947" height="751" alt="Earlier-run Michigan siloed-network abstention chart, separate from the regenerated animation" loading="lazy" decoding="async"><figcaption><strong>Siloed · Original abstention</strong><a href="/projects/election-strategy-simulation/original_michigan_siloed_abstention.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_porous_vote_margin.png" width="947" height="751" alt="Earlier-run Michigan porous-network vote-margin chart, available only as an original static image" loading="lazy" decoding="async"><figcaption><strong>Porous · Original vote margin</strong><a href="/projects/election-strategy-simulation/original_michigan_porous_vote_margin.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+        <figure class="simulation-figure"><img src="/projects/election-strategy-simulation/original_michigan_porous_abstention.png" width="947" height="751" alt="Earlier-run Michigan porous-network abstention chart, available only as an original static image" loading="lazy" decoding="async"><figcaption><strong>Porous · Original abstention</strong><a href="/projects/election-strategy-simulation/original_michigan_porous_abstention.png" target="_blank" rel="noopener">Full size ↗</a></figcaption></figure>
+      </div>
+    </details>
+  </main>
+  <footer class="site-footer"><div>© 2026 Aaryan Srivastava</div><div class="footer-links"><a href="https://www.linkedin.com/in/aaryan21/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/amazing-aaryan" target="_blank" rel="noopener">GitHub</a><a href="mailto:aaryansr@umich.edu">Email</a><span class="footer-phrase">Build for a better tomorrow.</span></div></footer>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/election-simulation.js?v=20261004" defer></script>
+</body>
+</html>
