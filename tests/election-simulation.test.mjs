@@ -38,7 +38,7 @@ test('election project links and all four responsive animation/still pairs are r
   assert.match(read('site/sitemap.xml'), /https:\/\/amazing-aaryan.github.io\/projects\/election-strategy-simulation\//);
   const figures = [...html.matchAll(/<figure[^>]*data-simulation-figure[\s\S]*?<\/figure>/g)];
   assert.equal(figures.length, 4);
-  for (const [index, stem] of ['michigan_baseline_vote_margin', 'michigan_baseline_abstained_voters', 'michigan_siloed_vote_margin', 'michigan_siloed_abstained_voters'].entries()) {
+  for (const [index, stem] of ['michigan_baseline_abstained_voters', 'michigan_baseline_vote_margin', 'michigan_siloed_abstained_voters', 'michigan_siloed_vote_margin'].entries()) {
     const figure = figures[index][0];
     assert.ok(figure.includes(`media="(prefers-reduced-motion: no-preference)" srcset="/projects/election-strategy-simulation/${stem}.gif"`));
     assert.ok(figure.includes(`src="/projects/election-strategy-simulation/${stem}_week_8.png"`));
